@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'login_page.dart';
 
 class CadastroPage extends StatefulWidget {
@@ -27,9 +26,7 @@ class _CadastroPageState extends State<CadastroPage> {
                     height: 110,
                     width: 110,
                   ),
-                  const SizedBox(
-                    height: 16,
-                  ),
+                  const SizedBox(height: 16),
                   Container(
                     decoration: BoxDecoration(
                       color: const Color(0xFFD9D9D9),
@@ -40,7 +37,7 @@ class _CadastroPageState extends State<CadastroPage> {
                       child: Column(
                         children: [
                           const SizedBox(height: 12),
-                          buildContainer(s: "Nome", obs: false),
+                          buildContainer(s: "Nome"),
                           const SizedBox(height: 16),
                           buildContainer(s: "Email Institucional", obs: false),
                           const SizedBox(height: 16),
@@ -54,13 +51,12 @@ class _CadastroPageState extends State<CadastroPage> {
                             style: ElevatedButton.styleFrom(
                               primary: const Color(0xFF6BC07D),
                               shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.circular(32), // <-- Radius
+                                borderRadius: BorderRadius.circular(32), // <-- Radius
                               ),
                             ),
                             onPressed: onPressedButn,
                             child: const Padding(
-                              padding: EdgeInsets.all(12.0),
+                              padding: EdgeInsets.all(10.0),
                               child: Text(
                                 'CADASTRAR',
                                 style: TextStyle(
@@ -83,29 +79,29 @@ class _CadastroPageState extends State<CadastroPage> {
       ),
     );
   }
-
   buildContainer({
     required String s,
-    required bool obs,
-  }) {
+    bool obs = false,
+  }){
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 2.0),
+        padding: const EdgeInsets.only(
+            left: 16.0, right: 16.0, bottom: 2.0),
         child: TextFormField(
-          decoration: InputDecoration(
+          decoration:  InputDecoration(
             border: InputBorder.none,
             labelText: s,
           ),
-          obscureText: obs ? true : false,
+          obscureText: obs,
         ),
       ),
+
     );
   }
-
   void onPressedButn() {
     Navigator.push(
       context,
