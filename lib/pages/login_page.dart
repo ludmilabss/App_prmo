@@ -105,8 +105,9 @@ class _LoginPageState extends State<LoginPage> {
                         Text(
                           'Esqueci a senha',
                           style: TextStyle(
-                            color: Colors.red,
+                            color: Color(0xFFB22222),
                             fontSize: 18,
+                            decoration: TextDecoration.underline,
                           ),
                         ),
                       ],
@@ -135,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 24),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children:  [
                         const Text(
                           'Não tem uma conta?',
                           style: TextStyle(
@@ -144,24 +145,44 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         const SizedBox(height: 6),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            primary: const Color(0xFF6BC07D),
-                            shape: RoundedRectangleBorder(
-                              borderRadius:
-                              BorderRadius.circular(32), // <-- Radius
-                            ),
-                          ),
-                          onPressed: onPressed,
-                          child: const Padding(
-                            padding: EdgeInsets.all(12.0),
-                            child: Text(
-                              'Cadastre-se',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                              ),
+                        // ElevatedButton(
+                        //   style: ElevatedButton.styleFrom(
+                        //     primary: const Color(0xFF6BC07D),
+                        //     shape: RoundedRectangleBorder(
+                        //       borderRadius:
+                        //       BorderRadius.circular(32), // <-- Radius
+                        //     ),
+                        //   ),
+                        //   onPressed: onPressed,
+                        //   child: const Padding(
+                        //     padding: EdgeInsets.all(12.0),
+                        //     child: Text(
+                        //       'Cadastre-se',
+                        //       style: TextStyle(
+                        //         color: Colors.white,
+                        //         fontSize: 24,
+                        //         fontWeight: FontWeight.bold,
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(
+                                    builder: (context){
+                                      return CadastroPage();
+                                    }
+                                    )
+                            );
+                          },
+                          child:
+                          const Text("Cadastre-se",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline,
                             ),
                           ),
                         ),
@@ -188,25 +209,15 @@ class _LoginPageState extends State<LoginPage> {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return const HomePage();
+              return const TurmasPage();
             },
           ),
         );
 
+      }else{
+        const snack = SnackBar(content: Text('Login Incorreto'));
+        ScaffoldMessenger.of(context).showSnackBar(snack);
       }
       }
     }
-
-
-
-  void onPressedButtn() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) {
-          return const CadastroPage();
-        },
-      ),
-    );
-  }
 }
