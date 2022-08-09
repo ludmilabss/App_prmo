@@ -12,14 +12,19 @@ class _TurmasPageState extends State<TurmasPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: SingleChildScrollView(
+          child: Container(
+            child: Column(
+              children: [
+                MyHeaderDrawer(),
+                MyDrawerList(),
+              ],
+            ),
+          ),
+        ),
+      ),
       appBar: AppBar(
-        // leading: GestureDetector(
-        //   onTap: () {},
-        //   child: const Icon(
-        //     Icons.menu,
-        //     color: Colors.black,
-        //   ),
-        // ),
         backgroundColor: Colors.white,
         title: const Text(
           "TURMAS",
