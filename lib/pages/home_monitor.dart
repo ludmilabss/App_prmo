@@ -13,8 +13,7 @@ class _HomeMonitorState extends State<HomeMonitor> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title:
-        const Center(
+        title: const Center(
           child: Text(
             "MONITOR",
             style: TextStyle(
@@ -24,9 +23,13 @@ class _HomeMonitorState extends State<HomeMonitor> {
             ),
           ),
         ),
-
         actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.exit_to_app_outlined, color: Colors.black,))
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.exit_to_app_outlined,
+                color: Colors.black,
+              ))
         ],
       ),
       body: Padding(
@@ -36,9 +39,7 @@ class _HomeMonitorState extends State<HomeMonitor> {
               crossAxisCount: 2,
               childAspectRatio: 1,
               crossAxisSpacing: 16,
-              mainAxisSpacing: 16
-          ),
-
+              mainAxisSpacing: 16),
           children: [
             buildItem(text: 'Perfil', icone: Icons.person),
             buildItem(text: 'Calendário', icone: Icons.calendar_today_outlined),
@@ -61,7 +62,7 @@ class _HomeMonitorState extends State<HomeMonitor> {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return Text('text');
+              return const Text('text');
             },
           ),
         );
@@ -69,15 +70,18 @@ class _HomeMonitorState extends State<HomeMonitor> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
-          decoration:  BoxDecoration(
-            color: Color(0xFF6BC07D),
+          decoration: BoxDecoration(
+            color: const Color(0xFF6BC07D),
             borderRadius: BorderRadius.circular(32),
           ),
           height: 40,
           width: 100,
           child: Column(
-            children:  [
-              Icon(icone, size: 100,),
+            children: [
+              Icon(
+                icone,
+                size: 100,
+              ),
               Text(text),
             ],
           ),
