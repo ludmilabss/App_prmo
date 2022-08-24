@@ -1,3 +1,4 @@
+import 'package:app_prmo/monitor_pages/home_monitor.dart';
 import 'package:flutter/material.dart';
 import '/pages/cadastro_page.dart';
 import '/pages/turmas_page.dart';
@@ -192,6 +193,8 @@ class _LoginPageState extends State<LoginPage> {
 
       String user = "asa@gmail.com";
       String senha = "asagigante";
+      String muser = "monitor.com";
+      String msenha = "monitor";
 
       if (userDigitado == user && senha == pswdDigitado) {
         Navigator.pushReplacement(
@@ -204,8 +207,19 @@ class _LoginPageState extends State<LoginPage> {
         );
 
       }else{
-        const snack = SnackBar(content: Text('Login Incorreto'));
-        ScaffoldMessenger.of(context).showSnackBar(snack);
+        if(userDigitado == muser && msenha == pswdDigitado){
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return const HomeMonitor();
+              },
+            ),
+          );
+        }else{
+          const snack = SnackBar(content: Text('Login Incorreto'));
+          ScaffoldMessenger.of(context).showSnackBar(snack);
+        }
       }
       }
     }
