@@ -1,3 +1,4 @@
+import 'package:app_prmo/pages/perfil.dart';
 import 'package:flutter/material.dart';
 
 class HomeMonitor extends StatefulWidget {
@@ -40,11 +41,11 @@ class _HomeMonitorState extends State<HomeMonitor> {
           ),
 
           children: [
-            buildItem(text: 'Perfil', icone: Icons.person),
-            buildItem(text: 'Calendário', icone: Icons.calendar_today_outlined),
-            buildItem(text: 'Frequência', icone: Icons.assignment_outlined),
-            buildItem(text: 'Atendimento', icone: Icons.person),
-            buildItem(text: 'Mural', icone: Icons.chat_outlined),
+            buildItem(text: 'Perfil', icone: Icons.person, classe: PerfilPage() ),
+            buildItem(text: 'Calendário', icone: Icons.calendar_today_outlined, classe: PerfilPage()),
+            buildItem(text: 'Frequência', icone: Icons.assignment_outlined, classe: PerfilPage()),
+            buildItem(text: 'Atendimento', icone: Icons.group, classe: PerfilPage()),
+            buildItem(text: 'Mural', icone: Icons.chat_outlined, classe: PerfilPage()),
           ],
         ),
       ),
@@ -54,6 +55,7 @@ class _HomeMonitorState extends State<HomeMonitor> {
   InkWell buildItem({
   required String text,
   required IconData icone,
+    required Widget classe,
 }) {
     return InkWell(
       onTap: () {
@@ -61,13 +63,13 @@ class _HomeMonitorState extends State<HomeMonitor> {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return Text('text');
+              return classe;
             },
           ),
         );
       },
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0, top: 12.0),
         child: Container(
           decoration:  BoxDecoration(
             color: Color(0xFF6BC07D),
@@ -77,7 +79,10 @@ class _HomeMonitorState extends State<HomeMonitor> {
           width: 100,
           child: Column(
             children:  [
-              Icon(icone, size: 100,),
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Icon(icone, size: 90,),
+              ),
               Text(text),
             ],
           ),
