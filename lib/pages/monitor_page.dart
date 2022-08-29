@@ -1,3 +1,4 @@
+import 'package:app_prmo/pages/cadastro_page.dart';
 import 'package:flutter/material.dart';
 
 class TelaPage extends StatefulWidget {
@@ -57,7 +58,17 @@ class _TelaPageState extends State<TelaPage> {
                       borderRadius: BorderRadius.circular(32), // <-- Radius
                     ),
                   ),
-                  onPressed: () {},
+                   onPressed: () {
+                  //   Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //       builder: (context) {
+                  //     return const CalendarioPage();
+                  //   },
+                  //       ),
+                  //   );
+
+                  },
                   child: const Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Text(
