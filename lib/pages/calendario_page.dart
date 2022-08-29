@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
 class Calendario_page extends State<Calendariopage> {
   CalendarController _controller;
 
