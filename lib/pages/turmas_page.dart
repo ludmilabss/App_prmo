@@ -1,5 +1,6 @@
 import 'package:app_prmo/domain/turmas.dart';
-import 'package:app_prmo/widgets/Turma.dart';
+import 'package:app_prmo/widget/Turma.dart';
+import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 import '../data/BD.dart';
 
@@ -22,7 +23,7 @@ class _TurmasPageState extends State<TurmasPage> {
             List<Turmas> l = snapshot.data ?? [];
             
             return Scaffold(
-              drawer: builDrawer(),
+              drawer: const DrawerWidget(),
               appBar: buildAppbar(),
               body: buildListViewBuilder(l),
             );
@@ -56,91 +57,4 @@ class _TurmasPageState extends State<TurmasPage> {
       ),
     );
   }
-
-  builDrawer(){
-    return Drawer(
-      child: ListView(
-        children: const <Widget>[
-          UserAccountsDrawerHeader(
-            accountName: Text(
-              'Beltrano Ferreira',
-              style: TextStyle(
-                color: Color(0xFFFFFFFF),
-                fontFamily: 'Roboto',
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            accountEmail: Text('bf1@aluno.ifal.edu.br'),
-            currentAccountPicture: CircleAvatar(
-              backgroundColor: Color(0xFFD9D9D9),
-              child: Text(
-                'BF',
-                style: TextStyle(
-                  color: Color(0xFFFFFFFF),
-                  fontFamily: 'Roboto',
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            decoration: BoxDecoration(color: Color(0xFF6BC07D)),
-          ),
-          ListTile(
-            title: Text(
-              "Perfil",
-              style: TextStyle(
-                color: Colors.black,
-                fontFamily: 'Roboto',
-                fontSize: 16,
-                fontWeight: FontWeight.normal,
-              ),
-            ),
-            trailing: Icon(Icons.person),
-          ),
-          Divider(),
-          ListTile(
-            title: Text(
-              "Matérias",
-              style: TextStyle(
-                color: Colors.black,
-                fontFamily: 'Roboto',
-                fontSize: 16,
-                fontWeight: FontWeight.normal,
-              ),
-            ),
-            trailing: Icon(Icons.folder),
-          ),
-          Divider(),
-          ListTile(
-            title: Text(
-              "Mural",
-              style: TextStyle(
-                color: Colors.black,
-                fontFamily: 'Roboto',
-                fontSize: 16,
-                fontWeight: FontWeight.normal,
-              ),
-            ),
-            trailing: Icon(Icons.chat_outlined),
-          ),
-          Divider(),
-          ListTile(
-            title: Text(
-              "Calendário",
-              style: TextStyle(
-                color: Colors.black,
-                fontFamily: 'Roboto',
-                fontSize: 16,
-                fontWeight: FontWeight.normal,
-              ),
-            ),
-            trailing: Icon(Icons.calendar_month),
-          ),
-        ],
-      ),
-    );
-  }
-
-
 }
