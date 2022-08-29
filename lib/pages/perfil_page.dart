@@ -1,4 +1,8 @@
+import 'package:app_prmo/pages/login_page.dart';
+import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
+
+import 'editarsenha_page.dart';
 
 class PerfilPage extends StatefulWidget {
   const PerfilPage({Key? key}) : super(key: key);
@@ -8,225 +12,203 @@ class PerfilPage extends StatefulWidget {
 }
 
 class _PerfilPageState extends State<PerfilPage> {
+
+  //declaração das variaveis
+  bool _emailinput = false;
+  bool _matricula = false;
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController matriculacontroller = TextEditingController();
+  var _email = "gln1@aluno.ifal.edu.br";
+  var _matriculanum = "2020123456";
+  String btn = "Editar Perfil";
+  bool button = true;
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
       backgroundColor: Colors.white,
-
-      drawer: Drawer(
-        child: ListView(
-          children: const <Widget>[
-            UserAccountsDrawerHeader(
-              accountName: Text(
-                'Beltrano Ferreira',
-                style: TextStyle(
-                  color: Color(0xFFFFFFFF),
-                  fontFamily: 'Roboto',
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              accountEmail: Text('bf1@aluno.ifal.edu.br'),
-              currentAccountPicture: CircleAvatar(
-                backgroundColor: Color(0xFFD9D9D9),
-                child: Text(
-                  'BF',
-                  style: TextStyle(
-                    color: Color(0xFFFFFFFF),
-                    fontFamily: 'Roboto',
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              decoration: BoxDecoration(color: Color(0xFF6BC07D)),
-            ),
-            ListTile(
-              title: Text(
-                "Perfil",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'Roboto',
-                  fontSize: 16,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
-              trailing: Icon(Icons.person),
-            ),
-            Divider(),
-            ListTile(
-              title: Text(
-                "Matérias",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'Roboto',
-                  fontSize: 16,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
-              trailing: Icon(Icons.folder),
-            ),
-            Divider(),
-            ListTile(
-              title: Text(
-                "Mural",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'Roboto',
-                  fontSize: 16,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
-              trailing: Icon(Icons.chat_outlined),
-            ),
-            Divider(),
-            ListTile(
-              title: Text(
-                "Calendário",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'Roboto',
-                  fontSize: 16,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
-              trailing: Icon(Icons.calendar_month),
-            ),
-          ],
-        ),
-      ),
-
+      drawer: const DrawerWidget(),
       appBar: AppBar(
-
         backgroundColor: Colors.white,
-
-        // leading: GestureDetector(
-        //   onTap: () {},
-        //   child: const Icon(
-        //     Icons.menu,
-        //     color: Colors.black,
-        //   ),
-        // ),
-
         title: const Text(
           'PERFIL',
-          style: TextStyle(fontSize: 24,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(
+              fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold),
         ),
-
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {Navigator.pushReplacement(context,
+                  MaterialPageRoute(
+                      builder: (context){
+                        return const LoginPage();
+                      }
+                  )
+              );
+              },
               icon: const Icon(
                 Icons.exit_to_app,
                 color: Colors.black,
-              )
-          )
+              ))
         ],
       ),
-
-
-
 
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: [
-            const SizedBox(height: 25),
+            const SizedBox(height: 20),
+
+            //COLUMN PRA FAZER A FOTO DE PERFIL E O NOME
             Column(
-              mainAxisAlignment:  MainAxisAlignment.center,
+              //mainAxisAlignment:  MainAxisAlignment.center,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xFFD9D9D9),
-                    borderRadius: BorderRadius.circular(101)
-                  ),
-                  child:
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(Icons.person, size: 160,),
-                  ),
+                Stack(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xFFD9D9D9),
+                          borderRadius: BorderRadius.circular(101)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Icon(Icons.person, size: 160),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 0,
+                      right: 0,
+                      child: CircleAvatar(
+                        backgroundColor: Color(0xFFC8E5CE),
+                        child: IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.add,
+                          color: Colors.black,),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
-                const SizedBox(height: 25),
+                const SizedBox(height: 20),
                 Text(
                   'GIANCARLO LÚCIO DO NASCIMENTO',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      color: Colors.black,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold),
                 ),
               ],
             ),
-            const SizedBox(height: 52),
 
-            const Padding(
-              padding: EdgeInsets.only(left: 16.0),
-              child: Text("Email"),
-            ),
+            const SizedBox(height: 25),
+
+            //PADDING PRA FAZER OS CAMPOS DE EMAIL MATRICULA E EDITAR SENHA
             Padding(
-              padding: const EdgeInsets.only(
-                  left: 16.0, right: 16.0, bottom: 2.0),
-              child: TextFormField(
-                decoration:  InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                    borderSide: BorderSide.none,
+              padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 2.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Email"),
+                  const SizedBox(height: 10),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                        //borderSide: BorderSide.none,
+                      ),
+                      hintText: _email,
+                      filled: true,
+                      fillColor: Colors.white,
+                    ),
+                    enabled: _emailinput,
+                    controller: emailcontroller,
                   ),
-                  hintText: 'gln1@aluno.ifal.edu.br',
-                  filled: true,
-                  fillColor: Colors.white,
-                ),
-                enabled: false,
-              ),
-            ),
-            const SizedBox(height: 40),
-             const Padding(
-              padding: EdgeInsets.only(left: 16.0),
-              child: Text("Número de matrícula"),
-             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 16.0, right: 16.0, bottom: 2.0),
-              child: TextFormField(
-                decoration:  InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12.0),
-                    borderSide: BorderSide.none,
+
+                  const SizedBox(height: 15),
+
+                  Text("Número de matrícula"),
+                  const SizedBox(height: 10),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                        //borderSide: BorderSide.none,
+                      ),
+                      hintText: _matriculanum,
+                      filled: true,
+                      fillColor: Colors.white,
+                    ),
+                    enabled: _matricula,
+                    controller: matriculacontroller,
                   ),
-                  hintText: '20203552',
-                  filled: true,
-                  fillColor: Colors.white,
-                ),
-                enabled: false,
+
+                  const SizedBox(height: 22),
+
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(
+                              builder: (context){
+                                return EditarSenhaPage();
+                              }
+                          )
+                      );
+                    },
+                    child:
+                    const Text("Editar Senha",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                    //enableFeedback: false,
+                  ),
+
+                  const SizedBox(height: 30),
+
+                  Center(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xFF6BC07D),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(32), // <-- Radius
+                        ),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _matricula = !_matricula;
+                          _emailinput = !_emailinput;
+                          _email = emailcontroller.text;
+                          _matriculanum = matriculacontroller.text;
+                          button = !button;
+                          if (button == false){
+                            btn = "Salvar";
+                          } else{
+                            btn = "Editar Perfil";
+                          }
+                        });
+                      },
+                      child:  Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text( btn,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                ],
               ),
             ),
 
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: Color(0xFF6BC07D),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(32), // <-- Radius
-                ),
-              ),
-              onPressed: () {},
-              child: const Padding(
-                padding: EdgeInsets.all(12.0),
-                child: Text(
-                  'EDITAR PERFIL',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
+
+
+
           ],
         ),
       ),
