@@ -49,39 +49,33 @@ class _TelaPageState extends State<TelaPage> {
                 buildMonitor(nome: 'MARIA EDUARDA BARBOSA DE LIMA',
                     email: 'mebl2@aluno.ifal.edu.br',
                     url: 'https://cdn-icons-png.flaticon.com/512/74/74472.png'),
-                const SizedBox(height: 20),
-                Column(
-                  children: const [
-                    Text(
-                      "CRONOGRAMA DE MONITORIA",
+                const SizedBox(height: 40),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0XFFD9D9D9),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(32), // <-- Radius
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: const Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: Text(
+                      'ABRIR CALENDÁRIO',
                       style: TextStyle(
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Colors.black),
+                        color: Colors.black87,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    SizedBox(height: 20),
-                    Placeholder(
-                      fallbackHeight: 250,
-                      fallbackWidth: 100,
-                      color: Colors.black,
-                    ),
-                  ],
+                  ),
                 ),
-                const SizedBox(height: 20),
-                buildLocal(data: 'Hoje, 21/06',
-                    sala: 'LABORATÓRIO 91 - DESENVOLVIMENTO DE SOFTWARE',
-                    horario: '14:00 - 16:00'),
-                const SizedBox(height: 16),
-                buildLocal(data: 'Amanhã, 22/06',
-                    sala: 'LABORATÓRIO 90 - DESENVOLVIMENTO DE SOFTWARE',
-                    horario: '14:00 - 17:00'),
-                const SizedBox(height: 20),
-              ],
-            ),
+
           ], //Children
         ),
+      ]
       ),
+    )
     );
   }
 
