@@ -1,5 +1,6 @@
 import 'package:app_prmo/monitor_pages/home_monitor.dart';
 import 'package:app_prmo/pages/turmas_page.dart';
+import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 
 
@@ -18,16 +19,11 @@ class _AtendimentoPageState extends State<AtendimentoPage> {
 
   final _formKey = GlobalKey<FormState>();
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const DrawerWidget(),
       appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () {},
-          child: const Icon(
-            Icons.menu,
-            color: Colors.black,
-          ),
-        ),
         backgroundColor: Colors.white,
         title: const Text(
           "ATENDIMENTO",
@@ -154,7 +150,7 @@ class _AtendimentoPageState extends State<AtendimentoPage> {
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Campo matrícula obrigatório';
-                              } else if (value.length < 10) {
+                              } else if (value.length >= 10 ) {
                                 return 'Matrícula deve conter no mínimo 10 digitos';
                               }
 
@@ -246,31 +242,6 @@ class _AtendimentoPageState extends State<AtendimentoPage> {
     );
   }
 
-  buildContainer({
-    required String t,
-    required bool text,
-  }) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(1),
-      ),
-
-      child: Padding(
-        padding: const EdgeInsets.only(
-            left: 0, right: 0, bottom: 0),
-        child: TextFormField(
-
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: t,
-          ),
-          obscureText: text ? true : false,
-        ),
-      ),
-
-    );
-  }
 
   void onPressed() {
     if (_formKey.currentState!.validate()) {
@@ -278,7 +249,6 @@ class _AtendimentoPageState extends State<AtendimentoPage> {
       String matriculaLogin = "2020304050";
 
       String as = turmaController.text;
-      String data = dataController.text;
       String a = matriculaController.text;
 
       if (turmaLogin == as && matriculaLogin == a) {
