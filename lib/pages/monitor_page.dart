@@ -1,5 +1,8 @@
 import 'package:app_prmo/pages/cadastro_page.dart';
+import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
+
+import 'calendario_page.dart';
 
 class TelaPage extends StatefulWidget {
   const TelaPage({Key? key}) : super(key: key);
@@ -12,14 +15,8 @@ class _TelaPageState extends State<TelaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: DrawerWidget(),
       appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () {},
-          child: const Icon(
-            Icons.menu,
-            color: Colors.black,
-          ),
-        ),
         backgroundColor: Colors.white,
         title: const Text(
           'PROGRAMAÇÃO WEB',
@@ -59,14 +56,14 @@ class _TelaPageState extends State<TelaPage> {
                     ),
                   ),
                    onPressed: () {
-                  //   Navigator.push(
-                  //       context,
-                  //       MaterialPageRoute(
-                  //       builder: (context) {
-                  //     return const CalendarioPage();
-                  //   },
-                  //       ),
-                  //   );
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                        builder: (context) {
+                      return CalendarioPage();
+                    },
+                        ),
+                    );
 
                   },
                   child: const Padding(
