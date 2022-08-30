@@ -1,3 +1,4 @@
+import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -5,11 +6,11 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 class CalendarioPage extends StatefulWidget {
  @override
- _CalendarioPage createState() => _CalendarioPageState();
+ _CalendarioPageState createState() => _CalendarioPageState();
 }
 
 class _CalendarioPageState extends State<CalendarioPage> {
- CalendarController _controller;
+ late CalendarController _controller;
 
  @override
  void initState() {
@@ -21,14 +22,8 @@ class _CalendarioPageState extends State<CalendarioPage> {
  @override
  Widget build(BuildContext context) {
    return Scaffold(
+     drawer: const DrawerWidget(),
      appBar: AppBar(
-       leading: GestureDetector(
-         onTap: () {},
-         child: const Icon(
-           Icons.menu,
-           color: Colors.black,
-         ),
-       ),
        backgroundColor: Colors.white,
        title: const Text(
          'CALENDÁRIO',
