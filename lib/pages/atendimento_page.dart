@@ -1,3 +1,5 @@
+import 'package:app_prmo/monitor_pages/home_monitor.dart';
+import 'package:app_prmo/pages/turmas_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -284,7 +286,7 @@ class _AtendimentoPageState extends State<AtendimentoPage> {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return const MonitorPage();
+              return const HomeMonitor();
             },
           ),
         );
