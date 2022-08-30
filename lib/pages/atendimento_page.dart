@@ -280,14 +280,14 @@ class _AtendimentoPageState extends State<AtendimentoPage> {
  void onPressed() {
    if (_formKey.currentState!.validate()) {
 
-     String userLogin = "913";
-     String passwordLogin = "2020304050";
+     String turmaLogin = "913";
+     String matriculaLogin = "2020304050";
 
-     String user = turmaController.text;
+     String as = turmaController.text;
      String data = dataController.text;
-     String pwd = matriculaController.text;
+     String a = matriculaController.text;
 
-     if (userLogin == user && passwordLogin == pwd) {
+     if (turmaLogin == as && matriculaLogin == a) {
        Navigator.pushReplacement(
          context,
          MaterialPageRoute(
