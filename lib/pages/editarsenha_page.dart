@@ -89,63 +89,63 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
                       const SizedBox(width: 8),
 
                       ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Color(0xFF6BC07D),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32), // <-- Radius
+                        style: ElevatedButton.styleFrom(
+                          primary: Color(0xFF6BC07D),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(32), // <-- Radius
+                          ),
                         ),
-                      ),
-                      onPressed: () {Navigator.pushReplacement(context,
+                        onPressed: () {Navigator.pushReplacement(context,
                             MaterialPageRoute(
                                 builder: (context){
                                   return const PerfilPage();
                                 }
                             )
                         );
-                      },
-                      child:  Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Text( "Cancelar",
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                        },
+                        child:  Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Text( "Cancelar",
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
-                    ),
 
 
-                    const SizedBox(width: 92),
+                      const SizedBox(width: 92),
 
 
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Color(0xFF6BC07D),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32), // <-- Radius
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Color(0xFF6BC07D),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(32), // <-- Radius
+                          ),
                         ),
-                      ),
-                      onPressed: () {Navigator.pushReplacement(context,
-                          MaterialPageRoute(
-                              builder: (context){
-                                return const PerfilPage();
-                              }
-                          )
-                      );
-                      },
-                      child:  Padding(
-                        padding: const EdgeInsets.all(12.0),
-                         child: Text( "Salvar",
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                        onPressed: () {Navigator.pushReplacement(context,
+                            MaterialPageRoute(
+                                builder: (context){
+                                  return const PerfilPage();
+                                }
+                            )
+                        );
+                        },
+                        child:  Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Text( "Salvar",
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                   ],
+                    ],
                   ),
                 ],
               ),
