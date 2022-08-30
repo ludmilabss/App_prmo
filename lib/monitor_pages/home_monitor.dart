@@ -1,5 +1,6 @@
-import 'package:app_prmo/pages/perfil.dart';
+import 'package:app_prmo/pages/login_page.dart';
 import 'package:flutter/material.dart';
+import '../pages/perfil_page.dart';
 
 class HomeMonitor extends StatefulWidget {
   const HomeMonitor({Key? key}) : super(key: key);
@@ -27,7 +28,18 @@ class _HomeMonitorState extends State<HomeMonitor> {
           ),
 
         actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.exit_to_app_outlined, color: Colors.black,))
+          IconButton(
+              onPressed: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(
+                        builder: (context){
+                          return const LoginPage();
+                        }
+                        )
+                );
+              },
+              icon:
+              const Icon(Icons.exit_to_app_outlined, color: Colors.black,))
         ],
       ),
       body: Padding(
@@ -41,11 +53,11 @@ class _HomeMonitorState extends State<HomeMonitor> {
           ),
 
           children: [
-            buildItem(text: 'Perfil', icone: Icons.person, classe: PerfilPage() ),
-            buildItem(text: 'Calendário', icone: Icons.calendar_today_outlined, classe: PerfilPage()),
-            buildItem(text: 'Frequência', icone: Icons.assignment_outlined, classe: PerfilPage()),
-            buildItem(text: 'Atendimento', icone: Icons.group, classe: PerfilPage()),
-            buildItem(text: 'Mural', icone: Icons.chat_outlined, classe: PerfilPage()),
+            buildItem(text: 'Perfil', icone: Icons.person, classe: const PerfilPage() ),
+            buildItem(text: 'Calendário', icone: Icons.calendar_today_outlined, classe: const PerfilPage()),
+            buildItem(text: 'Frequência', icone: Icons.assignment_outlined, classe: const PerfilPage()),
+            buildItem(text: 'Atendimento', icone: Icons.group, classe: const PerfilPage()),
+            buildItem(text: 'Mural', icone: Icons.chat_outlined, classe: const PerfilPage()),
           ],
         ),
       ),
@@ -72,7 +84,7 @@ class _HomeMonitorState extends State<HomeMonitor> {
         padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0, top: 12.0),
         child: Container(
           decoration:  BoxDecoration(
-            color: Color(0xFF6BC07D),
+            color: const Color(0xFF6BC07D),
             borderRadius: BorderRadius.circular(32),
           ),
           height: 40,
