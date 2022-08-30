@@ -1,7 +1,9 @@
+import 'package:app_prmo/monitor_pages/perfil_m.dart';
 import 'package:app_prmo/pages/calendario_page.dart';
 import 'package:app_prmo/pages/login_page.dart';
+import 'package:app_prmo/widget/drawer_m.dart';
 import 'package:flutter/material.dart';
-import '../pages/atendimento_page.dart';
+import 'atendimento_page.dart';
 import '../pages/perfil_page.dart';
 
 class HomeMonitor extends StatefulWidget {
@@ -15,6 +17,7 @@ class _HomeMonitorState extends State<HomeMonitor> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const DrawerWidget1(),
       appBar: AppBar(
         backgroundColor: Colors.white,
         title:
@@ -55,7 +58,7 @@ class _HomeMonitorState extends State<HomeMonitor> {
           ),
 
           children: [
-            buildItem(text: 'Perfil', icone: Icons.person, classe: const PerfilPage() ),
+            buildItem(text: 'Perfil', icone: Icons.person, classe: const PerfilMonitor() ),
             buildItem(text: 'Calendário', icone: Icons.calendar_today_outlined, classe:  CalendarioPage()),
             buildItem(text: 'Frequência', icone: Icons.assignment_outlined, classe: const PerfilPage()),
             buildItem(text: 'Atendimento', icone: Icons.group, classe: const AtendimentoPage()),
