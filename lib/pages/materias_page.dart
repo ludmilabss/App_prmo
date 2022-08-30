@@ -1,3 +1,4 @@
+import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 import 'monitor_page.dart';
 
@@ -12,6 +13,7 @@ class _MateriasPageState extends State<MateriasPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const DrawerWidget(),
       appBar: AppBar(
         leading: const BackButton(color: Colors.black),
         backgroundColor: Colors.white,
