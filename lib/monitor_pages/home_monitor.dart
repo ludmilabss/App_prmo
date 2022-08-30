@@ -1,5 +1,7 @@
+import 'package:app_prmo/pages/calendario_page.dart';
 import 'package:app_prmo/pages/login_page.dart';
 import 'package:flutter/material.dart';
+import '../pages/atendimento_page.dart';
 import '../pages/perfil_page.dart';
 
 class HomeMonitor extends StatefulWidget {
@@ -54,9 +56,9 @@ class _HomeMonitorState extends State<HomeMonitor> {
 
           children: [
             buildItem(text: 'Perfil', icone: Icons.person, classe: const PerfilPage() ),
-            buildItem(text: 'Calendário', icone: Icons.calendar_today_outlined, classe: const PerfilPage()),
+            buildItem(text: 'Calendário', icone: Icons.calendar_today_outlined, classe:  CalendarioPage()),
             buildItem(text: 'Frequência', icone: Icons.assignment_outlined, classe: const PerfilPage()),
-            buildItem(text: 'Atendimento', icone: Icons.group, classe: const PerfilPage()),
+            buildItem(text: 'Atendimento', icone: Icons.group, classe: const AtendimentoPage()),
             buildItem(text: 'Mural', icone: Icons.chat_outlined, classe: const PerfilPage()),
           ],
         ),
