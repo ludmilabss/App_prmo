@@ -1,3 +1,6 @@
+import 'package:app_prmo/domain/btn_monitor.dart';
+import 'package:app_prmo/pages/perfil_page.dart';
+import 'package:flutter/material.dart';
 import '../domain/turmas.dart';
 
 
@@ -20,6 +23,20 @@ class BD{
     Turmas(nome: "Turma 423", turno: "Vespertino", curso: "Eletroeletrônica - "),
     Turmas(nome: "Turma 424", turno: "Vespertino", curso: "Eletroeletrônica - "),
   ];
+
+  static List<BtnMonitor> btn = [
+    BtnMonitor(text: "Perfil", icone: Icons.person, classe: const PerfilPage()),
+    BtnMonitor(text: "Calendário", icone: Icons.calendar_today_outlined, classe: const PerfilPage()),
+    BtnMonitor(text: "Frequência", icone: Icons.assignment_outlined, classe: const PerfilPage()),
+    BtnMonitor(text: "Atendimento", icone: Icons.group, classe: const PerfilPage()),
+    BtnMonitor(text: "Mural", icone: Icons.chat_sharp, classe: const PerfilPage()),
+
+  ];
+
+  static Future <List<BtnMonitor>> getBtn() async{
+    await Future.delayed(const Duration(seconds: 3));
+    return btn;
+  }
 
   static Future <List<Turmas>> getTurmas() async{
     await Future.delayed(const Duration(seconds: 3));
