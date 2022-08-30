@@ -1,0 +1,2 @@
+dart --no-sound-null-safety run
+flutter run --no-sound-null-safety
