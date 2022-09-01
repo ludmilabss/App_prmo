@@ -1,7 +1,7 @@
 import 'package:app_prmo/monitor_pages/home_monitor.dart';
 import 'package:app_prmo/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
-import '../pages/atendimento_page.dart';
+import '../monitor_pages/atendimento_page.dart';
 import '../pages/calendario_page.dart';
 
 
