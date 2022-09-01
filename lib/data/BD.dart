@@ -1,4 +1,7 @@
 import 'package:app_prmo/domain/btn_monitor.dart';
+import 'package:app_prmo/monitor_pages/atendimento_page.dart';
+import 'package:app_prmo/monitor_pages/perfil_m.dart';
+import 'package:app_prmo/pages/calendario_page.dart';
 import 'package:app_prmo/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
 import '../domain/turmas.dart';
@@ -25,10 +28,10 @@ class BD{
   ];
 
   static List<BtnMonitor> btn = [
-    BtnMonitor(text: "Perfil", icone: Icons.person, classe: const PerfilPage()),
-    BtnMonitor(text: "Calendário", icone: Icons.calendar_today_outlined, classe: const PerfilPage()),
+    BtnMonitor(text: "Perfil", icone: Icons.person, classe: const PerfilMonitor()),
+    BtnMonitor(text: "Calendário", icone: Icons.calendar_today_outlined, classe:  CalendarioPage()),
     BtnMonitor(text: "Frequência", icone: Icons.assignment_outlined, classe: const PerfilPage()),
-    BtnMonitor(text: "Atendimento", icone: Icons.group, classe: const PerfilPage()),
+    BtnMonitor(text: "Atendimento", icone: Icons.group, classe: const AtendimentoPage()),
     BtnMonitor(text: "Mural", icone: Icons.chat_sharp, classe: const PerfilPage()),
 
   ];
