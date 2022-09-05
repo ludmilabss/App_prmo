@@ -25,7 +25,7 @@ class _HomeMonitorState extends State<HomeMonitor> {
             return Scaffold(
               drawer: const DrawerWidget1(),
               appBar: buildAppBar(),
-              body: buildGridView(lista),
+              body: Padding(padding: const EdgeInsets.all(16), child: buildGridView(lista),),
             );
           }
           return const Center(child: CircularProgressIndicator(color: Color(0xFF6BC07D),),);
@@ -68,7 +68,9 @@ class _HomeMonitorState extends State<HomeMonitor> {
     return GridView.builder(gridDelegate:
     const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 1.05
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: 1.0
     ),
         itemCount: list.length,
         itemBuilder: (context, index){
