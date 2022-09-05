@@ -32,7 +32,7 @@ class BD{
     BtnMonitor(text: "Calendário", icone: Icons.calendar_today_outlined, classe:  CalendarioPage()),
     BtnMonitor(text: "Frequência", icone: Icons.assignment_outlined, classe: const PerfilPage()),
     BtnMonitor(text: "Atendimento", icone: Icons.group, classe: const AtendimentoPage()),
-    BtnMonitor(text: "Mural", icone: Icons.chat_sharp, classe: const PerfilPage()),
+    BtnMonitor(text: "Mural", icone: Icons.chat_outlined, classe: const PerfilPage()),
 
   ];
 
