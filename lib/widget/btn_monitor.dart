@@ -1,79 +1,43 @@
-import 'package:app_prmo/domain/btn_monitor.dart';
-import 'package:app_prmo/pages/login_page.dart';
-import 'package:app_prmo/widget/btn_monitor.dart';
-import 'package:app_prmo/widget/drawer_m.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:app_prmo/data/BD.dart';
+import '../domain/btn_monitor.dart';
 
-class HomeMonitor extends StatefulWidget {
-  const HomeMonitor({Key? key}) : super(key: key);
+class BtnMonitorHome extends StatefulWidget {
+  final BtnMonitor btn;
+  const BtnMonitorHome({Key? key, required this.btn}) : super(key: key);
 
   @override
-  State<HomeMonitor> createState() => _HomeMonitorState();
+  State<BtnMonitorHome> createState() => _BtnMonitorHomeState();
 }
 
-class _HomeMonitorState extends State<HomeMonitor> {
+class _BtnMonitorHomeState extends State<BtnMonitorHome> {
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: const EdgeInsets.all(0.0),
-      child: FutureBuilder<List<BtnMonitor>>(
-        future: BD.getBtn(),
-          builder: (context, snapshot){
-          if(snapshot.hasData){
-            List<BtnMonitor> lista = snapshot.data ?? [];
-            return Scaffold(
-              drawer: const DrawerWidget1(),
-              appBar: buildAppBar(),
-              body: buildGridView(lista),
-            );
-          }
-          return const Center(child: CircularProgressIndicator(color: Color(0xFF6BC07D),),);
-          }
-      ),
-    );
-  }
-  buildAppBar(){
-    return AppBar(
-      backgroundColor: Colors.white,
-      title:
-      const Center(
-        child: Text(
-          "MONITOR",
-          style: TextStyle(
-            fontSize: 24,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-
-      actions: [
-        IconButton(
-            onPressed: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(
-                      builder: (context){
-                        return const LoginPage();
-                      }
-                  )
-              );
-            },
-            icon:
-            const Icon(Icons.exit_to_app_outlined, color: Colors.black,))
-      ],
-    );
-  }
-  buildGridView(list){
-    return GridView.builder(gridDelegate:
-    const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 1.05
-    ),
-        itemCount: list.length,
-        itemBuilder: (context, index){
-        return BtnMonitorHome(btn: list[index]);
-        }
-    );
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+          primary: const Color(0xFF6BC07D),
+          padding: const EdgeInsets.all(16),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(32)
+      )),
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) {
+                    return widget.btn.classe;
+                  }));
+        },
+        child: Column(
+          children: [
+            Icon(widget.btn.icone, color: Colors.black, size: 100,),
+            Text(widget.btn.text,
+              style:
+              const TextStyle(
+                  color: Colors.black,
+                  fontSize: 16
+              ),)
+          ],
+        ));
   }
 }
