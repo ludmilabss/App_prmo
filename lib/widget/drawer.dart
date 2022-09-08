@@ -1,3 +1,4 @@
+import 'package:app_prmo/pages/calendario_page.dart';
 import 'package:app_prmo/pages/login_page.dart';
 import 'package:app_prmo/pages/materias_page.dart';
 import 'package:app_prmo/pages/perfil_page.dart';
@@ -110,7 +111,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const PerfilPage()));
+                  builder: (BuildContext context) =>  CalendarioPage()));
             },
           ),
         ],
