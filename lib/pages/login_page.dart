@@ -1,7 +1,7 @@
+import 'package:app_prmo/data/monitor_dao.dart';
 import 'package:app_prmo/monitor_pages/home_monitor.dart';
 import 'package:flutter/material.dart';
 import '/pages/cadastro_page.dart';
-import '/pages/turmas_page.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -186,41 +186,27 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void onPressed(){
+  Future<void> onPressed() async {
     if(_formKey.currentState!.validate()) {
       String userDigitado = usercontroller.text;
       String pswdDigitado = pswdcontroller.text;
+      bool result = await MonitorDao().autenticar(email: userDigitado, password: pswdDigitado);
 
-      String user = "asa@gmail.com";
-      String senha = "asagigante";
-      String muser = "monitor.com";
-      String msenha = "monitor";
-
-      if (userDigitado == user && senha == pswdDigitado) {
+      if (result) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: (context) {
-              return const TurmasPage();
+              return const HomeMonitor();
             },
           ),
         );
 
-      }else{
-        if(userDigitado == muser && msenha == pswdDigitado){
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) {
-                return const HomeMonitor();
-              },
-            ),
-          );
-        }else{
+      } else{
           const snack = SnackBar(content: Text('Login Incorreto'));
           ScaffoldMessenger.of(context).showSnackBar(snack);
         }
       }
       }
     }
-}
+
