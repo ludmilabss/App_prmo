@@ -2,7 +2,7 @@
 
 A new Flutter project.
 
-Link do figma: (https://www.figma.com/file/OsaxwWwBR46fbdVIfFsP21/PRMO-I?node-id=0%3A1)
+Link do figma: https://www.figma.com/file/OsaxwWwBR46fbdVIfFsP21/PRMO-I?node-id=0%3A1
 
 ## Getting Started
 
