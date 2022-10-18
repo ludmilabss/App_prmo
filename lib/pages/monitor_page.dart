@@ -1,4 +1,3 @@
-import 'package:app_prmo/pages/cadastro_page.dart';
 import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +14,7 @@ class _TelaPageState extends State<TelaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: DrawerWidget(),
+      drawer: const DrawerWidget(),
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: const Text(
@@ -50,7 +49,7 @@ class _TelaPageState extends State<TelaPage> {
                 const SizedBox(height: 40),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: Color(0XFFD9D9D9),
+                    backgroundColor: const Color(0XFFD9D9D9),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(32), // <-- Radius
                     ),

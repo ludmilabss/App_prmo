@@ -49,7 +49,7 @@ class _TurmasPageState extends State<TurmasPage> {
   }
   
   buildListViewBuilder(List<Turmas> list) {
-    return Padding(padding: EdgeInsets.all(16.0),
+    return Padding(padding: const EdgeInsets.all(16.0),
         child: ListView.builder(itemCount: list.length,
         itemBuilder: (context, index) {
           return CardTurma(turma: list[index]);

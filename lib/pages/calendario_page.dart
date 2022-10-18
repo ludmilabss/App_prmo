@@ -46,19 +46,19 @@ class _CalendarioPageState extends State<CalendarioPage> {
                      TableCalendar(
                        initialCalendarFormat: CalendarFormat.month,
                        calendarStyle: CalendarStyle(
-                           todayColor: Color(0xFF6BC07D),
+                           todayColor: const Color(0xFF6BC07D),
                            selectedColor: Theme.of(context).primaryColor,
-                           todayStyle: TextStyle(
+                           todayStyle: const TextStyle(
                                fontWeight: FontWeight.bold,
                                fontSize: 18.0,
                                color: Colors.white)),
                        headerStyle: HeaderStyle(
                          centerHeaderTitle: true,
                          formatButtonDecoration: BoxDecoration(
-                           color: Color(0xFF6BC07D),
+                           color: const Color(0xFF6BC07D),
                            borderRadius: BorderRadius.circular(20.0),
                          ),
-                         formatButtonTextStyle: TextStyle(color: Colors.white),
+                         formatButtonTextStyle: const TextStyle(color: Colors.white),
                          formatButtonShowsNext: false,
                        ),
                        availableCalendarFormats: const{
@@ -79,17 +79,17 @@ class _CalendarioPageState extends State<CalendarioPage> {
                                  borderRadius: BorderRadius.circular(10.0)),
                              child: Text(
                                date.day.toString(),
-                               style: TextStyle(color: Colors.white),
+                               style: const TextStyle(color: Colors.white),
                              )),
                          todayDayBuilder: (context, date, events) => Container(
                              margin: const EdgeInsets.all(4.0),
                              alignment: Alignment.center,
                              decoration: BoxDecoration(
-                                 color: Color(0xFF6BC07D),
+                                 color: const Color(0xFF6BC07D),
                                  borderRadius: BorderRadius.circular(10.0)),
                              child: Text(
                                date.day.toString(),
-                               style: TextStyle(color: Colors.white),
+                               style: const TextStyle(color: Colors.white),
                              )),
                        ),
                        calendarController: _controller,
@@ -97,8 +97,8 @@ class _CalendarioPageState extends State<CalendarioPage> {
                    ],
                  ),
                ),
-               SizedBox(height: 20),
-               Text(
+               const SizedBox(height: 20),
+               const Text(
                  "Próximos eventos:",
                  style: TextStyle(
                      fontFamily: 'Roboto',
@@ -106,20 +106,20 @@ class _CalendarioPageState extends State<CalendarioPage> {
                      fontSize: 20,
                      color: Colors.black),
                ),
-               SizedBox(height: 12),
-               Placeholder(
+               const SizedBox(height: 12),
+               const Placeholder(
                  fallbackHeight: 100,
                  fallbackWidth: 100,
                  color: Colors.black,
                ),
-               SizedBox(height: 20),
-               Placeholder(
+               const SizedBox(height: 20),
+               const Placeholder(
                  fallbackHeight: 100,
                  fallbackWidth: 100,
                  color: Colors.black,
                ),
-               SizedBox(height: 20),
-               Placeholder(
+               const SizedBox(height: 20),
+               const Placeholder(
                  fallbackHeight: 100,
                  fallbackWidth: 100,
                  color: Colors.black,

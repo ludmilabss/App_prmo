@@ -1,6 +1,5 @@
 import 'package:app_prmo/monitor_pages/home_monitor.dart';
 import 'package:app_prmo/pages/turmas_page.dart';
-import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 
 import '../widget/drawer_m.dart';
@@ -167,7 +166,7 @@ class _AtendimentoPageState extends State<AtendimentoPage> {
                 const SizedBox(height: 16),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    primary: const Color(0xFF6BC07D),
+                    backgroundColor: const Color(0xFF6BC07D),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(22), // <-- Radius
                     ),
@@ -202,7 +201,7 @@ class _AtendimentoPageState extends State<AtendimentoPage> {
   }) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        primary: const Color(0xFFB1DEBA),
+        backgroundColor: const Color(0xFFB1DEBA),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16), // <-- Radius
         ),

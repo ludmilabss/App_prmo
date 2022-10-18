@@ -7,5 +7,5 @@ class Turmas{
     required this.nome,
     required this.turno,
     required this.curso,
-});
+  });
 }

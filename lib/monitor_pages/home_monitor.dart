@@ -1,5 +1,5 @@
 import 'package:app_prmo/domain/btn_monitor.dart';
-import 'package:app_prmo/pages/login_page.dart';
+import 'package:app_prmo/widget/appbar_widget.dart';
 import 'package:app_prmo/widget/btn_monitor.dart';
 import 'package:app_prmo/widget/drawer_m.dart';
 import 'package:flutter/material.dart';
@@ -34,35 +34,7 @@ class _HomeMonitorState extends State<HomeMonitor> {
     );
   }
   buildAppBar(){
-    return AppBar(
-      backgroundColor: Colors.white,
-      title:
-      const Center(
-        child: Text(
-          "MONITOR",
-          style: TextStyle(
-            fontSize: 24,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-
-      actions: [
-        IconButton(
-            onPressed: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(
-                      builder: (context){
-                        return const LoginPage();
-                      }
-                  )
-              );
-            },
-            icon:
-            const Icon(Icons.exit_to_app_outlined, color: Colors.black,))
-      ],
-    );
+    return const AppBarWidget(title: 'MONITOR');
   }
   buildGridView(list){
     return GridView.builder(gridDelegate:
