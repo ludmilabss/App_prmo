@@ -115,7 +115,7 @@ class _MateriasPageState extends State<MateriasPage> {
     return ElevatedButton(
         onPressed: onPressedButn,
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color(cor),
+          primary: Color(cor),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0)),
         ),
