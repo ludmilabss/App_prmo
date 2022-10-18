@@ -31,7 +31,7 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
 
             //PADDING PRA FAZER OS CAMPOS DE SENHA ATUAL NOVA SENHA E CONFIRMAR NOVA SENHA
             Padding(
-              padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 2.0),
+              padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 2.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

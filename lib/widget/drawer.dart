@@ -3,6 +3,9 @@ import 'package:app_prmo/pages/materias_page.dart';
 import 'package:app_prmo/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
 
+import '../pages/calendario_page.dart';
+import '../pages/turmas_page.dart';
+
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({Key? key}) : super(key: key);
 
@@ -43,6 +46,24 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             decoration: BoxDecoration(color: Color(0xFF6BC07D)),
           ),
            ListTile(
+            title: const Text(
+              "Home",
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: 'Roboto',
+                fontSize: 16,
+                fontWeight: FontWeight.normal,
+              ),
+            ),
+            trailing: const Icon(Icons.house_outlined),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => const TurmasPage()));
+            },
+          ),
+          Divider(),
+          ListTile(
             title: const Text(
               "Perfil",
               style: TextStyle(
@@ -110,7 +131,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const PerfilPage()));
+                  builder: (BuildContext context) => CalendarioPage()));
             },
           ),
         ],

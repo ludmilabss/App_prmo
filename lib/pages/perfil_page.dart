@@ -18,7 +18,7 @@ class _PerfilPageState extends State<PerfilPage> {
   bool _matricula = false;
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController matriculacontroller = TextEditingController();
-  var _email = "gln1@aluno.ifal.edu.br";
+  var _email = "lbs11@aluno.ifal.edu.br";
   var _matriculanum = "2020123456";
   String btn = "Editar Perfil";
   bool button = true;
@@ -66,10 +66,10 @@ class _PerfilPageState extends State<PerfilPage> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                          color: Color(0xFFD9D9D9),
+                          color: const Color(0xFFD9D9D9),
                           borderRadius: BorderRadius.circular(101)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
                         child: Icon(Icons.person, size: 160),
                       ),
                     ),
@@ -77,10 +77,10 @@ class _PerfilPageState extends State<PerfilPage> {
                       bottom: 0,
                       right: 0,
                       child: CircleAvatar(
-                        backgroundColor: Color(0xFFC8E5CE),
+                        backgroundColor: const Color(0xFFC8E5CE),
                         child: IconButton(
                           onPressed: () {},
-                          icon: Icon(Icons.add,
+                          icon: const Icon(Icons.add,
                           color: Colors.black,),
                         ),
                       ),
@@ -88,8 +88,8 @@ class _PerfilPageState extends State<PerfilPage> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                Text(
-                  'GIANCARLO LÚCIO DO NASCIMENTO',
+                const Text(
+                  'LUDMILA BARBOSA DA SILVA',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.black,
@@ -103,11 +103,11 @@ class _PerfilPageState extends State<PerfilPage> {
 
             //PADDING PRA FAZER OS CAMPOS DE EMAIL MATRICULA E EDITAR SENHA
             Padding(
-              padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 2.0),
+              padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 2.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Email"),
+                  const Text("Email"),
                   const SizedBox(height: 10),
                   TextFormField(
                     decoration: InputDecoration(
@@ -125,7 +125,7 @@ class _PerfilPageState extends State<PerfilPage> {
 
                   const SizedBox(height: 15),
 
-                  Text("Número de matrícula"),
+                  const Text("Número de matrícula"),
                   const SizedBox(height: 10),
                   TextFormField(
                     decoration: InputDecoration(
@@ -148,7 +148,7 @@ class _PerfilPageState extends State<PerfilPage> {
                       Navigator.pushReplacement(context,
                           MaterialPageRoute(
                               builder: (context){
-                                return EditarSenhaPage();
+                                return const EditarSenhaPage();
                               }
                           )
                       );
@@ -170,7 +170,7 @@ class _PerfilPageState extends State<PerfilPage> {
                   Center(
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        primary: Color(0xFF6BC07D),
+                        primary: const Color(0xFF6BC07D),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(32), // <-- Radius
                         ),
@@ -201,14 +201,9 @@ class _PerfilPageState extends State<PerfilPage> {
                       ),
                     ),
                   ),
-
                 ],
               ),
             ),
-
-
-
-
           ],
         ),
       ),
