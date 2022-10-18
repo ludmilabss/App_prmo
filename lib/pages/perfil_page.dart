@@ -170,7 +170,7 @@ class _PerfilPageState extends State<PerfilPage> {
                   Center(
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF6BC07D),
+                        primary: const Color(0xFF6BC07D),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(32), // <-- Radius
                         ),

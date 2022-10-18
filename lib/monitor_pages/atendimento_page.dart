@@ -166,7 +166,7 @@ class _AtendimentoPageState extends State<AtendimentoPage> {
                 const SizedBox(height: 16),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF6BC07D),
+                    primary: const Color(0xFF6BC07D),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(22), // <-- Radius
                     ),
@@ -201,7 +201,7 @@ class _AtendimentoPageState extends State<AtendimentoPage> {
   }) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xFFB1DEBA),
+        primary: const Color(0xFFB1DEBA),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16), // <-- Radius
         ),

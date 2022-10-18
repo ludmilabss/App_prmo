@@ -49,7 +49,7 @@ class _TelaPageState extends State<TelaPage> {
                 const SizedBox(height: 40),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0XFFD9D9D9),
+                    primary: const Color(0XFFD9D9D9),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(32), // <-- Radius
                     ),
