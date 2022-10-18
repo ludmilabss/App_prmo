@@ -2,6 +2,9 @@ import 'package:app_prmo/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import '../pages/editarsenha_page.dart';
 import '../widget/drawer_m.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:camera_camera/camera_camera.dart';
+//import 'package:video_player/video_player.dart';
 
 
 
@@ -15,6 +18,8 @@ class PerfilMonitor extends StatefulWidget {
 class _PerfilMonitorState extends State<PerfilMonitor> {
 
   //declaração das variaveis
+  Color cor = Colors.black12;
+  bool _hab = false;
   bool _emailinput = false;
   bool _matricula = false;
   TextEditingController emailcontroller = TextEditingController();
@@ -80,7 +85,10 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
                       child: CircleAvatar(
                         backgroundColor: const Color(0xFFC8E5CE),
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+
+
+                          },
                           icon: const Icon(Icons.add,
                             color: Colors.black,),
                         ),
@@ -145,19 +153,12 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
                   const SizedBox(height: 22),
 
                   InkWell(
-                    onTap: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(
-                              builder: (context){
-                                return const EditarSenhaPage();
-                              }
-                          )
-                      );
-                    },
+                    enableFeedback: false,
+                    onTap: ontap,
                     child:
-                    const Text("Editar Senha",
+                     Text("Editar Senha",
                       style: TextStyle(
-                        color: Colors.black,
+                        color: cor,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline,
@@ -183,10 +184,14 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
                           _email = emailcontroller.text;
                           _matriculanum = matriculacontroller.text;
                           button = !button;
+                          _hab = !_hab;
+                          cor = Colors.black;
                           if (button == false){
                             btn = "Salvar";
+                            cor = Colors.black;
                           } else{
                             btn = "Editar Perfil";
+                            cor = Colors.black12;
                           }
                         });
                       },
@@ -207,12 +212,24 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
               ),
             ),
 
-
-
-
           ],
         ),
       ),
     );
+  }
+
+  void ontap(){
+    if(_hab){
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(
+              builder: (context){
+                return const EditarSenhaPage();
+              }
+          )
+      );
+    } else {
+      () {};
+    }
+
   }
 }

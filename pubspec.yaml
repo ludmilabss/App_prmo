@@ -29,6 +29,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  image_picker: ^0.8.2
+  camera_camera: ^2.0.1
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
