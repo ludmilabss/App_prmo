@@ -90,7 +90,7 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
 
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: const Color(0xFF6BC07D),
+                          backgroundColor: const Color(0xFF6BC07D),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(32), // <-- Radius
                           ),

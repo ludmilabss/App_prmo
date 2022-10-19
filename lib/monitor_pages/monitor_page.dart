@@ -1,7 +1,7 @@
 import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 
-import 'calendario_page.dart';
+import '../pages/calendario_page.dart';
 
 class TelaPage extends StatefulWidget {
   const TelaPage({Key? key}) : super(key: key);

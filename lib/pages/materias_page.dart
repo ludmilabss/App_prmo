@@ -2,7 +2,7 @@ import 'package:app_prmo/pages/mural_page.dart';
 import 'package:app_prmo/widget/appbar_widget.dart';
 import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
-import 'monitor_page.dart';
+import '../monitor_pages/monitor_page.dart';
 
 class MateriasPage extends StatefulWidget {
   const MateriasPage({Key? key}) : super(key: key);

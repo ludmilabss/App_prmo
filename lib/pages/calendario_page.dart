@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import '../widget/appbar_widget.dart';
+
 
 class CalendarioPage extends StatefulWidget {
  @override
@@ -23,16 +25,7 @@ class _CalendarioPageState extends State<CalendarioPage> {
  Widget build(BuildContext context) {
    return Scaffold(
      drawer: const DrawerWidget(),
-     appBar: AppBar(
-       backgroundColor: Colors.white,
-       title: const Text(
-         'CALENDÁRIO',
-         style: TextStyle(fontSize: 24,
-           color: Colors.black,
-           fontWeight: FontWeight.bold,
-         ),
-       ),
-     ),
+     appBar: const AppBarWidget(title: 'CALENDÁRIO'),
      body: Padding(
        padding: const EdgeInsets.all(16.0),
        child: ListView(

@@ -19,7 +19,7 @@ class _CardTurmaState extends State<CardTurma> {
       children: [
       ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: const Color(0xFF6BC07D),
+          backgroundColor: const Color(0xFF6BC07D),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16), // <-- Radius
         ),

@@ -25,10 +25,15 @@ class _HomeMonitorState extends State<HomeMonitor> {
             return Scaffold(
               drawer: const DrawerWidget1(),
               appBar: buildAppBar(),
-              body: Padding(padding: const EdgeInsets.all(16), child: buildGridView(lista),),
+              body: Padding(
+                padding: const EdgeInsets.all(16),
+                  child: buildGridView(lista),),
             );
           }
-          return const Center(child: CircularProgressIndicator(color: Color(0xFF6BC07D),),);
+          return const Center(
+            child: CircularProgressIndicator(color: Color(0xFF6BC07D),
+            ),
+            );
           }
       ),
     );
