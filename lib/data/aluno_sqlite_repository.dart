@@ -1,5 +1,5 @@
 import 'package:app_prmo/data/db_helper.dart';
-import 'package:app_prmo/data/interfaces/interface_aluno.dart';
+import 'package:app_prmo/data/interfaces/interface_aluno_repository.dart';
 import 'package:app_prmo/domain/aluno.dart';
 import 'package:sqflite/sqflite.dart';
 
