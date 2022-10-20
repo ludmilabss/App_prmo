@@ -9,7 +9,7 @@ class Aluno {
   Aluno.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     password = json['password'];
-    matricula = json['numero_matricula'];
+    matricula = json['matricula'];
     password = json['password'];
   }
 
@@ -17,7 +17,7 @@ class Aluno {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['name'] = name;
     data['email'] = email;
-    data['numero_matricula'] = matricula;
+    data['matricula'] = matricula;
     data['password'] = password;
     return data;
   }
