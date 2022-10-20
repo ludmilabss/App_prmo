@@ -9,6 +9,14 @@ class CadastroPage extends StatefulWidget {
 }
 
 class _CadastroPageState extends State<CadastroPage> {
+
+  final _formkey = GlobalKey<FormState>();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController matriculaController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,15 +45,15 @@ class _CadastroPageState extends State<CadastroPage> {
                       child: Column(
                         children: [
                           const SizedBox(height: 12),
-                          buildContainer(s: "Nome"),
+                          buildContainer(s: "Nome", controller: nameController),
                           const SizedBox(height: 16),
-                          buildContainer(s: "Email Institucional", obs: false),
+                          buildContainer(s: "Email Institucional", controller:  emailController , obs: false),
                           const SizedBox(height: 16),
-                          buildContainer(s: "Número de Matrícula", obs: false),
+                          buildContainer(s: "Número de Matrícula", controller: matriculaController, obs: false),
                           const SizedBox(height: 16),
-                          buildContainer(s: "Senha", obs: true),
+                          buildContainer(s: "Senha", controller: passwordController, obs: true),
                           const SizedBox(height: 16),
-                          buildContainer(s: "Confirmar senha", obs: true),
+                          buildContainer(s: "Confirmar senha", controller: confirmPasswordController, obs: true),
                           const SizedBox(height: 24),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
@@ -54,7 +62,7 @@ class _CadastroPageState extends State<CadastroPage> {
                                 borderRadius: BorderRadius.circular(32), // <-- Radius
                               ),
                             ),
-                            onPressed: onPressedButn,
+                            onPressed: onPressedBtn,
                             child: const Padding(
                               padding: EdgeInsets.all(10.0),
                               child: Text(
@@ -81,6 +89,7 @@ class _CadastroPageState extends State<CadastroPage> {
   }
   buildContainer({
     required String s,
+    required TextEditingController controller,
     bool obs = false,
   }){
     return Container(
@@ -102,7 +111,15 @@ class _CadastroPageState extends State<CadastroPage> {
 
     );
   }
-  void onPressedButn() {
+  void onPressedBtn() async {
+    print('CHEGOU AQUI');
+    String typedEmail = emailController.text;
+    String typedPassword = passwordController.text;
+    String typedName = nameController.text;
+    bool typedMonitor = true;
+    //  Monitor result = await MonitorDao().criar(email: typedEmail, password: typedPassword, name: typedName, isMonitor: typedMonitor);
+    print('RESULTADO! ${result}');
+    //if (result) {
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -111,5 +128,11 @@ class _CadastroPageState extends State<CadastroPage> {
         },
       ),
     );
+    //  }
+    /*
+    if(_formkey.currentState!.validate()) {
+
+    }*/
+
   }
 }
