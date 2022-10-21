@@ -6,7 +6,7 @@ import 'package:sqflite/sqflite.dart';
 class AlunoSQLiteRepository implements IAlunoRepository {
   @override
   void atualizar(
-      {required int id,
+      {required String id,
       required String name,
       required String email,
       required int matricula,
@@ -42,25 +42,26 @@ class AlunoSQLiteRepository implements IAlunoRepository {
 
   @override
   void criar(
-      {required String name,
+      {required String id,
+      required String name,
       required String email,
       required int matricula,
       required String password}) async {
     try {
       DBHelper dbHelper = DBHelper();
       Database db = await dbHelper.initDB();
-
+      print('ENTROUU NO REPOSITORY');
       String sql =
-          'INSERT INTO alunos (name, email, matricula, password) VALUES (?, ?, ?, ?)';
+          'INSERT INTO alunos (id, name, email, matricula, password) VALUES (?, ?, ?, ?, ?)';
 
-      await db.rawInsert(sql, [name, email, matricula, password]);
+      await db.rawInsert(sql, [id, name, email, matricula, password]);
     } catch (error) {
       throw Exception(error);
     }
   }
 
   @override
-  void deletar({required int id}) async {
+  void deletar({required String id}) async {
     try {
       DBHelper dbHelper = DBHelper();
       Database db = await dbHelper.initDB();
@@ -94,7 +95,7 @@ class AlunoSQLiteRepository implements IAlunoRepository {
   }
 
   @override
-  Future<Aluno> pesquisar({required int id}) async {
+  Future<Aluno> pesquisar({required String id}) async {
     try {
       DBHelper dbHelper = DBHelper();
       Database db = await dbHelper.initDB();

@@ -7,7 +7,7 @@ class AlunoService {
   AlunoService(this.alunoRepository);
 
   void atualizar(
-      {required int id,
+      {required String id,
       required String name,
       required String email,
       required int matricula,
@@ -26,15 +26,20 @@ class AlunoService {
   }
 
   void criar(
-      {required String name,
+      {required String id,
+      required String name,
       required String email,
       required int matricula,
       required String password}) {
     alunoRepository.criar(
-        name: name, email: email, matricula: matricula, password: password);
+        id: id,
+        name: name,
+        email: email,
+        matricula: matricula,
+        password: password);
   }
 
-  void deletar({required int id}) {
+  void deletar({required String id}) {
     alunoRepository.deletar(id: id);
   }
 
@@ -43,7 +48,7 @@ class AlunoService {
     return result;
   }
 
-  Future<Aluno> pesquisar({required int id}) {
+  Future<Aluno> pesquisar({required String id}) {
     final result = alunoRepository.pesquisar(id: id);
     return result;
   }

@@ -7,7 +7,7 @@ class AlunoController {
   AlunoSQLiteRepository? alunoRepository;
   AlunoService? alunoService;
 
-  Aluno emptyAluno = Aluno(email: '', matricula: 0, name: '');
+  Aluno emptyAluno = Aluno(id: '', email: '', matricula: 0, name: '', password: '');
 
   AlunoController() {
     alunoRepository = AlunoSQLiteRepository();
@@ -21,15 +21,17 @@ class AlunoController {
   }
 
   void criar(
-      {required String name,
+      {
+      required String id,
+      required String name,
       required String email,
       required int matricula,
       required String password}) {
     alunoService?.criar(
-        name: name, email: email, matricula: matricula, password: password);
+       id: id, name: name, email: email, matricula: matricula, password: password);
   }
 
-  void deletar({required int id}) {
+  void deletar({required String id}) {
     alunoService?.deletar(id: id);
   }
 
@@ -40,7 +42,7 @@ class AlunoController {
     return result != null ? result as List<Aluno> : emptyList;
   }
 
-  Aluno pesquisar({required int id}) {
+  Aluno pesquisar({required String id}) {
     final result = alunoService?.pesquisar(id: id);
 
     return result != null ? result as Aluno : emptyAluno;
