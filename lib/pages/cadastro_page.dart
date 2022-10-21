@@ -1,3 +1,5 @@
+import 'package:app_prmo/controllers/aluno_controller.dart';
+import 'package:app_prmo/domain/aluno.dart';
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 
@@ -9,7 +11,6 @@ class CadastroPage extends StatefulWidget {
 }
 
 class _CadastroPageState extends State<CadastroPage> {
-
   final _formkey = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -47,19 +48,32 @@ class _CadastroPageState extends State<CadastroPage> {
                           const SizedBox(height: 12),
                           buildContainer(s: "Nome", controller: nameController),
                           const SizedBox(height: 16),
-                          buildContainer(s: "Email Institucional", controller:  emailController , obs: false),
+                          buildContainer(
+                              s: "Email Institucional",
+                              controller: emailController,
+                              obs: false),
                           const SizedBox(height: 16),
-                          buildContainer(s: "Número de Matrícula", controller: matriculaController, obs: false),
+                          buildContainer(
+                              s: "Número de Matrícula",
+                              controller: matriculaController,
+                              obs: false),
                           const SizedBox(height: 16),
-                          buildContainer(s: "Senha", controller: passwordController, obs: true),
+                          buildContainer(
+                              s: "Senha",
+                              controller: passwordController,
+                              obs: true),
                           const SizedBox(height: 16),
-                          buildContainer(s: "Confirmar senha", controller: confirmPasswordController, obs: true),
+                          buildContainer(
+                              s: "Confirmar senha",
+                              controller: confirmPasswordController,
+                              obs: true),
                           const SizedBox(height: 24),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               primary: const Color(0xFF6BC07D),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(32), // <-- Radius
+                                borderRadius:
+                                    BorderRadius.circular(32), // <-- Radius
                               ),
                             ),
                             onPressed: onPressedBtn,
@@ -87,38 +101,42 @@ class _CadastroPageState extends State<CadastroPage> {
       ),
     );
   }
+
   buildContainer({
     required String s,
     required TextEditingController controller,
     bool obs = false,
-  }){
+  }) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(
-            left: 16.0, right: 16.0, bottom: 2.0),
+        padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 2.0),
         child: TextFormField(
-          decoration:  InputDecoration(
+          decoration: InputDecoration(
             border: InputBorder.none,
             labelText: s,
           ),
           obscureText: obs,
         ),
       ),
-
     );
   }
+
   void onPressedBtn() async {
     print('CHEGOU AQUI');
     String typedEmail = emailController.text;
     String typedPassword = passwordController.text;
     String typedName = nameController.text;
-    bool typedMonitor = true;
-    //  Monitor result = await MonitorDao().criar(email: typedEmail, password: typedPassword, name: typedName, isMonitor: typedMonitor);
-    print('RESULTADO! ${result}');
+    int typedMatricula = int.parse(matriculaController.text);
+    AlunoController().criar(
+        name: typedName,
+        password: typedPassword,
+        email: typedEmail,
+        matricula: typedMatricula);
+    print('RESULTADO!?');
     //if (result) {
     Navigator.push(
       context,
@@ -133,6 +151,5 @@ class _CadastroPageState extends State<CadastroPage> {
     if(_formkey.currentState!.validate()) {
 
     }*/
-
   }
 }
