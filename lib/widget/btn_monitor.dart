@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../domain/btn_monitor.dart';
 
@@ -15,6 +14,7 @@ class _BtnMonitorHomeState extends State<BtnMonitorHome> {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
+          //backgroundColor: const Color(0xFF6BC07D),
           primary: const Color(0xFF6BC07D),
           padding: const EdgeInsets.all(16),
       shape: RoundedRectangleBorder(

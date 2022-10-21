@@ -1,4 +1,5 @@
 import 'package:app_prmo/monitor_pages/home_monitor.dart';
+import 'package:app_prmo/monitor_pages/perfil_m.dart';
 import 'package:app_prmo/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
 import '../monitor_pages/atendimento_page.dart';
@@ -61,7 +62,7 @@ class _DrawerWidget1State extends State<DrawerWidget1> {
                   builder: (BuildContext context) => const HomeMonitor()));
             },
           ),
-          Divider(),
+          const Divider(),
           ListTile(
             title: const Text(
               "Perfil",
@@ -72,11 +73,11 @@ class _DrawerWidget1State extends State<DrawerWidget1> {
                 fontWeight: FontWeight.normal,
               ),
             ),
-            trailing: Icon(Icons.person),
+            trailing: const Icon(Icons.person),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const PerfilPage()));
+                  builder: (BuildContext context) => const PerfilMonitor()));
             },
           ),
           const Divider(),
@@ -90,11 +91,11 @@ class _DrawerWidget1State extends State<DrawerWidget1> {
                 fontWeight: FontWeight.normal,
               ),
             ),
-            trailing: Icon(Icons.group),
+            trailing: const Icon(Icons.group),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => AtendimentoPage()));
+                  builder: (BuildContext context) => const AtendimentoPage()));
             },
           ),
           const Divider(),
@@ -108,7 +109,7 @@ class _DrawerWidget1State extends State<DrawerWidget1> {
                 fontWeight: FontWeight.normal,
               ),
             ),
-            trailing: Icon(Icons.chat_outlined),
+            trailing: const Icon(Icons.chat_outlined),
             onTap: () {
               // Navigator.of(context).pop();
               // Navigator.of(context).push(MaterialPageRoute(

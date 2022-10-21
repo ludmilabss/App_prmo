@@ -1,3 +1,4 @@
+import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 
 
@@ -12,6 +13,7 @@ class _MuralPageState extends State<MuralPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const DrawerWidget(),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
@@ -47,10 +49,7 @@ class _MuralPageState extends State<MuralPage> {
                     ),
                   ),
                 ],
-
               ),
-
-
             ),
             Padding(
               padding: const EdgeInsets.only(top: 16, left: 8, right: 8),
@@ -63,7 +62,7 @@ class _MuralPageState extends State<MuralPage> {
                     texto: "Boa tarde, pessoal, passando para avisar que hoje não teremos aula devido às fortes chuvas, abraço!"
                   ),
                   TextFormField(
-                    decoration:  InputDecoration(
+                    decoration:  const InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12), bottomRight: Radius.circular(12)),
                       ),
@@ -89,7 +88,7 @@ class _MuralPageState extends State<MuralPage> {
                       texto: "Galera, alguém poderia me informar se haverá monitoria amanhã?"
                   ),
                   TextFormField(
-                    decoration:  InputDecoration(
+                    decoration:  const InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12), bottomRight: Radius.circular(12)),
                       ),
@@ -116,7 +115,7 @@ class _MuralPageState extends State<MuralPage> {
                       texto: "Faltarei amanhã"
                   ),
                   TextFormField(
-                    decoration:  InputDecoration(
+                    decoration:  const InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.only(bottomLeft: Radius.circular(12), bottomRight: Radius.circular(12)),
                       ),
@@ -126,15 +125,9 @@ class _MuralPageState extends State<MuralPage> {
                     ),
                   ),
                 ],
-
               ),
-
-
             ),
-
-
           ]
-
       ),
     );
   }
@@ -158,7 +151,7 @@ class _MuralPageState extends State<MuralPage> {
             style: const TextStyle(
               color: Color(0xFFFFFFFF),
               fontFamily: 'Roboto',
-              fontSize: 24,
+              fontSize: 32,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -167,7 +160,7 @@ class _MuralPageState extends State<MuralPage> {
               style: const TextStyle(
                 color: Color(0xFFFFFFFF),
                 fontFamily: 'Roboto',
-                fontSize: 20,
+                fontSize: 24,
               ))
         ],
       ),
@@ -186,7 +179,7 @@ class _MuralPageState extends State<MuralPage> {
       style: BorderStyle.solid,
     ),
       color: const Color(0xFFFFFFFF),
-      borderRadius: BorderRadius.only(topLeft: Radius.circular(12), topRight: Radius.circular(12)),
+      borderRadius: const BorderRadius.only(topLeft: Radius.circular(12), topRight: Radius.circular(12)),
     ),
     child: Padding(
       padding: const EdgeInsets.all(16.0),

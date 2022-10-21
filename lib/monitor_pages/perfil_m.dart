@@ -1,6 +1,7 @@
 import 'package:app_prmo/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import '../pages/editarsenha_page.dart';
+import '../widget/appbar_widget.dart';
 import '../widget/drawer_m.dart';
 
 
@@ -29,29 +30,7 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: const DrawerWidget1(),
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: const Text(
-          'PERFIL',
-          style: TextStyle(
-              fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {Navigator.pushReplacement(context,
-                  MaterialPageRoute(
-                      builder: (context){
-                        return const LoginPage();
-                      }
-                  )
-              );
-              },
-              icon: const Icon(
-                Icons.exit_to_app,
-                color: Colors.black,
-              ))
-        ],
-      ),
+      appBar: const AppBarWidget(title: 'PERFIL'),
 
       body: Padding(
         padding: const EdgeInsets.all(8.0),

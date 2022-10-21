@@ -31,11 +31,11 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
 
             //PADDING PRA FAZER OS CAMPOS DE SENHA ATUAL NOVA SENHA E CONFIRMAR NOVA SENHA
             Padding(
-              padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 2.0),
+              padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 2.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Senha atual"),
+                  const Text("Senha atual"),
                   const SizedBox(height: 10),
                   TextFormField(
                     decoration: InputDecoration(
@@ -51,7 +51,7 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
 
                   const SizedBox(height: 15),
 
-                  Text("Nova senha"),
+                  const Text("Nova senha"),
                   const SizedBox(height: 10),
                   TextFormField(
                     decoration: InputDecoration(
@@ -67,7 +67,7 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
 
                   const SizedBox(height: 15),
 
-                  Text("Confirmar nova senha"),
+                  const Text("Confirmar nova senha"),
                   const SizedBox(height: 10),
                   TextFormField(
                     decoration: InputDecoration(
@@ -90,7 +90,8 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
 
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Color(0xFF6BC07D),
+                          //backgroundColor: const Color(0xFF6BC07D),
+                          primary: const Color(0xFF6BC07D),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(32), // <-- Radius
                           ),
@@ -103,10 +104,10 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
                             )
                         );
                         },
-                        child:  Padding(
-                          padding: const EdgeInsets.all(12.0),
+                        child:  const Padding(
+                          padding: EdgeInsets.all(12.0),
                           child: Text( "Cancelar",
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -121,7 +122,7 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
 
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Color(0xFF6BC07D),
+                          primary: const Color(0xFF6BC07D),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(32), // <-- Radius
                           ),
@@ -134,10 +135,10 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
                             )
                         );
                         },
-                        child:  Padding(
-                          padding: const EdgeInsets.all(12.0),
+                        child:  const Padding(
+                          padding: EdgeInsets.all(12.0),
                           child: Text( "Salvar",
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
                               fontWeight: FontWeight.bold,

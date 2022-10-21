@@ -1,6 +1,8 @@
+import 'package:app_prmo/pages/mural_page.dart';
+import 'package:app_prmo/widget/appbar_widget.dart';
 import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
-import 'monitor_page.dart';
+import '../monitor_pages/monitor_page.dart';
 
 class MateriasPage extends StatefulWidget {
   const MateriasPage({Key? key}) : super(key: key);
@@ -14,21 +16,10 @@ class _MateriasPageState extends State<MateriasPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const DrawerWidget(),
-      appBar: AppBar(
-        leading: const BackButton(color: Colors.black),
-        backgroundColor: Colors.white,
-        title: const Text(
-          "MATÉRIAS",
-          style: TextStyle(
-            fontSize: 24,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+      appBar: const AppBarWidget(title: 'MATÉRIAS'),
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(10.0),
         child: ListView(
           children: [
             Container(
@@ -37,91 +28,81 @@ class _MateriasPageState extends State<MateriasPage> {
                 borderRadius: BorderRadius.circular(16),
               ),
               padding: const EdgeInsets.all(16.0),
-              child: Row(children: [
-                Expanded(
-                    child: Column(
-                  children: const [
-                    Text("TURMA 913 - Matérias com monitoria disponível",
-                        style: TextStyle(
-                            fontFamily: 'Roboto',
-                            fontSize: 23,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white)),
-                    SizedBox(height: 4),
-                    Text(
-                      "Informática - Matutino",
-                      style: TextStyle(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: const [
+                      Text("TURMA 913 - Matérias com monitoria disponível",
+                          style: TextStyle(
+                              fontFamily: 'Roboto',
+                              fontSize: 23,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white)),
+                      SizedBox(height: 4),
+                      Text(
+                        "Informática - Matutino",
+                          style: TextStyle(
                           fontFamily: 'Roboto',
                           fontSize: 19,
                           color: Colors.white),
                     )
                   ],
-                ))
-              ]),
-            ),
+                )
+              ),
             const SizedBox(height: 24),
-            Padding(
+            Padding  (
               padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const Text("Técnicas em Informática",
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                        fontSize: 23,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF6BC07D),
-                        decoration: TextDecoration.underline,
-                      )),
+                  const Center(
+                    child: Text("Técnicas em Informática",
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: 23,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF6BC07D),
+                          decoration: TextDecoration.underline,
+                        )),
+                  ),
                   const SizedBox(height: 24),
                   buildMaterias(
-                      materia: "PWEB",
-                      left: 103.0,
-                      right: 103.0,
+                      materia: "Programação Web",
                       cor: 0xFFFFEBEB),
                   const SizedBox(height: 4),
                   buildMaterias(
-                      materia: "PRMO",
-                      left: 102.0,
-                      right: 102.0,
+                      materia: "Programação Móvel",
                       cor: 0xFFFFEBEB),
                   const SizedBox(height: 4),
                   buildMaterias(
                       materia: "ISRE",
-                      left: 110.0,
-                      right: 110.0,
                       cor: 0xFFFFEBEB),
                   const SizedBox(height: 24),
-                  const Text("Ensino Médio",
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                        fontSize: 23,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF6BC07D),
-                        decoration: TextDecoration.underline,
-                      )),
+                  const Center(
+                    child: Text("Ensino Médio",
+                        style: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: 23,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF6BC07D),
+                          decoration: TextDecoration.underline,
+                        )),
+                  ),
                   const SizedBox(height: 24),
                   buildMaterias(
                       materia: "Biologia",
-                      left: 96.0,
-                      right: 96.0,
                       cor: 0xFFFFE3B9),
                   const SizedBox(height: 4),
                   buildMaterias(
                       materia: "Química",
-                      left: 96.0,
-                      right: 96.0,
                       cor: 0xFFFFE3B9),
                   const SizedBox(height: 4),
                   buildMaterias(
                       materia: "Português",
-                      left: 86.0,
-                      right: 86.0,
                       cor: 0xFFFFE3B9),
                 ],
               ),
             ),
-          ],
+          ]
         ),
       ),
     );
@@ -129,8 +110,6 @@ class _MateriasPageState extends State<MateriasPage> {
 
   buildMaterias({
     required String materia,
-    required double left,
-    required double right,
     required int cor,
   }) {
     return ElevatedButton(
@@ -156,7 +135,7 @@ class _MateriasPageState extends State<MateriasPage> {
       context,
       MaterialPageRoute(
         builder: (context) {
-          return const TelaPage();
+          return const MuralPage();
         },
       ),
     );

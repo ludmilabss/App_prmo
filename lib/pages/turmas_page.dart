@@ -1,8 +1,10 @@
+//import 'package:app_prmo/data/turma_dao.dart';
 import 'package:app_prmo/domain/turmas.dart';
 import 'package:app_prmo/widget/Turma.dart';
 import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 import '../data/BD.dart';
+import '../widget/appbar_widget.dart';
 
 class TurmasPage extends StatefulWidget {
   const TurmasPage({Key? key}) : super(key: key);
@@ -24,7 +26,7 @@ class _TurmasPageState extends State<TurmasPage> {
             
             return Scaffold(
               drawer: const DrawerWidget(),
-              appBar: buildAppbar(),
+              appBar: const AppBarWidget(title: 'TURMAS'),
               body: buildListViewBuilder(l),
             );
           }
@@ -34,22 +36,8 @@ class _TurmasPageState extends State<TurmasPage> {
     );
   }
 
-  buildAppbar(){
-    return AppBar(
-      backgroundColor: Colors.white,
-        title: const Text(
-          "TURMAS",
-          style: TextStyle(
-            fontSize: 24,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-    );
-  }
-  
   buildListViewBuilder(List<Turmas> list) {
-    return Padding(padding: EdgeInsets.all(16.0),
+    return Padding(padding: const EdgeInsets.all(16.0),
         child: ListView.builder(itemCount: list.length,
         itemBuilder: (context, index) {
           return CardTurma(turma: list[index]);

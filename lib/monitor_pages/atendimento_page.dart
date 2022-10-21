@@ -1,8 +1,8 @@
 import 'package:app_prmo/monitor_pages/home_monitor.dart';
 import 'package:app_prmo/pages/turmas_page.dart';
-import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 
+import '../widget/appbar_widget.dart';
 import '../widget/drawer_m.dart';
 
 
@@ -25,17 +25,7 @@ class _AtendimentoPageState extends State<AtendimentoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const DrawerWidget1(),
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: const Text(
-          "ATENDIMENTO",
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 22,
-          ),
-        ),
-      ),
+      appBar: const AppBarWidget(title: 'ATENDIMENTO'),
       body: ListView(
         children: [
           Padding(

@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                               borderSide: BorderSide.none,
                             ),
                             hintText: 'E-mail',
-                            prefixIcon: Icon(Icons.mail_outline, color: Colors.grey,),
+                            prefixIcon: const Icon(Icons.mail_outline, color: Colors.grey,),
                             filled: true,
                             fillColor: Colors.white,
                           ),
@@ -93,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                               borderSide: BorderSide.none,
                             ),
                             hintText: 'Senha',
-                            prefixIcon: Icon(Icons.lock_outline, color: Colors.grey,),
+                            prefixIcon: const Icon(Icons.lock_outline, color: Colors.grey,),
                             filled: true,
                             fillColor: Colors.white,
                             suffixIcon: GestureDetector(
@@ -126,6 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 36),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
+                        //background: Colors.white,
                         primary: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(32), // <-- Radius
@@ -161,7 +162,7 @@ class _LoginPageState extends State<LoginPage> {
                             Navigator.push(context,
                                 MaterialPageRoute(
                                     builder: (context){
-                                      return CadastroPage();
+                                      return const CadastroPage();
                                     }
                                     )
                             );

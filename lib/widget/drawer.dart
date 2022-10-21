@@ -1,6 +1,6 @@
 import 'package:app_prmo/pages/calendario_page.dart';
-import 'package:app_prmo/pages/login_page.dart';
 import 'package:app_prmo/pages/materias_page.dart';
+import 'package:app_prmo/pages/mural_page.dart';
 import 'package:app_prmo/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
 
@@ -53,7 +53,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 fontWeight: FontWeight.normal,
               ),
             ),
-            trailing: Icon(Icons.person),
+            trailing: const Icon(Icons.person),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
@@ -71,11 +71,11 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 fontWeight: FontWeight.normal,
               ),
             ),
-            trailing: Icon(Icons.folder),
+            trailing: const Icon(Icons.folder),
             onTap: () {
             Navigator.of(context).pop();
             Navigator.of(context).push(MaterialPageRoute(
-            builder: (BuildContext context) => MateriasPage()));
+            builder: (BuildContext context) => const MateriasPage()));
             },
           ),
           const Divider(),
@@ -89,11 +89,11 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 fontWeight: FontWeight.normal,
               ),
             ),
-            trailing: Icon(Icons.chat_outlined),
+            trailing: const Icon(Icons.chat_outlined),
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const MateriasPage()));
+                  builder: (BuildContext context) => const MuralPage()));
             },
           ),
           const Divider(),

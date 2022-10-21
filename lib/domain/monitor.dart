@@ -5,7 +5,11 @@ class Monitor{
   late bool monitor;
 
 
-  Monitor({required this.email, required this.password, required this.name, required this.monitor});
+  Monitor({
+    required this.email,
+    required this.password,
+    required this.name,
+    required this.monitor});
 
   Monitor.fromJson(Map<String, dynamic> json) {
     email = json['email'];
