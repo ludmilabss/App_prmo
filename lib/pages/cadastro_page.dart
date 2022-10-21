@@ -1,6 +1,7 @@
 import 'package:app_prmo/controllers/aluno_controller.dart';
 import 'package:app_prmo/domain/aluno.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
 import 'login_page.dart';
 
 class CadastroPage extends StatefulWidget {
@@ -130,8 +131,10 @@ class _CadastroPageState extends State<CadastroPage> {
     String typedEmail = emailController.text;
     String typedPassword = passwordController.text;
     String typedName = nameController.text;
-    int typedMatricula = int.parse(matriculaController.text);
+    //int typedMatricula = int.parse(matriculaController.text);
+    int typedMatricula = int.parse('1234567890');
     AlunoController().criar(
+        id: typedEmail,
         name: typedName,
         password: typedPassword,
         email: typedEmail,
