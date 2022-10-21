@@ -28,7 +28,10 @@ class AlunoController {
       required int matricula,
       required String password}) {
     alunoService?.criar(
-       id: id, name: name, email: email, matricula: matricula, password: password);
+       id: matricula.toString(), name: name, email: email, matricula: matricula, password: password);
+
+    Aluno aluno = pesquisar(id: matricula.toString());
+    print('BAGULHO ENCONTRADO ' + aluno.toString());
   }
 
   void deletar({required String id}) {

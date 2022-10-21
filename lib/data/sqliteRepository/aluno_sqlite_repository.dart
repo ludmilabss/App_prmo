@@ -16,7 +16,7 @@ class AlunoSQLiteRepository implements IAlunoRepository {
       Database db = await dbHelper.initDB();
 
       String sql =
-          'UPDATE alunos SET name = ?, email = ?, matricula = ?, password = ? WHERE id = ?';
+          'UPDATE alunos SET name = ?, email = ?, matricula = ?, password = ? WHERE id = ?;';
 
       await db.rawUpdate(sql, [name, email, matricula, password, id]);
     } catch (error) {
@@ -31,7 +31,7 @@ class AlunoSQLiteRepository implements IAlunoRepository {
       DBHelper dbHelper = DBHelper();
       Database db = await dbHelper.initDB();
 
-      String sql = 'SELECT * FROM monitor WHERE email = ? AND password = ?';
+      String sql = 'SELECT * FROM monitor WHERE email = ? AND password = ?;';
       final result = await db.rawQuery(sql, [email, password]);
 
       return result.isNotEmpty;
@@ -52,7 +52,7 @@ class AlunoSQLiteRepository implements IAlunoRepository {
       Database db = await dbHelper.initDB();
       print('ENTROUU NO REPOSITORY');
       String sql =
-          'INSERT INTO alunos (id, name, email, matricula, password) VALUES (?, ?, ?, ?, ?)';
+          'INSERT INTO alunos (id, name, email, matricula, password) VALUES (?, ?, ?, ?, ?);';
 
       await db.rawInsert(sql, [id, name, email, matricula, password]);
     } catch (error) {
@@ -66,7 +66,7 @@ class AlunoSQLiteRepository implements IAlunoRepository {
       DBHelper dbHelper = DBHelper();
       Database db = await dbHelper.initDB();
 
-      String sql = 'DELETE FROM alunos WHERE id = ?';
+      String sql = 'DELETE FROM alunos WHERE id = ?;';
 
       db.rawDelete(sql, [id]);
     } catch (error) {
@@ -100,7 +100,7 @@ class AlunoSQLiteRepository implements IAlunoRepository {
       DBHelper dbHelper = DBHelper();
       Database db = await dbHelper.initDB();
 
-      String sql = 'SELECT * FROM alunos WHERE id = ?';
+      String sql = 'SELECT * FROM alunos WHERE id = ?;';
 
       final alunosList = await db.rawQuery(sql, [id]);
 
