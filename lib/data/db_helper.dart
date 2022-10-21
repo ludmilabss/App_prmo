@@ -18,14 +18,6 @@ class DBHelper {
     await db.execute(sql);
 
     sql =
-        'CREATE TABLE alunos (id INTEGER PRIMARY KEY, name varchar(100), email varchar(100), password varchar(100))';
-    await db.execute(sql);
-
-    sql =
-        "INSERT INTO alunos (id, name, email, matricula, password) VALUES (DEFAULT, 'Guilherme de Jesus', 'gui@gmail.com', '2020123456', '12345678')";
-    await db.execute(sql);
-
-    sql =
         "INSERT INTO MONITOR (id, name, email, password, monitor) VALUES (1, 'Antony Gabriel', 'antony@gmail.com', 'asagigante', true);";
     await db.execute(sql);
 
@@ -43,67 +35,78 @@ class DBHelper {
       // sql =
       // "INSERT INTO TURMAS (nome, turno, curso) VALUES ('911', 'matutino', 'Informática -');";
       // await database.execute(sql);
-      if (oldVersion == 2 && newVersion == 3) {
-        String sql =
-            "INSERT INTO TURMAS (nome, turno, curso) VALUES ('912', 'matutino', 'Informática - ');";
-        await database.execute(sql);
+    }
+    if (oldVersion == 2 && newVersion == 3) {
+      String sql =
+          "INSERT INTO TURMAS (nome, turno, curso) VALUES ('912', 'matutino', 'Informática - ');";
+      await database.execute(sql);
 
-        sql =
-            "INSERT INTO TURMAS (nome, turno, curso) VALUES ('913', 'matutino', 'Informática - ');";
-        await database.execute(sql);
+      sql =
+          "INSERT INTO TURMAS (nome, turno, curso) VALUES ('913', 'matutino', 'Informática - ');";
+      await database.execute(sql);
 
-        sql =
-            "INSERT INTO TURMAS (nome, turno, curso) VALUES ('914', 'matutino', 'Informática - ');";
-        await database.execute(sql);
+      sql =
+          "INSERT INTO TURMAS (nome, turno, curso) VALUES ('914', 'matutino', 'Informática - ');";
+      await database.execute(sql);
 
-        sql =
-            "INSERT INTO TURMAS (nome, turno, curso) VALUES ('921', 'vespertino', 'Informática - ');";
-        await database.execute(sql);
+      sql =
+          "INSERT INTO TURMAS (nome, turno, curso) VALUES ('921', 'vespertino', 'Informática - ');";
+      await database.execute(sql);
 
-        sql =
-            "INSERT INTO TURMAS (nome, turno, curso) VALUES ('922', 'vespertino', 'Informática - ');";
-        await database.execute(sql);
+      sql =
+          "INSERT INTO TURMAS (nome, turno, curso) VALUES ('922', 'vespertino', 'Informática - ');";
+      await database.execute(sql);
 
-        sql =
-            "INSERT INTO TURMAS (nome, turno, curso) VALUES ('923', 'vespertino', 'Informática - ');";
-        await database.execute(sql);
+      sql =
+          "INSERT INTO TURMAS (nome, turno, curso) VALUES ('923', 'vespertino', 'Informática - ');";
+      await database.execute(sql);
 
-        sql =
-            "INSERT INTO TURMAS (nome, turno, curso) VALUES ('924', 'vespertino', 'Informática - ');";
-        await database.execute(sql);
+      sql =
+          "INSERT INTO TURMAS (nome, turno, curso) VALUES ('924', 'vespertino', 'Informática - ');";
+      await database.execute(sql);
 
-        sql =
-            "INSERT INTO TURMAS (nome, turno, curso) VALUES ('411', 'matutino', 'Eletroeletrônica - ');";
-        await database.execute(sql);
+      sql =
+          "INSERT INTO TURMAS (nome, turno, curso) VALUES ('411', 'matutino', 'Eletroeletrônica - ');";
+      await database.execute(sql);
 
-        sql =
-            "INSERT INTO TURMAS (nome, turno, curso) VALUES ('412', 'matutino', 'Eletroeletrônica - ');";
-        await database.execute(sql);
+      sql =
+          "INSERT INTO TURMAS (nome, turno, curso) VALUES ('412', 'matutino', 'Eletroeletrônica - ');";
+      await database.execute(sql);
 
-        sql =
-            "INSERT INTO TURMAS (nome, turno, curso) VALUES ('413', 'matutino', 'Eletroeletrônica - ');";
-        await database.execute(sql);
+      sql =
+          "INSERT INTO TURMAS (nome, turno, curso) VALUES ('413', 'matutino', 'Eletroeletrônica - ');";
+      await database.execute(sql);
 
-        sql =
-            "INSERT INTO TURMAS (nome, turno, curso) VALUES ('414', 'matutino', 'Eletroeletrônica - ');";
-        await database.execute(sql);
+      sql =
+          "INSERT INTO TURMAS (nome, turno, curso) VALUES ('414', 'matutino', 'Eletroeletrônica - ');";
+      await database.execute(sql);
 
-        sql =
-            "INSERT INTO TURMAS (nome, turno, curso) VALUES ('421', 'vespertino', 'Eletroeletrônica - ');";
-        await database.execute(sql);
+      sql =
+          "INSERT INTO TURMAS (nome, turno, curso) VALUES ('421', 'vespertino', 'Eletroeletrônica - ');";
+      await database.execute(sql);
 
-        sql =
-            "INSERT INTO TURMAS (nome, turno, curso) VALUES ('422', 'vespertino', 'Eletroeletrônica - ');";
-        await database.execute(sql);
+      sql =
+          "INSERT INTO TURMAS (nome, turno, curso) VALUES ('422', 'vespertino', 'Eletroeletrônica - ');";
+      await database.execute(sql);
 
-        sql =
-            "INSERT INTO TURMAS (nome, turno, curso) VALUES ('423', 'vespertino', 'Eletroeletrônica - ');";
-        await database.execute(sql);
+      sql =
+          "INSERT INTO TURMAS (nome, turno, curso) VALUES ('423', 'vespertino', 'Eletroeletrônica - ');";
+      await database.execute(sql);
 
-        sql =
-            "INSERT INTO TURMAS (nome, turno, curso) VALUES ('424', 'vespertino', 'Eletroeletrônica - ');";
-        await database.execute(sql);
-      }
+      sql =
+          "INSERT INTO TURMAS (nome, turno, curso) VALUES ('424', 'vespertino', 'Eletroeletrônica - ');";
+      await database.execute(sql);
+    }
+
+    if (oldVersion == 3 && newVersion == 4) {
+      String sql =
+          'CREATE TABLE alunos (id varchar(100) PRIMARY KEY, name varchar(100), email varchar(100), matricula varchar(10), password varchar(100));';
+      await database.execute(sql);
+
+      sql =
+          "INSERT INTO alunos (id, name, email, matricula, password) VALUES ('gui@gmail.com', 'Guilherme de Jesus', 'gui@gmail.com', '2020123456', '12345678');";
+      await database.execute(sql);
+    
     }
   }
 
