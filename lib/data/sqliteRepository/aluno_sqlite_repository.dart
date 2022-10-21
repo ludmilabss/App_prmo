@@ -51,7 +51,7 @@ class AlunoSQLiteRepository implements IAlunoRepository {
       Database db = await dbHelper.initDB();
 
       String sql =
-          'INSERT INTO alunos (id, name, email, matricula, password) VALUES (DEFAULT, ?, ?, ?, ?)';
+          'INSERT INTO alunos (name, email, matricula, password) VALUES (?, ?, ?, ?)';
 
       await db.rawInsert(sql, [name, email, matricula, password]);
     } catch (error) {
