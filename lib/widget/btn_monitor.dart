@@ -14,7 +14,8 @@ class _BtnMonitorHomeState extends State<BtnMonitorHome> {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF6BC07D),
+          primary: const Color(0xFF6BC07D),
+          // backgroundColor: const Color(0xFF6BC07D),
           padding: const EdgeInsets.all(16),
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(32)
