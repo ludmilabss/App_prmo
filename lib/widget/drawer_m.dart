@@ -77,7 +77,7 @@ class _DrawerWidget1State extends State<DrawerWidget1> {
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const PerfilMonitor()));
+                  builder: (BuildContext context) => const PerfilPage()));
             },
           ),
           const Divider(),

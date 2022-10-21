@@ -1,3 +1,4 @@
+import 'package:app_prmo/domain/monitor.dart';
 import 'package:app_prmo/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import '../pages/editarsenha_page.dart';
@@ -7,7 +8,8 @@ import '../widget/drawer_m.dart';
 
 
 class PerfilMonitor extends StatefulWidget {
-  const PerfilMonitor({Key? key}) : super(key: key);
+  final Monitor lista;
+    PerfilMonitor({Key? key, required this.lista,}) : super(key: key);
 
   @override
   State<PerfilMonitor> createState() => _PerfilMonitorState();
@@ -20,7 +22,7 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
   bool _matricula = false;
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController matriculacontroller = TextEditingController();
-  var _email = "gln1@aluno.ifal.edu.br";
+  // var _email = "gln1@aluno.ifal.edu.br";
   var _matriculanum = "2020123456";
   String btn = "Editar Perfil";
   bool button = true;
@@ -95,7 +97,7 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
                         borderRadius: BorderRadius.circular(12.0),
                         //borderSide: BorderSide.none,
                       ),
-                      hintText: _email,
+                      hintText: widget.lista.email,
                       filled: true,
                       fillColor: Colors.white,
                     ),
@@ -159,7 +161,7 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
                         setState(() {
                           _matricula = !_matricula;
                           _emailinput = !_emailinput;
-                          _email = emailcontroller.text;
+                          // _email = emailcontroller.text;
                           _matriculanum = matriculacontroller.text;
                           button = !button;
                           if (button == false){
