@@ -1,5 +1,5 @@
-import 'package:app_prmo/controllers/aluno_controller.dart';
-import 'package:app_prmo/domain/aluno.dart';
+import 'package:app_prmo/controllers/usuario_controller.dart';
+import 'package:app_prmo/domain/usuario.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'login_page.dart';
@@ -131,14 +131,18 @@ class _CadastroPageState extends State<CadastroPage> {
     String typedEmail = emailController.text;
     String typedPassword = passwordController.text;
     String typedName = nameController.text;
-    //int typedMatricula = int.parse(matriculaController.text);
-    int typedMatricula = int.parse('1234567890');
-    AlunoController().criar(
-        id: typedEmail,
-        name: typedName,
-        password: typedPassword,
+    final typedMatricula = matriculaController.text != ''
+        ? int.parse(matriculaController.text)
+        : 0;
+    Usuario usuario = Usuario(
+        id: typedMatricula.toString(),
         email: typedEmail,
-        matricula: typedMatricula);
+        password: typedPassword,
+        name: typedName,
+        enrolmentCode: typedMatricula,
+        isMonitor: false,
+        isAdmin: false);
+    UsuarioController().criar(usuario: usuario);
     print('RESULTADO!?');
     //if (result) {
     Navigator.push(
