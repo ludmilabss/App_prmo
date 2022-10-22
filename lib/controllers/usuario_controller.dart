@@ -10,6 +10,7 @@ class UsuarioController {
   UsuarioService? usuarioService;
 
   Usuario emptyUsuario = Usuario(
+      id: '',
       email: '',
       enrolmentCode: 0,
       isAdmin: false,

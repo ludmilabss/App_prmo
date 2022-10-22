@@ -12,7 +12,7 @@ class UsuarioSQLiteRepository implements IUsuarioRepository {
       Database db = await dbHelper.initDB();
 
       String sql =
-          'UPDATE usuarios SET name = ?, email = ?, matricula = ?, password = ? WHERE id = ?;';
+          'UPDATE usuarios SET name = ?, email = ?, enrolmentCode = ?, password = ? WHERE id = ?;';
 
       await db.rawUpdate(sql, [
         updatedUsuario.name,
@@ -49,7 +49,7 @@ class UsuarioSQLiteRepository implements IUsuarioRepository {
       Database db = await dbHelper.initDB();
       print('ENTROUU NO REPOSITORY');
       String sql =
-          'INSERT INTO usuarios (id, name, email, matricula, password) VALUES (?, ?, ?, ?, ?);';
+          'INSERT INTO usuarios (id, name, email, enrolmentCode, password) VALUES (?, ?, ?, ?, ?);';
 
       await db.rawInsert(sql, [
         usuario.id,

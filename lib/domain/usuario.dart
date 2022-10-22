@@ -7,14 +7,22 @@ class Usuario {
   late bool isMonitor;
   late bool isAdmin;
 
-  Usuario({
-    required this.email,
-    required this.password,
-    required this.name,
-    required this.enrolmentCode,
-    required this.isMonitor,
-    required this.isAdmin,
-  });
+  Usuario(
+      {required String id,
+      required String email,
+      required String password,
+      required String name,
+      required int enrolmentCode,
+      required bool isMonitor,
+      required bool isAdmin}) {
+    this.id = enrolmentCode.toString();
+    this.email = email;
+    this.name = name;
+    this.enrolmentCode = enrolmentCode;
+    this.password = password;
+    this.isMonitor = isMonitor;
+    this.isAdmin = isAdmin;
+  }
 
   Usuario.fromJson(Map<String, dynamic> json) {
     email = json['email'];
