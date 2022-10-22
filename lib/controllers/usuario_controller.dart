@@ -31,6 +31,7 @@ class UsuarioController {
 
   void criar({required Usuario usuario}) {
     usuarioService?.criar(usuario: usuario);
+    print('resultado pesquisa: ${pesquisar(id: usuario.id)}');
   }
 
   void deletar({required String id}) {
