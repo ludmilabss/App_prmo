@@ -6,7 +6,8 @@ import '../interfaces/interface_usuario_repository.dart';
 
 class UsuarioSQLiteRepository implements IUsuarioRepository {
   @override
-  void atualizar({required Usuario updatedUsuario, required String id}) async {
+  Future<void> atualizar(
+      {required Usuario updatedUsuario, required String id}) async {
     try {
       DBHelper dbHelper = DBHelper();
       Database db = await dbHelper.initDB();
@@ -43,7 +44,7 @@ class UsuarioSQLiteRepository implements IUsuarioRepository {
   }
 
   @override
-  void criar({required Usuario usuario}) async {
+  Future<void> criar({required Usuario usuario}) async {
     try {
       DBHelper dbHelper = DBHelper();
       Database db = await dbHelper.initDB();
@@ -64,7 +65,7 @@ class UsuarioSQLiteRepository implements IUsuarioRepository {
   }
 
   @override
-  void deletar({required String id}) async {
+  Future<void> deletar({required String id}) async {
     try {
       DBHelper dbHelper = DBHelper();
       Database db = await dbHelper.initDB();

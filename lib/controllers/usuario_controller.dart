@@ -23,19 +23,20 @@ class UsuarioController {
     usuarioService = UsuarioService(usuarioRepository!);
   }
 
-  bool autenticar({required String email, required String password}) {
+  Future<bool> autenticar(
+      {required String email, required String password}) async {
     final result =
-        usuarioRepository?.autenticar(email: email, password: password);
-    return result != null ? result as bool : false;
+        await usuarioRepository?.autenticar(email: email, password: password);
+    return result ?? false;
   }
 
-  void criar({required Usuario usuario}) {
-    usuarioService?.criar(usuario: usuario);
+  Future<void> criar({required Usuario usuario}) async {
+    await usuarioService?.criar(usuario: usuario);
     print('resultado pesquisa: ${pesquisar(id: usuario.id)}');
   }
 
-  void deletar({required String id}) {
-    usuarioService?.deletar(id: id);
+  Future<void> deletar({required String id}) async {
+    await usuarioService?.deletar(id: id);
   }
 
   List<Usuario> listar() {
@@ -45,9 +46,9 @@ class UsuarioController {
     return result != null ? result as List<Usuario> : emptyList;
   }
 
-  Usuario pesquisar({required String id}) {
-    final result = usuarioService?.pesquisar(id: id);
+  Future<Usuario> pesquisar({required String id}) async {
+    final result = await usuarioService?.pesquisar(id: id);
 
-    return result != null ? result as Usuario : emptyUsuario;
+    return result ?? emptyUsuario;
   }
 }
