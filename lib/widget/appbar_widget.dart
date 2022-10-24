@@ -1,3 +1,4 @@
+import 'package:app_prmo/data/shared_preferences.dart';
 import 'package:app_prmo/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +22,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
       iconTheme: const IconThemeData(color: Colors.black),
       actions: [
         IconButton(onPressed: (){
+          SharedPrefs().logout();
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
