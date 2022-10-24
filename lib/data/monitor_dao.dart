@@ -30,9 +30,14 @@ class MonitorDao{
     return list.first;
   }
 
-  // Monitor listarMonitor({required List<Monitor> lista}){
-  //   Monitor monitor = lista.elementAt(0);
-  //
-  //   return monitor;
-  // }
+  Future<void> Atualizar({required String novoemail, required String email, required String password}) async{
+    DBHelper db1 = DBHelper();
+    Database db = await db1.initDB();
+
+    String sql = "UPDATE MONITOR SET email = ? WHERE email = ? AND password = ?;";
+    final result = db.rawUpdate(sql, [novoemail, email, password]);
+
+  }
+
+
 }

@@ -1,3 +1,4 @@
+import 'package:app_prmo/data/monitor_dao.dart';
 import 'package:app_prmo/domain/monitor.dart';
 import 'package:app_prmo/pages/login_page.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
   var _matriculanum = "2020123456";
   String btn = "Editar Perfil";
   bool button = true;
+  bool _hab = false;
 
   @override
   Widget build(BuildContext context) {
@@ -150,40 +152,55 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
                   const SizedBox(height: 30),
 
                   Center(
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: const Color(0xFF6BC07D),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(32), // <-- Radius
-                        ),
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          _matricula = !_matricula;
-                          _emailinput = !_emailinput;
-                          // _email = emailcontroller.text;
-                          _matriculanum = matriculacontroller.text;
-                          button = !button;
-                          if (button == false){
-                            btn = "Salvar";
-                          } else{
-                            btn = "Editar Perfil";
-                          }
-                        });
-                      },
-                      child:  Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Text( btn,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
+                    child: Column(
+                      children: [
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: const Color(0xFF6BC07D),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(32), // <-- Radius
+                            ),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _matricula = !_matricula;
+                              _emailinput = !_emailinput;
+                              // _email = emailcontroller.text;
+                              _matriculanum = matriculacontroller.text;
+                              button = !button;
+                              _hab = !_hab;
+                              if (button == false){
+                                btn = "Salvar";
+                              } else{
+                                btn = "Editar Perfil";
+                              }
+                            });
+                          },
+                          child:  Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Text( btn,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
+                        ElevatedButton(onPressed: () => MonitorDao().Atualizar(novoemail: emailcontroller.text, email: widget.lista.email, password: widget.lista.password), child:
+                        Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Text( btn,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),)
+                      ],
                     ),
                   ),
-
                 ],
               ),
             ),
@@ -195,5 +212,20 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
         ),
       ),
     );
+  }
+
+  void ontap(){
+    if(_hab){
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(
+              builder: (context){
+                return const EditarSenhaPage();
+              }
+          )
+      );
+    } else {
+          () {};
+    }
+
   }
 }
