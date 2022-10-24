@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:ffi';
+
 class Usuario {
   late String id;
   late String email;
@@ -39,8 +42,16 @@ class Usuario {
     data['password'] = password;
     data['name'] = name;
     data['enrolmentCode'] = enrolmentCode;
-    data['isMonitor'] = isMonitor;
-    data['isAdmin'] = isAdmin;
+    if (isMonitor) {
+      data['isMonitor'] = '1';
+    } else {
+      data['isMonitor'] = '0';
+    }
+    if (isAdmin) {
+      data['isAdmin'] = '1';
+    } else {
+      data['isAdmin'] = '0';
+    }
     return data;
   }
 }
