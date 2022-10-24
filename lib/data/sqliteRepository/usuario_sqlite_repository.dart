@@ -103,7 +103,7 @@ class UsuarioSQLiteRepository implements IUsuarioRepository {
       DBHelper dbHelper = DBHelper();
       Database db = await dbHelper.initDB();
 
-      String sql = 'SELECT * FROM usuarios WHERE id = ?';
+      String sql = 'SELECT * FROM usuarios WHERE id = ?;';
 
       final usuariosList = await db.rawQuery(sql, [id]);
 
