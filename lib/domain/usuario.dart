@@ -28,7 +28,7 @@ class Usuario {
     email = json['email'];
     password = json['password'];
     name = json['name'];
-    enrolmentCode = json['enrolmentCode'];
+    enrolmentCode = int.parse(json['enrolmentCode']);
     isMonitor = json['isMonitor'];
     isAdmin = json['isAdmin'];
   }
