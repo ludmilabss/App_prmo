@@ -32,7 +32,6 @@ class UsuarioController {
 
   Future<void> criar({required Usuario usuario}) async {
     await usuarioService?.criar(usuario: usuario);
-    print('resultado pesquisa: ${pesquisar(id: usuario.id)}');
   }
 
   Future<void> deletar({required String id}) async {
