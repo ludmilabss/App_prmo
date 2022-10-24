@@ -51,14 +51,15 @@ class UsuarioSQLiteRepository implements IUsuarioRepository {
       print('ENTROUU NO REPOSITORY');
       String sql =
           'INSERT INTO usuarios (id, name, email, enrolmentCode, password) VALUES (?, ?, ?, ?, ?);';
-
+/*
       await db.rawInsert(sql, [
         usuario.id,
         usuario.name,
         usuario.email,
         usuario.enrolmentCode,
         usuario.password
-      ]);
+      ]);*/
+      await db.insert('usuarios', usuario.toJson());
     } catch (error) {
       throw Exception(error);
     }
