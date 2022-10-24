@@ -113,9 +113,11 @@ class UsuarioSQLiteRepository implements IUsuarioRepository {
         Usuario usuario = Usuario.fromJson(json);
         usuarios.add(usuario);
       }
-
+      print(
+          'usuario encontrado: ${usuarios[0].isAdmin} ${usuarios[0].isMonitor} ');
       return usuarios[0];
     } catch (error) {
+      print('erro! ${error}');
       throw Exception(error);
     }
   }

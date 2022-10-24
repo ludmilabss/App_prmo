@@ -45,6 +45,7 @@ class _CadastroPageState extends State<CadastroPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(24),
                       child: Column(
+                        key: _formkey,
                         children: [
                           const SizedBox(height: 12),
                           buildContainer(s: "Nome", controller: nameController),
@@ -126,33 +127,50 @@ class _CadastroPageState extends State<CadastroPage> {
     );
   }
 
-  void onPressedBtn() async {
-    print('CHEGOU AQUI');
-    String typedEmail = emailController.text;
-    String typedPassword = passwordController.text;
-    String typedName = nameController.text;
-    final typedMatricula = matriculaController.text != ''
-        ? int.parse(matriculaController.text)
-        : 0;
-    Usuario usuario = Usuario(
-        id: typedMatricula.toString(),
-        email: typedEmail,
-        password: typedPassword,
-        name: typedName,
-        enrolmentCode: typedMatricula,
-        isMonitor: false,
-        isAdmin: false);
-    UsuarioController().criar(usuario: usuario);
-    print('RESULTADO!?');
-    //if (result) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) {
-          return const LoginPage();
-        },
-      ),
-    );
+  Future<void> onPressedBtn() async {
+    if (true) {
+      print('CHEGOU AQUI');
+      String typedEmail = emailController.text;
+      print('typedEmail: ${typedEmail} ');
+      String typedPassword = passwordController.text;
+      print('typedPassword: ${typedPassword} ');
+      String typedName = nameController.text;
+      print("typedName: ${typedName} ");
+      final typedMatricula = matriculaController.text != ''
+          ? int.parse(matriculaController.text)
+          : 0;
+      /*Usuario usuario = Usuario(
+          id: typedMatricula.toString(),
+          email: typedEmail,
+          password: typedPassword,
+          name: typedName,
+          enrolmentCode: typedMatricula,
+          isMonitor: false,
+          isAdmin: false);
+      */
+      Usuario usuario = Usuario(
+          id: '1231234567',
+          email: 'iemei',
+          password: '12345678',
+          name: 'lukas',
+          enrolmentCode: 1231234567,
+          isMonitor: false,
+          isAdmin: false);
+      await UsuarioController().criar(usuario: usuario);
+      await UsuarioController().pesquisar(id: usuario.id);
+      //if (result) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return const LoginPage();
+          },
+        ),
+      );
+    } else {
+      const snack = SnackBar(content: Text('Cadastro incompleto'));
+      ScaffoldMessenger.of(context).showSnackBar(snack);
+    }
     //  }
     /*
     if(_formkey.currentState!.validate()) {
