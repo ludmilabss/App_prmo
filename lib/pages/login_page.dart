@@ -1,4 +1,5 @@
 import 'package:app_prmo/data/monitor_dao.dart';
+import 'package:app_prmo/data/shared_preferences.dart';
 import 'package:app_prmo/monitor_pages/home_monitor.dart';
 import 'package:flutter/material.dart';
 import '/pages/cadastro_page.dart';
@@ -191,9 +192,13 @@ class _LoginPageState extends State<LoginPage> {
     if(_formKey.currentState!.validate()) {
       String userDigitado = usercontroller.text;
       String pswdDigitado = pswdcontroller.text;
+
+      //resultado obtido ao verificar se o email e senha inseridos pertencem a alguém do banco de dados
       bool result = await MonitorDao().autenticar(email: userDigitado, password: pswdDigitado);
 
       if (result) {
+        SharedPrefs().login();
+        //direciona para a home do monitor
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -203,11 +208,11 @@ class _LoginPageState extends State<LoginPage> {
           ),
         );
 
-      } else{
+      }else{
           const snack = SnackBar(content: Text('Login Incorreto'));
           ScaffoldMessenger.of(context).showSnackBar(snack);
-        }
-      }
       }
     }
+  }
+}
 
