@@ -29,8 +29,6 @@ class _CadastroPageState extends State<CadastroPage> {
           padding: const EdgeInsets.only(top: 12.0),
           child: ListView(
             children: [
-              Column(
-                children: [
                   Image.network(
                     'https://www2.ifal.edu.br/o-ifal/comunicacao/arquivos/logos/copy_of_IFALvertical.png',
                     height: 110,
@@ -44,27 +42,25 @@ class _CadastroPageState extends State<CadastroPage> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(24),
-                      child: Column(
+                    child: Form(
                         key: _formkey,
+                      child: Column(
                         children: [
                           const SizedBox(height: 12),
-                          buildContainer(s: "Nome", controller: nameController),
-                          const SizedBox(height: 16),
+                            buildContainer(
+                                s: "Nome", controller: nameController),
                           buildContainer(
                               s: "Email Institucional",
                               controller: emailController,
                               obs: false),
-                          const SizedBox(height: 16),
                           buildContainer(
                               s: "Número de Matrícula",
                               controller: matriculaController,
                               obs: false),
-                          const SizedBox(height: 16),
                           buildContainer(
                               s: "Senha",
                               controller: passwordController,
                               obs: true),
-                          const SizedBox(height: 16),
                           buildContainer(
                               s: "Confirmar senha",
                               controller: confirmPasswordController,
@@ -92,10 +88,7 @@ class _CadastroPageState extends State<CadastroPage> {
                             ),
                           ),
                         ],
-                      ),
-                    ),
-                  ),
-                ],
+                        ))),
               ),
             ],
           ),
@@ -109,12 +102,24 @@ class _CadastroPageState extends State<CadastroPage> {
     required TextEditingController controller,
     bool obs = false,
   }) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
+    return TextFormField(
+      controller: controller,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'O campo ${s} é obrigatório!';
+        }
+      },
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide.none,
       ),
-      child: Padding(
+        hintText: s,
+        fillColor: Colors.white,
+      ),
+
+      /*child: Padding(
         padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 2.0),
         child: TextFormField(
           decoration: InputDecoration(
@@ -124,6 +129,7 @@ class _CadastroPageState extends State<CadastroPage> {
           obscureText: obs,
         ),
       ),
+      */
     );
   }
 
