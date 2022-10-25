@@ -1,12 +1,14 @@
 import 'package:app_prmo/monitor_pages/home_monitor.dart';
 import 'package:app_prmo/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
+import '../domain/monitor.dart';
 import '../monitor_pages/atendimento_page.dart';
 import '../pages/calendario_page.dart';
 
 
 class DrawerWidget1 extends StatefulWidget {
-  const DrawerWidget1({Key? key}) : super(key: key);
+  final Monitor monitor;
+   const DrawerWidget1({Key? key,required this.monitor}) : super(key: key);
 
   @override
   State<DrawerWidget1> createState() => _DrawerWidget1State();
@@ -19,18 +21,18 @@ class _DrawerWidget1State extends State<DrawerWidget1> {
 
       child: ListView(
         children: [
-          const UserAccountsDrawerHeader(
+           UserAccountsDrawerHeader(
             accountName: Text(
-              'Beltrano Ferreira',
-              style: TextStyle(
+              widget.monitor.name,
+              style: const TextStyle(
                 color: Color(0xFFFFFFFF),
                 fontFamily: 'Roboto',
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            accountEmail: Text('bf1@aluno.ifal.edu.br'),
-            currentAccountPicture: CircleAvatar(
+            accountEmail:  Text(widget.monitor.email),
+            currentAccountPicture: const CircleAvatar(
               backgroundColor: Color(0xFFD9D9D9),
               child: Text(
                 'BF',
@@ -42,7 +44,7 @@ class _DrawerWidget1State extends State<DrawerWidget1> {
                 ),
               ),
             ),
-            decoration: BoxDecoration(color: Color(0xFF6BC07D)),
+            decoration: const BoxDecoration(color: Color(0xFF6BC07D)),
           ),
           ListTile(
             title: const Text(
@@ -58,7 +60,7 @@ class _DrawerWidget1State extends State<DrawerWidget1> {
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const HomeMonitor()));
+                  builder: (BuildContext context) =>  HomeMonitor(monitor: widget.monitor,)));
             },
           ),
           const Divider(),
@@ -94,7 +96,7 @@ class _DrawerWidget1State extends State<DrawerWidget1> {
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const AtendimentoPage()));
+                  builder: (BuildContext context) =>  AtendimentoPage(monitor: widget.monitor,)));
             },
           ),
           const Divider(),

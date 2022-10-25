@@ -5,8 +5,11 @@ import 'package:app_prmo/widget/drawer_m.dart';
 import 'package:flutter/material.dart';
 import 'package:app_prmo/data/BD.dart';
 
+import '../domain/monitor.dart';
+
 class HomeMonitor extends StatefulWidget {
-  const HomeMonitor({Key? key}) : super(key: key);
+  final Monitor monitor;
+  const HomeMonitor({Key? key, required this.monitor}) : super(key: key);
 
   @override
   State<HomeMonitor> createState() => _HomeMonitorState();
@@ -23,7 +26,7 @@ class _HomeMonitorState extends State<HomeMonitor> {
           if(snapshot.hasData){
             List<BtnMonitor> lista = snapshot.data ?? [];
             return Scaffold(
-              drawer: const DrawerWidget1(),
+              drawer:  DrawerWidget1(monitor: widget.monitor,),
               appBar: buildAppBar(),
               body: Padding(padding: const EdgeInsets.all(16), child: buildGridView(lista),),
             );

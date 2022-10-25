@@ -1,7 +1,6 @@
 import 'package:app_prmo/monitor_pages/home_monitor.dart';
 import 'package:app_prmo/pages/login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/shared_preferences.dart';
 
@@ -13,6 +12,8 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+  get monitor => null;
+
   @override
   void initState(){
     super.initState();
@@ -31,7 +32,7 @@ class _SplashPageState extends State<SplashPage> {
         context,
         MaterialPageRoute(
           builder: (context){
-            return const HomeMonitor();
+            return const LoginPage();
           },
         ),
       );

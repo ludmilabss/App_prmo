@@ -4,6 +4,7 @@ import '../data/monitor_dao.dart';
 import '../domain/monitor.dart';
 import '../pages/editarsenha_page.dart';
 import '../widget/drawer_m.dart';
+import 'editarsenha_pageM.dart';
 
 
 
@@ -22,16 +23,18 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
   bool _matricula = false;
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController matriculacontroller = TextEditingController();
-  var _email = "gln1@aluno.ifal.edu.br";
-  var _matriculanum = "2020123456";
+  late String email = widget.lista.email;
+  late String matriculanum = widget.lista.matricula;
+  late Color color = Colors.black12;
   String btn = "Editar Perfil";
   bool button = true;
+  bool tap = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: const DrawerWidget1(),
+      drawer:  DrawerWidget1(monitor: widget.lista,),
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: const Text(
@@ -92,10 +95,10 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  'GIANCARLO LÚCIO DO NASCIMENTO',
+                 Text(
+                  widget.lista.name,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.black,
                       fontSize: 24,
                       fontWeight: FontWeight.bold),
@@ -119,7 +122,7 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
                         borderRadius: BorderRadius.circular(12.0),
                         //borderSide: BorderSide.none,
                       ),
-                      hintText: _email,
+                      hintText: email,
                       filled: true,
                       fillColor: Colors.white,
                     ),
@@ -137,7 +140,7 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
                         borderRadius: BorderRadius.circular(12.0),
                         //borderSide: BorderSide.none,
                       ),
-                      hintText: _matriculanum,
+                      hintText: matriculanum,
                       filled: true,
                       fillColor: Colors.white,
                     ),
@@ -148,19 +151,11 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
                   const SizedBox(height: 22),
 
                   InkWell(
-                    onTap: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(
-                              builder: (context){
-                                return const EditarSenhaPage();
-                              }
-                          )
-                      );
-                    },
+                    onTap: onTap,
                     child:
-                    const Text("Editar Senha",
+                     Text("Editar Senha",
                       style: TextStyle(
-                        color: Colors.black,
+                        color: color,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline,
@@ -179,20 +174,7 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
                           borderRadius: BorderRadius.circular(32), // <-- Radius
                         ),
                       ),
-                      onPressed: () {
-                        setState(() {
-                          _matricula = !_matricula;
-                          _emailinput = !_emailinput;
-                          _email = emailcontroller.text;
-                          _matriculanum = matriculacontroller.text;
-                          button = !button;
-                          if (button == false){
-                            btn = "Salvar";
-                          } else{
-                            btn = "Editar Perfil";
-                          }
-                        });
-                      },
+                      onPressed: onPressed,
                       child:  Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Text( btn,
@@ -205,27 +187,74 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
                       ),
                     ),
                   ),
-                  ElevatedButton(onPressed: () => MonitorDao().Atualizar(novoemail: emailcontroller.text, email: widget.lista.email, password: widget.lista.password), child:
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Text( btn,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),)
+                  // ElevatedButton(onPressed: () => MonitorDao().Atualizar(novoemail: emailcontroller.text, email: widget.lista.email, password: widget.lista.password), child:
+                  // Padding(
+                  //   padding: const EdgeInsets.all(12.0),
+                  //   child: Text( btn,
+                  //     style: const TextStyle(
+                  //       color: Colors.white,
+                  //       fontSize: 24,
+                  //       fontWeight: FontWeight.bold,
+                  //     ),
+                  //   ),
+                  // ),)
                 ],
               ),
             ),
-
-
-
-
           ],
         ),
       ),
     );
+  }
+  void onPressed(){
+    if(button){
+      setState(() {
+        _matricula = !_matricula;
+        _emailinput = !_emailinput;
+        email = emailcontroller.text;
+        matriculanum = matriculacontroller.text;
+        button = !button;
+        if (button == false){
+          btn = "Salvar";
+          color = Colors.black;
+        } else{
+          btn = "Editar Perfil";
+          color = Colors.black12;
+        }
+      });
+    } else {
+      MonitorDao().Atualizar(novoemail: emailcontroller.text, email: widget.lista.email, password: widget.lista.password);
+      setState(() {
+        _matricula = !_matricula;
+        _emailinput = !_emailinput;
+        email = emailcontroller.text;
+        matriculanum = matriculacontroller.text;
+        button = !button;
+        if (button == false){
+          btn = "Salvar";
+          color = Colors.black;
+        } else{
+          btn = "Editar Perfil";
+          color = Colors.black12;
+        }
+      });
+      var snack = SnackBar(content: const Text('Alteração Concluída!'),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),);
+      ScaffoldMessenger.of(context).showSnackBar(snack);
+    }
+
+  }
+  void onTap(){
+    if(tap){
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(
+              builder: (context){
+                return EditarSenhaM(monitor: widget.lista,);
+              }
+          )
+      );
+    } else {
+      () {};
+    }
   }
 }

@@ -1,5 +1,4 @@
 import 'package:app_prmo/data/monitor_dao.dart';
-import 'package:app_prmo/monitor_pages/home_monitor.dart';
 import 'package:app_prmo/monitor_pages/perfil_m.dart';
 import 'package:flutter/material.dart';
 import '../domain/monitor.dart';
@@ -207,7 +206,8 @@ class _LoginPageState extends State<LoginPage> {
         );
 
       } else{
-          const snack = SnackBar(content: Text('Login Incorreto'));
+          var snack = SnackBar(content: Text('Login Incorreto'),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),);
           ScaffoldMessenger.of(context).showSnackBar(snack);
         }
       }

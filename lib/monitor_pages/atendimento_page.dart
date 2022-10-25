@@ -4,11 +4,13 @@ import 'package:app_prmo/pages/turmas_page.dart';
 import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 import '../data/atendimento_dao.dart';
+import '../domain/monitor.dart';
 import '../widget/drawer_m.dart';
 
 
 class AtendimentoPage extends StatefulWidget {
-  const AtendimentoPage({Key? key}) : super(key: key);
+  final Monitor monitor;
+  const AtendimentoPage({Key? key, required this.monitor}) : super(key: key);
   @override
   State<AtendimentoPage> createState() => _AtendimentoPageState();
 }
@@ -25,7 +27,7 @@ class _AtendimentoPageState extends State<AtendimentoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const DrawerWidget1(),
+      drawer:  DrawerWidget1(monitor: widget.monitor,),
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: const Text(

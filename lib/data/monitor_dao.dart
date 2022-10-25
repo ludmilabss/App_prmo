@@ -30,6 +30,8 @@ class MonitorDao{
     return list.first;
   }
 
+
+
   Future<void> Atualizar({required String novoemail, required String email, required String password}) async{
     DBHelper db1 = DBHelper();
     Database db = await db1.initDB();

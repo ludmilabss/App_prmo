@@ -15,13 +15,13 @@ class DBHelper{
   }
 
   Future<FutureOr<void>> onCreate(Database database, int version) async{
-    String sql = 'CREATE TABLE MONITOR (name varchar(100), email varchar(100), password varchar(100), matricula(10))';
+    String sql = 'CREATE TABLE MONITOR (name varchar(100), email varchar(100), password varchar(100), matricula varchar(10))';
     await database.execute(sql);
 
     sql = "INSERT INTO MONITOR (name, email, password, matricula) VALUES ('Antony Gabriel', 'antony@gmail.com', 'asagigante', '2020123456');";
     await database.execute(sql);
 
-    sql = "INSERT INTO MONITOR (name, email, password, matricula) VALUES (2, 'Maria Eduarda', 'eduarda@gmail.com', 'asameuamor', '1234567890');";
+    sql = "INSERT INTO MONITOR (name, email, password, matricula) VALUES ('Maria Eduarda', 'eduarda@gmail.com', 'asameuamor', '1234567890');";
     await database.execute(sql);
 
      sql = "CREATE TABLE TURMAS (nome varchar(100), turno varchar(100), curso varchar(100))";
