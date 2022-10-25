@@ -29,65 +29,65 @@ class _CadastroPageState extends State<CadastroPage> {
           padding: const EdgeInsets.only(top: 12.0),
           child: ListView(
             children: [
-                  Image.network(
-                    'https://www2.ifal.edu.br/o-ifal/comunicacao/arquivos/logos/copy_of_IFALvertical.png',
-                    height: 110,
-                    width: 110,
-                  ),
-                  const SizedBox(height: 16),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFD9D9D9),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(24),
+              Image.network(
+                'https://www2.ifal.edu.br/o-ifal/comunicacao/arquivos/logos/copy_of_IFALvertical.png',
+                height: 110,
+                width: 110,
+              ),
+              const SizedBox(height: 16),
+              Container(
+                decoration: BoxDecoration(
+                  color: const Color(0xFFD9D9D9),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Padding(
+                    padding: const EdgeInsets.all(24),
                     child: Form(
                         key: _formkey,
-                      child: Column(
-                        children: [
-                          const SizedBox(height: 12),
+                        child: Column(
+                          children: [
+                            const SizedBox(height: 12),
                             buildContainer(
                                 s: "Nome", controller: nameController),
-                          buildContainer(
-                              s: "Email Institucional",
-                              controller: emailController,
-                              obs: false),
-                          buildContainer(
-                              s: "Número de Matrícula",
-                              controller: matriculaController,
-                              obs: false),
-                          buildContainer(
-                              s: "Senha",
-                              controller: passwordController,
-                              obs: true),
-                          buildContainer(
-                              s: "Confirmar senha",
-                              controller: confirmPasswordController,
-                              obs: true),
-                          const SizedBox(height: 24),
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: const Color(0xFF6BC07D),
-                              shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.circular(32), // <-- Radius
+                            buildContainer(
+                                s: "Email Institucional",
+                                controller: emailController,
+                                obs: false),
+                            buildContainer(
+                                s: "Número de Matrícula",
+                                controller: matriculaController,
+                                obs: false),
+                            buildContainer(
+                                s: "Senha",
+                                controller: passwordController,
+                                obs: true),
+                            buildContainer(
+                                s: "Confirmar senha",
+                                controller: confirmPasswordController,
+                                obs: true),
+                            const SizedBox(height: 24),
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                primary: const Color(0xFF6BC07D),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.circular(32), // <-- Radius
+                                ),
                               ),
-                            ),
-                            onPressed: onPressedBtn,
-                            child: const Padding(
-                              padding: EdgeInsets.all(10.0),
-                              child: Text(
-                                'CADASTRAR',
-                                style: TextStyle(
-                                  color: Color(0xFFFFFFFF),
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
+                              onPressed: onPressedBtn,
+                              child: const Padding(
+                                padding: EdgeInsets.all(10.0),
+                                child: Text(
+                                  'CADASTRAR',
+                                  style: TextStyle(
+                                    color: Color(0xFFFFFFFF),
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
                         ))),
               ),
             ],
@@ -112,9 +112,9 @@ class _CadastroPageState extends State<CadastroPage> {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
         border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide.none,
-      ),
+        ),
         hintText: s,
         fillColor: Colors.white,
       ),
@@ -134,7 +134,7 @@ class _CadastroPageState extends State<CadastroPage> {
   }
 
   Future<void> onPressedBtn() async {
-    if (true) {
+    if (_formkey.currentState!.validate()) {
       print('CHEGOU AQUI');
       String typedEmail = emailController.text;
       print('typedEmail: ${typedEmail} ');
@@ -145,7 +145,8 @@ class _CadastroPageState extends State<CadastroPage> {
       final typedMatricula = matriculaController.text != ''
           ? int.parse(matriculaController.text)
           : 0;
-      /*Usuario usuario = Usuario(
+          print('typedMatricula: ${typedMatricula}');
+      Usuario usuario = Usuario(
           id: typedMatricula.toString(),
           email: typedEmail,
           password: typedPassword,
@@ -153,8 +154,8 @@ class _CadastroPageState extends State<CadastroPage> {
           enrolmentCode: typedMatricula,
           isMonitor: false,
           isAdmin: false);
-      */
-      Usuario usuario = Usuario(
+      
+      /*Usuario usuario = Usuario(
           id: '1231234567',
           email: 'iemei',
           password: '12345678',
@@ -162,6 +163,7 @@ class _CadastroPageState extends State<CadastroPage> {
           enrolmentCode: 1231234567,
           isMonitor: false,
           isAdmin: false);
+        */
       await UsuarioController().criar(usuario: usuario);
       await UsuarioController().pesquisar(id: usuario.id);
       //if (result) {

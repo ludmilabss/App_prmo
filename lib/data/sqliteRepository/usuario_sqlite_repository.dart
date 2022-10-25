@@ -109,13 +109,14 @@ class UsuarioSQLiteRepository implements IUsuarioRepository {
       final usuariosList = await db.rawQuery(sql, [id]);
 
       List<Usuario> usuarios = <Usuario>[];
+      Usuario usuario = Usuario(id: '0', email: 'email', password: 'password', name: 'name', enrolmentCode: 0, isMonitor: false, isAdmin: false);
       for (var json in usuariosList) {
-        Usuario usuario = Usuario.fromJson(json);
+        usuario = Usuario.fromJson(json);
         usuarios.add(usuario);
       }
       print(
-          'usuario encontrado: ${usuarios[0].isAdmin} ${usuarios[0].isMonitor} ');
-      return usuarios[0];
+          'usuario encontrado: ${usuario.name} ');
+      return usuario;
     } catch (error) {
       print('erro! ${error}');
       throw Exception(error);
