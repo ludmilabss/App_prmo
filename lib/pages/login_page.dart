@@ -1,6 +1,8 @@
 import 'package:app_prmo/data/monitor_dao.dart';
 import 'package:app_prmo/monitor_pages/home_monitor.dart';
+import 'package:app_prmo/monitor_pages/perfil_m.dart';
 import 'package:flutter/material.dart';
+import '../domain/monitor.dart';
 import '/pages/cadastro_page.dart';
 
 
@@ -192,12 +194,14 @@ class _LoginPageState extends State<LoginPage> {
       String pswdDigitado = pswdcontroller.text;
       bool result = await MonitorDao().autenticar(email: userDigitado, password: pswdDigitado);
 
+
       if (result) {
+        Monitor lista = await MonitorDao().listar(email: userDigitado, password: pswdDigitado);
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: (context) {
-              return const HomeMonitor();
+              return  PerfilMonitor(lista: lista);
             },
           ),
         );

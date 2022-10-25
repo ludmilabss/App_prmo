@@ -28,7 +28,7 @@ class BD{
   ];
 
   static List<BtnMonitor> btn = [
-    BtnMonitor(text: "Perfil", icone: Icons.person, classe: const PerfilMonitor()),
+    BtnMonitor(text: "Perfil", icone: Icons.person, classe: const PerfilPage()),
     BtnMonitor(text: "Calendário", icone: Icons.calendar_today_outlined, classe:  CalendarioPage()),
     BtnMonitor(text: "Frequência", icone: Icons.assignment_outlined, classe: const PerfilPage()),
     BtnMonitor(text: "Atendimento", icone: Icons.group, classe: const AtendimentoPage()),

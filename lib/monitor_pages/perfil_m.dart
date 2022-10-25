@@ -1,12 +1,15 @@
 import 'package:app_prmo/pages/login_page.dart';
 import 'package:flutter/material.dart';
+import '../data/monitor_dao.dart';
+import '../domain/monitor.dart';
 import '../pages/editarsenha_page.dart';
 import '../widget/drawer_m.dart';
 
 
 
 class PerfilMonitor extends StatefulWidget {
-  const PerfilMonitor({Key? key}) : super(key: key);
+  final Monitor lista;
+  const PerfilMonitor({Key? key, required this.lista}) : super(key: key);
 
   @override
   State<PerfilMonitor> createState() => _PerfilMonitorState();
@@ -202,7 +205,17 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
                       ),
                     ),
                   ),
-
+                  ElevatedButton(onPressed: () => MonitorDao().Atualizar(novoemail: emailcontroller.text, email: widget.lista.email, password: widget.lista.password), child:
+                  Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Text( btn,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),)
                 ],
               ),
             ),

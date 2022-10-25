@@ -2,16 +2,16 @@ class Monitor{
   late String email;
   late String password;
   late String name;
-  late bool monitor;
+  late String matricula;
 
 
-  Monitor({required this.email, required this.password, required this.name, required this.monitor});
+  Monitor({required this.email, required this.password, required this.name, required this.matricula});
 
   Monitor.fromJson(Map<String, dynamic> json) {
     email = json['email'];
     password = json['password'];
     name = json['name'];
-    monitor = json['monitor'];
+    matricula = json['matricula'];
   }
 
   Map<String, dynamic> toJson() {
@@ -19,7 +19,7 @@ class Monitor{
     data['email'] = email;
     data['password'] = password;
     data['name'] = name;
-    data['monitor'] = monitor;
+    data['matricula'] = matricula;
     return data;
   }
 }
