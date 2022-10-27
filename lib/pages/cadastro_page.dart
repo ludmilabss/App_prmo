@@ -12,6 +12,7 @@ class CadastroPage extends StatefulWidget {
 }
 
 class _CadastroPageState extends State<CadastroPage> {
+  bool _showPassword = false;
   final _formkey = GlobalKey<FormState>();
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -48,23 +49,25 @@ class _CadastroPageState extends State<CadastroPage> {
                           children: [
                             const SizedBox(height: 12),
                             buildContainer(
-                                s: "Nome", controller: nameController),
+                                s: "Nome",
+                                controller: nameController,
+                                obscureField: false),
                             buildContainer(
                                 s: "Email Institucional",
                                 controller: emailController,
-                                obs: false),
+                                obscureField: false),
                             buildContainer(
                                 s: "Número de Matrícula",
                                 controller: matriculaController,
-                                obs: false),
+                                obscureField: false),
                             buildContainer(
                                 s: "Senha",
                                 controller: passwordController,
-                                obs: true),
+                                obscureField: true),
                             buildContainer(
                                 s: "Confirmar senha",
                                 controller: confirmPasswordController,
-                                obs: true),
+                                obscureField: true),
                             const SizedBox(height: 24),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
@@ -100,7 +103,7 @@ class _CadastroPageState extends State<CadastroPage> {
   buildContainer({
     required String s,
     required TextEditingController controller,
-    bool obs = false,
+    required bool obscureField,
   }) {
     return TextFormField(
       controller: controller,
@@ -117,7 +120,23 @@ class _CadastroPageState extends State<CadastroPage> {
         ),
         hintText: s,
         fillColor: Colors.white,
+        suffixIcon: obscureField
+            ? GestureDetector(
+                child: Icon(
+                  _showPassword == false
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  color: Colors.grey,
+                ),
+                onTap: () {
+                  setState(() {
+                    _showPassword = !_showPassword;
+                  });
+                },
+              )
+            : null,
       ),
+      obscureText: _showPassword == false && obscureField ? true : false,
 
       /*child: Padding(
         padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 2.0),
@@ -145,7 +164,7 @@ class _CadastroPageState extends State<CadastroPage> {
       final typedMatricula = matriculaController.text != ''
           ? int.parse(matriculaController.text)
           : 0;
-          print('typedMatricula: ${typedMatricula}');
+      print('typedMatricula: ${typedMatricula}');
       Usuario usuario = Usuario(
           id: typedMatricula.toString(),
           email: typedEmail,
@@ -154,7 +173,7 @@ class _CadastroPageState extends State<CadastroPage> {
           enrolmentCode: typedMatricula,
           isMonitor: false,
           isAdmin: false);
-      
+
       /*Usuario usuario = Usuario(
           id: '1231234567',
           email: 'iemei',
