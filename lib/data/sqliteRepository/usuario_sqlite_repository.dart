@@ -34,7 +34,7 @@ class UsuarioSQLiteRepository implements IUsuarioRepository {
       DBHelper dbHelper = DBHelper();
       Database db = await dbHelper.initDB();
 
-      String sql = 'SELECT * FROM monitor WHERE email = ? AND password = ?;';
+      String sql = 'SELECT * FROM usuarios WHERE email = ? AND password = ?;';
       final result = await db.rawQuery(sql, [email, password]);
 
       return result.isNotEmpty;
