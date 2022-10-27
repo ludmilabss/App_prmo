@@ -52,18 +52,22 @@ class _CadastroPageState extends State<CadastroPage> {
                                 s: "Nome",
                                 controller: nameController,
                                 obscureField: false),
+                            const SizedBox(height: 12),
                             buildContainer(
                                 s: "Email Institucional",
                                 controller: emailController,
                                 obscureField: false),
+                            const SizedBox(height: 12),
                             buildContainer(
                                 s: "Número de Matrícula",
                                 controller: matriculaController,
                                 obscureField: false),
+                            const SizedBox(height: 12),
                             buildContainer(
                                 s: "Senha",
                                 controller: passwordController,
                                 obscureField: true),
+                            const SizedBox(height: 12),
                             buildContainer(
                                 s: "Confirmar senha",
                                 controller: confirmPasswordController,
@@ -119,6 +123,7 @@ class _CadastroPageState extends State<CadastroPage> {
           borderSide: BorderSide.none,
         ),
         hintText: s,
+        filled: true,
         fillColor: Colors.white,
         suffixIcon: obscureField
             ? GestureDetector(
