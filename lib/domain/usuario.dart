@@ -28,16 +28,26 @@ class Usuario {
   }
 
   Usuario.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     email = json['email'];
     password = json['password'];
     name = json['name'];
     enrolmentCode = int.parse(json['enrolmentCode']);
-    isMonitor = json['isMonitor'];
-    isAdmin = json['isAdmin'];
+    if (json['isMonitor'] == 1) {
+      isMonitor = true;
+    } else {
+      isMonitor = false;
+    }
+    if (json['isAdmin'] == 1) {
+      isAdmin = true;
+    } else {
+      isAdmin = false;
+    }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
     data['email'] = email;
     data['password'] = password;
     data['name'] = name;
