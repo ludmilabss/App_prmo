@@ -21,17 +21,16 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
               fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),
-
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: [
             const SizedBox(height: 20),
 
-
             //PADDING PRA FAZER OS CAMPOS DE SENHA ATUAL NOVA SENHA E CONFIRMAR NOVA SENHA
             Padding(
-              padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 2.0),
+              padding:
+                  const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 2.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -48,9 +47,7 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
                     ),
                     obscureText: true,
                   ),
-
                   const SizedBox(height: 15),
-
                   const Text("Nova senha"),
                   const SizedBox(height: 10),
                   TextFormField(
@@ -64,9 +61,7 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
                     ),
                     obscureText: true,
                   ),
-
                   const SizedBox(height: 15),
-
                   const Text("Confirmar nova senha"),
                   const SizedBox(height: 10),
                   TextFormField(
@@ -80,33 +75,29 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
                     ),
                     obscureText: true,
                   ),
-
                   const SizedBox(height: 25),
-
                   Row(
                     children: [
-
                       const SizedBox(width: 8),
-
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          //backgroundColor: const Color(0xFF6BC07D),
                           primary: const Color(0xFF6BC07D),
+                          // backgroundColor: const Color(0xFF6BC07D),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(32), // <-- Radius
+                            borderRadius:
+                                BorderRadius.circular(32), // <-- Radius
                           ),
                         ),
-                        onPressed: () {Navigator.pushReplacement(context,
-                            MaterialPageRoute(
-                                builder: (context){
-                                  return const PerfilPage();
-                                }
-                            )
-                        );
+                        onPressed: () {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const PerfilPage();
+                          }));
                         },
-                        child:  const Padding(
+                        child: const Padding(
                           padding: EdgeInsets.all(12.0),
-                          child: Text( "Cancelar",
+                          child: Text(
+                            "Cancelar",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
@@ -115,29 +106,25 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
                           ),
                         ),
                       ),
-
-
                       const SizedBox(width: 92),
-
-
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           primary: const Color(0xFF6BC07D),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(32), // <-- Radius
+                            borderRadius:
+                                BorderRadius.circular(32), // <-- Radius
                           ),
                         ),
-                        onPressed: () {Navigator.pushReplacement(context,
-                            MaterialPageRoute(
-                                builder: (context){
-                                  return const PerfilPage();
-                                }
-                            )
-                        );
+                        onPressed: () {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) {
+                            return const PerfilPage();
+                          }));
                         },
-                        child:  const Padding(
+                        child: const Padding(
                           padding: EdgeInsets.all(12.0),
-                          child: Text( "Salvar",
+                          child: Text(
+                            "Salvar",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
@@ -151,16 +138,9 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
                 ],
               ),
             ),
-
-
-
-
           ],
         ),
       ),
-
-
-
     );
   }
 }
