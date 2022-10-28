@@ -23,6 +23,11 @@ class UsuarioController {
     usuarioService = UsuarioService(usuarioRepository!);
   }
 
+  Future<void> atualizar(
+      {required Usuario updatedUsuario, required String id}) async {
+    await usuarioRepository?.atualizar(updatedUsuario: updatedUsuario, id: id);
+  }
+
   Future<bool> autenticar(
       {required String email, required String password}) async {
     final result =
