@@ -1,7 +1,7 @@
-import 'package:app_prmo/backend/controllers/usuario_controller.dart';
-import 'package:app_prmo/backend/domain/usuario.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
+import '../backend/modules/usuario/usuario.dart';
+import '../backend/modules/usuario/usuario_controller.dart';
 import 'login_page.dart';
 
 class CadastroPage extends StatefulWidget {

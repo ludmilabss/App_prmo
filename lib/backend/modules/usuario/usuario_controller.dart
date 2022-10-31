@@ -1,6 +1,6 @@
-import 'package:app_prmo/backend/data/sqliteRepository/usuario_sqlite_repository.dart';
-import 'package:app_prmo/backend/domain/usuario.dart';
-import 'package:app_prmo/backend/services/usuario_service.dart';
+import 'repository/usuario_sqlite_repository.dart';
+import 'usuario.dart';
+import 'usuario_service.dart';
 
 class UsuarioController {
   UsuarioSQLiteRepository? usuarioRepository;

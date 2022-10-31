@@ -1,6 +1,6 @@
-import 'package:app_prmo/backend/controllers/usuario_controller.dart';
 import 'package:app_prmo/monitor_pages/home_monitor.dart';
 import 'package:flutter/material.dart';
+import '../backend/modules/usuario/usuario_controller.dart';
 import '/pages/cadastro_page.dart';
 
 class LoginPage extends StatefulWidget {
