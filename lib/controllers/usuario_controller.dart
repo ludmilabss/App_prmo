@@ -45,6 +45,20 @@ class UsuarioController {
     return result != null ? result as List<Usuario> : emptyList;
   }
 
+  Future<void> atualizar({ required String id, required Usuario usuario}) async {
+    usuarioService?.atualizar(id: id, usuario: usuario);
+  }
+
+  Future<Usuario> pesquisarPorEmail({ required String email }) async {
+    final result = await listar();
+    final resultado = result.map((usuario) {
+      if(usuario.email == email) {
+        return usuario;
+      }
+    });
+    return resultado as Usuario;
+  }
+
   Future<Usuario> pesquisar({required String id}) async {
     final result = await usuarioService?.pesquisar(id: id);
 
