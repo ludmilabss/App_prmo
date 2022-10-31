@@ -1,4 +1,5 @@
 import 'package:app_prmo/pages/perfil_page.dart';
+import 'package:app_prmo/widget/appbar_widget.dart';
 import 'package:flutter/material.dart';
 import '../data/monitor_dao.dart';
 import '../domain/monitor.dart';
@@ -23,22 +24,13 @@ class _EditarSenhaMState extends State<EditarSenhaM> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: const Text(
-          'PERFIL',
-          style: TextStyle(
-              fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold),
-        ),
-      ),
+      appBar:const AppBarWidget(title: 'EDITAR SENHA'),
 
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: [
             const SizedBox(height: 20),
-
-
             //PADDING PRA FAZER OS CAMPOS DE SENHA ATUAL NOVA SENHA E CONFIRMAR NOVA SENHA
             Padding(
               padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 2.0),
@@ -47,20 +39,6 @@ class _EditarSenhaMState extends State<EditarSenhaM> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // const Text("Senha atual"),
-                    // const SizedBox(height: 10),
-                    // TextFormField(
-                    //
-                    //   decoration: InputDecoration(
-                    //     border: OutlineInputBorder(
-                    //       borderRadius: BorderRadius.circular(12.0),
-                    //       //borderSide: BorderSide.none,
-                    //     ),
-                    //     filled: true,
-                    //     fillColor: Colors.white,
-                    //   ),
-                    //   obscureText: true,
-                    // ),
                     const SizedBox(height: 15),
 
                     const Text("Nova senha"),

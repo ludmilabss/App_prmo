@@ -1,4 +1,5 @@
 import 'package:app_prmo/pages/login_page.dart';
+import 'package:app_prmo/widget/appbar_widget.dart';
 import 'package:flutter/material.dart';
 import '../data/monitor_dao.dart';
 import '../domain/monitor.dart';
@@ -35,30 +36,7 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
     return Scaffold(
       backgroundColor: Colors.white,
       drawer:  DrawerWidget1(monitor: widget.lista,),
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: const Text(
-          'PERFIL',
-          style: TextStyle(
-              fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {Navigator.pushReplacement(context,
-                  MaterialPageRoute(
-                      builder: (context){
-                        return const LoginPage();
-                      }
-                  )
-              );
-              },
-              icon: const Icon(
-                Icons.exit_to_app,
-                color: Colors.black,
-              ))
-        ],
-      ),
-
+      appBar: const AppBarWidget(title: 'PERFIL'),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
@@ -187,17 +165,6 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
                       ),
                     ),
                   ),
-                  // ElevatedButton(onPressed: () => MonitorDao().Atualizar(novoemail: emailcontroller.text, email: widget.lista.email, password: widget.lista.password), child:
-                  // Padding(
-                  //   padding: const EdgeInsets.all(12.0),
-                  //   child: Text( btn,
-                  //     style: const TextStyle(
-                  //       color: Colors.white,
-                  //       fontSize: 24,
-                  //       fontWeight: FontWeight.bold,
-                  //     ),
-                  //   ),
-                  // ),)
                 ],
               ),
             ),

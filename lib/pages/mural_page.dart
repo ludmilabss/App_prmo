@@ -1,3 +1,4 @@
+import 'package:app_prmo/widget/appbar_widget.dart';
 import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -14,17 +15,7 @@ class _MuralPageState extends State<MuralPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const DrawerWidget(),
-      appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
-        title: const Text(
-          'MURAL',
-          style: TextStyle(fontSize: 24,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+      appBar: const AppBarWidget(title: 'MURAL'),
       backgroundColor: Colors.white,
       body: ListView(
           children: [

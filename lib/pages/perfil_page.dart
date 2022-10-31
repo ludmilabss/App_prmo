@@ -1,4 +1,5 @@
 import 'package:app_prmo/pages/login_page.dart';
+import 'package:app_prmo/widget/appbar_widget.dart';
 import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -28,30 +29,7 @@ class _PerfilPageState extends State<PerfilPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       drawer: const DrawerWidget(),
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: const Text(
-          'PERFIL',
-          style: TextStyle(
-              fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {Navigator.pushReplacement(context,
-                  MaterialPageRoute(
-                      builder: (context){
-                        return const LoginPage();
-                      }
-                  )
-              );
-              },
-              icon: const Icon(
-                Icons.exit_to_app,
-                color: Colors.black,
-              ))
-        ],
-      ),
-
+      appBar: const AppBarWidget(title: 'PERFIL'),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(

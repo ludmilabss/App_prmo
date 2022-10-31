@@ -1,6 +1,7 @@
 import 'package:app_prmo/data/turma_dao.dart';
 import 'package:app_prmo/domain/turmas.dart';
 import 'package:app_prmo/widget/Turma.dart';
+import 'package:app_prmo/widget/appbar_widget.dart';
 import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 import '../data/BD.dart';
@@ -36,17 +37,7 @@ class _TurmasPageState extends State<TurmasPage> {
   }
 
   buildAppbar(){
-    return AppBar(
-      backgroundColor: Colors.white,
-        title: const Text(
-          "TURMAS",
-          style: TextStyle(
-            fontSize: 24,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-    );
+    return const AppBarWidget(title: 'TURMAS');
   }
   
   buildListViewBuilder(List<Turmas> list) {

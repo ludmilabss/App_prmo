@@ -1,3 +1,4 @@
+import 'package:app_prmo/widget/appbar_widget.dart';
 import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -15,16 +16,7 @@ class _TelaPageState extends State<TelaPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const DrawerWidget(),
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: const Text(
-          'PROGRAMAÇÃO WEB',
-          style: TextStyle(fontSize: 24,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+      appBar: const AppBarWidget(title: 'PROGRAMAÇÃO WEB'),
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
