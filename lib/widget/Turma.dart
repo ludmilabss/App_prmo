@@ -1,11 +1,13 @@
 import 'package:app_prmo/domain/turmas.dart';
 import 'package:flutter/material.dart';
 
+import '../domain/usuario.dart';
 import '../pages/materias_page.dart';
 
 class CardTurma extends StatefulWidget {
   final Turmas turma;
-  const CardTurma({Key? key, required this.turma}) : super(key: key);
+  final Usuario user;
+  const CardTurma({Key? key, required this.turma, required this.user}) : super(key: key);
 
   @override
   State<CardTurma> createState() => _CardTurmaState();
@@ -61,7 +63,7 @@ class _CardTurmaState extends State<CardTurma> {
       context,
       MaterialPageRoute(
         builder: (context) {
-          return const MateriasPage();
+          return  MateriasPage(user: widget.user,);
         },
       ),
     );

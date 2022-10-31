@@ -1,6 +1,7 @@
 //import 'package:app_prmo/data/turma_dao.dart';
 import 'package:app_prmo/data/turma_dao.dart';
 import 'package:app_prmo/domain/turmas.dart';
+import 'package:app_prmo/domain/usuario.dart';
 import 'package:app_prmo/widget/Turma.dart';
 import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,8 @@ import '../data/BD.dart';
 import '../widget/appbar_widget.dart';
 
 class TurmasPage extends StatefulWidget {
-  const TurmasPage({Key? key}) : super(key: key);
+  final Usuario user;
+  const TurmasPage({Key? key, required this.user}) : super(key: key);
   @override
   State<TurmasPage> createState() => _TurmasPageState();
 }
@@ -26,7 +28,7 @@ class _TurmasPageState extends State<TurmasPage> {
             List<Turmas> l = snapshot.data ?? [];
             
             return Scaffold(
-              drawer: const DrawerWidget(),
+              drawer:  DrawerWidget(user: widget.user,),
               appBar: const AppBarWidget(title: 'TURMAS'),
               body: buildListViewBuilder(l),
             );
@@ -41,7 +43,7 @@ class _TurmasPageState extends State<TurmasPage> {
     return Padding(padding: const EdgeInsets.all(16.0),
         child: ListView.builder(itemCount: list.length,
         itemBuilder: (context, index) {
-          return CardTurma(turma: list[index]);
+          return CardTurma(turma: list[index], user: widget.user,);
         }
       ),
     );

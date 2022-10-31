@@ -1,3 +1,4 @@
+import 'package:app_prmo/domain/usuario.dart';
 import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -7,6 +8,9 @@ import '../widget/appbar_widget.dart';
 
 
 class CalendarioPage extends StatefulWidget {
+  final Usuario user;
+
+  const CalendarioPage({super.key, required this.user});
  @override
  _CalendarioPageState createState() => _CalendarioPageState();
 }
@@ -24,7 +28,7 @@ class _CalendarioPageState extends State<CalendarioPage> {
  @override
  Widget build(BuildContext context) {
    return Scaffold(
-     drawer: const DrawerWidget(),
+     drawer:  DrawerWidget(user: widget.user,),
      appBar: const AppBarWidget(title: 'CALENDÁRIO'),
      body: Padding(
        padding: const EdgeInsets.all(16.0),

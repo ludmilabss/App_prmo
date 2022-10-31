@@ -1,10 +1,12 @@
+import 'package:app_prmo/domain/usuario.dart';
 import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/calendario_page.dart';
 
 class TelaPage extends StatefulWidget {
-  const TelaPage({Key? key}) : super(key: key);
+  final Usuario user;
+  const TelaPage({Key? key, required this.user}) : super(key: key);
 
   @override
   State<TelaPage> createState() => _TelaPageState();
@@ -14,7 +16,7 @@ class _TelaPageState extends State<TelaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const DrawerWidget(),
+      drawer:  DrawerWidget(user: widget.user,),
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: const Text(
@@ -59,7 +61,7 @@ class _TelaPageState extends State<TelaPage> {
                         context,
                         MaterialPageRoute(
                         builder: (context) {
-                      return CalendarioPage();
+                      return CalendarioPage(user: widget.user,);
                     },
                         ),
                     );

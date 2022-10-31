@@ -1,3 +1,4 @@
+import 'package:app_prmo/domain/usuario.dart';
 import 'package:app_prmo/pages/mural_page.dart';
 import 'package:app_prmo/widget/appbar_widget.dart';
 import 'package:app_prmo/widget/drawer.dart';
@@ -5,7 +6,8 @@ import 'package:flutter/material.dart';
 import '../monitor_pages/monitor_page.dart';
 
 class MateriasPage extends StatefulWidget {
-  const MateriasPage({Key? key}) : super(key: key);
+  final Usuario user;
+  const MateriasPage({Key? key, required this.user}) : super(key: key);
 
   @override
   State<MateriasPage> createState() => _MateriasPageState();
@@ -15,7 +17,7 @@ class _MateriasPageState extends State<MateriasPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const DrawerWidget(),
+      drawer:  DrawerWidget(user: widget.user,),
       appBar: const AppBarWidget(title: 'MATÉRIAS'),
       backgroundColor: Colors.white,
       body: Padding(
@@ -135,7 +137,7 @@ class _MateriasPageState extends State<MateriasPage> {
       context,
       MaterialPageRoute(
         builder: (context) {
-          return const MuralPage();
+          return  MuralPage(user: widget.user,);
         },
       ),
     );

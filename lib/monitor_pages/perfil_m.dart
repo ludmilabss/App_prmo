@@ -222,7 +222,7 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
       Navigator.pushReplacement(context,
           MaterialPageRoute(
               builder: (context){
-                return const EditarSenhaPage();
+                return  EditarSenhaPage(user: widget.lista,);
               }
           )
       );

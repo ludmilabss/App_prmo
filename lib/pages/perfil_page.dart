@@ -1,3 +1,4 @@
+import 'package:app_prmo/domain/usuario.dart';
 import 'package:app_prmo/pages/login_page.dart';
 import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +7,8 @@ import '../widget/appbar_widget.dart';
 import 'editarsenha_page.dart';
 
 class PerfilPage extends StatefulWidget {
-  const PerfilPage({Key? key}) : super(key: key);
+  final Usuario user;
+  const PerfilPage({Key? key, required this.user}) : super(key: key);
 
   @override
   State<PerfilPage> createState() => _PerfilPageState();
@@ -28,7 +30,7 @@ class _PerfilPageState extends State<PerfilPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: const DrawerWidget(),
+      drawer:  DrawerWidget(user: widget.user,),
       appBar: const AppBarWidget(title: 'PERFIL'),
 
       body: Padding(
@@ -127,7 +129,7 @@ class _PerfilPageState extends State<PerfilPage> {
                       Navigator.pushReplacement(context,
                           MaterialPageRoute(
                               builder: (context){
-                                return const EditarSenhaPage();
+                                return  EditarSenhaPage(user: widget.user,);
                               }
                           )
                       );

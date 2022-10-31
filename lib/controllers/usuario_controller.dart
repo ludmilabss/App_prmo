@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:app_prmo/data/sqliteRepository/usuario_sqlite_repository.dart';
 import 'package:app_prmo/services/usuario_service.dart';
 
@@ -38,11 +40,11 @@ class UsuarioController {
     await usuarioService?.deletar(id: id);
   }
 
-  List<Usuario> listar() {
-    final result = usuarioService?.listar();
+  Future<List<Usuario>> listar() async {
+    final result = await usuarioService?.listar();
     var emptyList = <Usuario>[];
     emptyList.add(emptyUsuario);
-    return result != null ? result as List<Usuario> : emptyList;
+    return result != null ? result : emptyList;
   }
 
   Future<void> atualizar({ required String id, required Usuario usuario}) async {
@@ -51,12 +53,13 @@ class UsuarioController {
 
   Future<Usuario> pesquisarPorEmail({ required String email }) async {
     final result = await listar();
-    final resultado = result.map((usuario) {
-      if(usuario.email == email) {
-        return usuario;
+    Usuario resultado = Usuario(id: 'id', email:' email', password:' password', name: 'name', enrolmentCode: 123, isMonitor: false, isAdmin: false);
+    for(int i = 0; i < result.length; i++){
+      if(result[i].email == email) {
+        resultado = result[i];
       }
-    });
-    return resultado as Usuario;
+    }
+    return resultado ;
   }
 
   Future<Usuario> pesquisar({required String id}) async {

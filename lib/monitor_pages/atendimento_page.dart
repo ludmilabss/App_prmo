@@ -217,7 +217,7 @@ class _AtendimentoPageState extends State<AtendimentoPage> {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return const TurmasPage();
+              return  TurmasPage(user: widget.monitor,);
             },
           ),
         );

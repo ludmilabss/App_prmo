@@ -1,9 +1,11 @@
+import 'package:app_prmo/domain/usuario.dart';
 import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
 
 
 class MuralPage extends StatefulWidget {
-  const MuralPage({Key? key}) : super(key: key);
+  final Usuario user;
+  const MuralPage({Key? key, required this.user}) : super(key: key);
 
   @override
   State<MuralPage> createState() => _MuralPageState();
@@ -13,7 +15,7 @@ class _MuralPageState extends State<MuralPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const DrawerWidget(),
+      drawer:  DrawerWidget(user: widget.user,),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,

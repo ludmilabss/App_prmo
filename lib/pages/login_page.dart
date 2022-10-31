@@ -2,6 +2,7 @@ import 'package:app_prmo/controllers/usuario_controller.dart';
 import 'package:app_prmo/data/monitor_dao.dart';
 import 'package:app_prmo/domain/usuario.dart';
 import 'package:app_prmo/monitor_pages/home_monitor.dart';
+import 'package:app_prmo/pages/turmas_page.dart';
 import 'package:flutter/material.dart';
 import '/pages/cadastro_page.dart';
 
@@ -202,15 +203,35 @@ class _LoginPageState extends State<LoginPage> {
       Usuario user = await UsuarioController().pesquisarPorEmail(email: userDigitado);
 
       if (result) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return  HomeMonitor(user: user);
-            },
-          ),
-        );
-      } else {
+        if (user.isMonitor) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return HomeMonitor(user: user);
+              },
+            ),
+          );
+        } else if (user.isAdmin) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return HomeMonitor(user: user);
+              },
+            ),
+          );
+        } else if (!user.isAdmin && !user.isMonitor){
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return  TurmasPage(user: user);
+              },
+            ),
+          );
+        }
+      }else {
         const snack = SnackBar(content: Text('Login Incorreto'));
         ScaffoldMessenger.of(context).showSnackBar(snack);
       }

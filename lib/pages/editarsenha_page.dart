@@ -1,8 +1,11 @@
 import 'package:app_prmo/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
 
+import '../domain/usuario.dart';
+
 class EditarSenhaPage extends StatefulWidget {
-  const EditarSenhaPage({Key? key}) : super(key: key);
+  final Usuario user;
+   EditarSenhaPage({Key? key, required this.user}) : super(key: key);
 
   @override
   State<EditarSenhaPage> createState() => _EditarSenhaPageState();
@@ -91,7 +94,7 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
                         onPressed: () {
                           Navigator.pushReplacement(context,
                               MaterialPageRoute(builder: (context) {
-                            return const PerfilPage();
+                            return  PerfilPage(user: widget.user,);
                           }));
                         },
                         child: const Padding(
@@ -118,7 +121,7 @@ class _EditarSenhaPageState extends State<EditarSenhaPage> {
                         onPressed: () {
                           Navigator.pushReplacement(context,
                               MaterialPageRoute(builder: (context) {
-                            return const PerfilPage();
+                            return   PerfilPage(user: widget.user,);
                           }));
                         },
                         child: const Padding(

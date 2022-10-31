@@ -133,7 +133,7 @@ class _DrawerWidget1State extends State<DrawerWidget1> {
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => CalendarioPage()));
+                  builder: (BuildContext context) => CalendarioPage(user: widget.user,)));
             },
           ),
           const Divider(),

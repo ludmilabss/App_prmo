@@ -4,8 +4,11 @@ import 'package:app_prmo/pages/mural_page.dart';
 import 'package:app_prmo/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
 
+import '../domain/usuario.dart';
+
 class DrawerWidget extends StatefulWidget {
-  const DrawerWidget({Key? key}) : super(key: key);
+  final Usuario user;
+  const DrawerWidget({Key? key, required this.user}) : super(key: key);
 
   @override
   State<DrawerWidget> createState() => _DrawerWidgetState();
@@ -18,9 +21,9 @@ class _DrawerWidgetState extends State<DrawerWidget> {
 
       child: ListView(
         children: [
-          const UserAccountsDrawerHeader(
+           UserAccountsDrawerHeader(
             accountName: Text(
-              'Beltrano Ferreira',
+              widget.user.name,
               style: TextStyle(
                 color: Color(0xFFFFFFFF),
                 fontFamily: 'Roboto',
@@ -57,7 +60,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const PerfilPage()));
+                  builder: (BuildContext context) =>  PerfilPage(user: widget.user,)));
             },
           ),
           const Divider(),
@@ -75,7 +78,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             onTap: () {
             Navigator.of(context).pop();
             Navigator.of(context).push(MaterialPageRoute(
-            builder: (BuildContext context) => const MateriasPage()));
+            builder: (BuildContext context) =>  MateriasPage(user: widget.user,)));
             },
           ),
           const Divider(),
@@ -93,7 +96,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const MuralPage()));
+                  builder: (BuildContext context) =>  MuralPage(user: widget.user,)));
             },
           ),
           const Divider(),
@@ -111,7 +114,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) =>  CalendarioPage()));
+                  builder: (BuildContext context) =>  CalendarioPage(user: widget.user,)));
             },
           ),
         ],
