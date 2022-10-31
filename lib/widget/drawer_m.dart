@@ -1,3 +1,4 @@
+import 'package:app_prmo/domain/usuario.dart';
 import 'package:app_prmo/monitor_pages/home_monitor.dart';
 import 'package:app_prmo/monitor_pages/perfil_m.dart';
 import 'package:app_prmo/pages/perfil_page.dart';
@@ -7,7 +8,8 @@ import '../pages/calendario_page.dart';
 
 
 class DrawerWidget1 extends StatefulWidget {
-  const DrawerWidget1({Key? key}) : super(key: key);
+  final Usuario user;
+   DrawerWidget1({Key? key, required this.user}) : super(key: key);
 
   @override
   State<DrawerWidget1> createState() => _DrawerWidget1State();
@@ -20,9 +22,9 @@ class _DrawerWidget1State extends State<DrawerWidget1> {
 
       child: ListView(
         children: [
-          const UserAccountsDrawerHeader(
+           UserAccountsDrawerHeader(
             accountName: Text(
-              'Beltrano Ferreira',
+              widget.user.name,
               style: TextStyle(
                 color: Color(0xFFFFFFFF),
                 fontFamily: 'Roboto',
@@ -77,7 +79,7 @@ class _DrawerWidget1State extends State<DrawerWidget1> {
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const PerfilMonitor()));
+                  builder: (BuildContext context) =>  PerfilMonitor(lista: widget.user,)));
             },
           ),
           const Divider(),
