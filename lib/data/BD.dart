@@ -32,7 +32,7 @@ class BD {
 
   static List<BtnMonitor> btn = [
     BtnMonitor(
-        text: "Perfil", icone: Icons.person, classe: const PerfilMonitor()),
+        text: "Perfil", icone: Icons.person, classe: const PerfilPage()),
     BtnMonitor(
         text: "Calendário",
         icone: Icons.calendar_today_outlined,
@@ -44,7 +44,7 @@ class BD {
     BtnMonitor(
         text: "Atendimento",
         icone: Icons.group,
-        classe: const AtendimentoPage()),
+        classe: const PerfilPage()),
     BtnMonitor(
         text: "Mural", icone: Icons.chat_outlined, classe: const PerfilPage()),
   ];

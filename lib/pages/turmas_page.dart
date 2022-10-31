@@ -1,4 +1,5 @@
 //import 'package:app_prmo/data/turma_dao.dart';
+import 'package:app_prmo/data/turma_dao.dart';
 import 'package:app_prmo/domain/turmas.dart';
 import 'package:app_prmo/widget/Turma.dart';
 import 'package:app_prmo/widget/drawer.dart';
@@ -18,7 +19,7 @@ class _TurmasPageState extends State<TurmasPage> {
     return Padding(
       padding: const EdgeInsets.all(0.0),
       child: FutureBuilder<List<Turmas>>(
-        future: BD.getTurmas(),
+        future: TurmaDao().listarTurmas(),
         builder: (context, snapshot) {
 
           if(snapshot.hasData){

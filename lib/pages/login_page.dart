@@ -1,5 +1,6 @@
 import 'package:app_prmo/controllers/usuario_controller.dart';
 import 'package:app_prmo/data/monitor_dao.dart';
+import 'package:app_prmo/domain/usuario.dart';
 import 'package:app_prmo/monitor_pages/home_monitor.dart';
 import 'package:flutter/material.dart';
 import '/pages/cadastro_page.dart';
@@ -198,13 +199,14 @@ class _LoginPageState extends State<LoginPage> {
       String pswdDigitado = pswdcontroller.text;
       bool result = await UsuarioController()
           .autenticar(email: userDigitado, password: pswdDigitado);
+      Usuario user = await UsuarioController().pesquisarPorEmail(email: userDigitado);
 
       if (result) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: (context) {
-              return const HomeMonitor();
+              return  HomeMonitor(user: user);
             },
           ),
         );

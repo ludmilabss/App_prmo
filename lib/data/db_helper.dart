@@ -6,9 +6,9 @@ class DBHelper {
   initDB() async {
     String databasePath = await getDatabasesPath();
     String path = join(databasePath, "pacote.db");
-    //deleteDatabase(path);
+     // deleteDatabase(path);
     Database database =
-        await openDatabase(path, version: 4, onCreate: onCreate);
+        await openDatabase(path, version: 1, onCreate: onCreate);
 
     return database;
   }

@@ -61,7 +61,7 @@ class _DrawerWidget1State extends State<DrawerWidget1> {
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const HomeMonitor()));
+                  builder: (BuildContext context) =>  HomeMonitor(user: widget.user,)));
             },
           ),
           const Divider(),
@@ -97,7 +97,7 @@ class _DrawerWidget1State extends State<DrawerWidget1> {
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const AtendimentoPage()));
+                  builder: (BuildContext context) =>  AtendimentoPage(monitor: widget.user,)));
             },
           ),
           const Divider(),

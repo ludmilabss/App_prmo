@@ -8,7 +8,6 @@ import '../domain/monitor.dart';
 import '../pages/editarsenha_page.dart';
 import '../widget/appbar_widget.dart';
 import '../widget/drawer_m.dart';
-import 'editarsenha_pageM.dart';
 
 
 
@@ -223,7 +222,7 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
       Navigator.pushReplacement(context,
           MaterialPageRoute(
               builder: (context){
-                return EditarSenhaM(monitor: widget.lista,);
+                return const EditarSenhaPage();
               }
           )
       );

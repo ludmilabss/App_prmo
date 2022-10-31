@@ -1,13 +1,18 @@
+import 'package:app_prmo/domain/atendimento.dart';
 import 'package:app_prmo/monitor_pages/home_monitor.dart';
 import 'package:app_prmo/pages/turmas_page.dart';
+import 'package:app_prmo/widget/drawer.dart';
 import 'package:flutter/material.dart';
-
-import '../widget/appbar_widget.dart';
+import '../data/atendimento_dao.dart';
+import '../data/atendimento_dao.dart';
+import '../domain/monitor.dart';
+import '../domain/usuario.dart';
 import '../widget/drawer_m.dart';
 
 
 class AtendimentoPage extends StatefulWidget {
-  const AtendimentoPage({Key? key}) : super(key: key);
+  final Usuario monitor;
+  const AtendimentoPage({Key? key, required this.monitor}) : super(key: key);
   @override
   State<AtendimentoPage> createState() => _AtendimentoPageState();
 }
@@ -24,8 +29,18 @@ class _AtendimentoPageState extends State<AtendimentoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const DrawerWidget1(),
-      appBar: const AppBarWidget(title: 'ATENDIMENTO'),
+      drawer:  DrawerWidget1(user: widget.monitor,),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: const Text(
+          "ATENDIMENTO",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+          ),
+        ),
+      ),
       body: ListView(
         children: [
           Padding(
@@ -235,24 +250,23 @@ class _AtendimentoPageState extends State<AtendimentoPage> {
   }
 
 
-  void onPressed() {
+  void onPressed() async{
     if (_formKey.currentState!.validate()) {
-      String turmaLogin = "913";
-      String matriculaLogin = "2020304050";
+      String turma = turmaController.text;
+      String data = dataController.text;
+      String nome = nomeController.text;
+      String matricula = matriculaController.text;
+      String atividade = atividadeController.text;
 
-      String as = turmaController.text;
-      String a = matriculaController.text;
+      Atendimento atendimento = Atendimento(turma: turma, data1: data, nome: nome, atividade: atividade, matricula: matricula);
+      await AtendimentoDao().salvarAtendimento(atendimento: atendimento);
 
-      if (turmaLogin == as && matriculaLogin == a) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return const HomeMonitor();
-            },
-          ),
-        );
-      }
+      const snack = SnackBar(content: Text('Atendimento salvo!'));
+      ScaffoldMessenger.of(context).showSnackBar(snack);
+
+    } else {
+      const snack = SnackBar(content: Text('Erro na validação'));
+      ScaffoldMessenger.of(context).showSnackBar(snack);
     }
   }
 }
