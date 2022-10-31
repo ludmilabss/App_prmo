@@ -161,9 +161,12 @@ class _CadastroPageState extends State<CadastroPage> {
           enrolmentCode: typedMatricula,
           isMonitor: false,
           isAdmin: false);
-
-      await UsuarioController().criar(usuario: usuario);
-      await UsuarioController().pesquisar(id: usuario.id);
+      try {
+        await UsuarioController().criar(usuario: usuario);
+      } catch (e) {
+        var snack = SnackBar(content: Text('Cadastro incompleto: ${e}'));
+        ScaffoldMessenger.of(context).showSnackBar(snack);
+      }
       Navigator.push(
         context,
         MaterialPageRoute(
