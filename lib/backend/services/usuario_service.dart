@@ -1,7 +1,6 @@
-import 'package:app_prmo/domain/usuario.dart';
+import 'package:app_prmo/backend/domain/usuario.dart';
 
 import '../data/interfaces/interface_usuario_repository.dart';
-import '../domain/usuario.dart';
 
 class UsuarioService {
   IUsuarioRepository usuarioRepository;

@@ -1,4 +1,4 @@
-import 'package:app_prmo/domain/usuario.dart';
+import 'package:app_prmo/backend/domain/usuario.dart';
 
 abstract class IUsuarioRepository {
   Future<bool> autenticar({required String email, required String password});

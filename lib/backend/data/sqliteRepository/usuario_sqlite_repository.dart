@@ -1,8 +1,7 @@
-import 'package:app_prmo/data/db_helper.dart';
-import 'package:app_prmo/domain/usuario.dart';
+import 'package:app_prmo/backend/data/db_helper.dart';
+import 'package:app_prmo/backend/data/interfaces/interface_usuario_repository.dart';
+import 'package:app_prmo/backend/domain/usuario.dart';
 import 'package:sqflite/sqflite.dart';
-
-import '../interfaces/interface_usuario_repository.dart';
 
 class UsuarioSQLiteRepository implements IUsuarioRepository {
   @override

@@ -1,4 +1,4 @@
-import 'package:app_prmo/domain/turmas.dart';
+import 'package:app_prmo/backend/domain/turmas.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/materias_page.dart';

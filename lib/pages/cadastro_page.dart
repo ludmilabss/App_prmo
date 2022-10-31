@@ -1,5 +1,5 @@
-import 'package:app_prmo/controllers/usuario_controller.dart';
-import 'package:app_prmo/domain/usuario.dart';
+import 'package:app_prmo/backend/controllers/usuario_controller.dart';
+import 'package:app_prmo/backend/domain/usuario.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'login_page.dart';

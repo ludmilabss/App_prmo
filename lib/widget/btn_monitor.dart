@@ -1,5 +1,5 @@
+import 'package:app_prmo/backend/domain/btn_monitor.dart';
 import 'package:flutter/material.dart';
-import '../domain/btn_monitor.dart';
 
 class BtnMonitorHome extends StatefulWidget {
   final BtnMonitor btn;
