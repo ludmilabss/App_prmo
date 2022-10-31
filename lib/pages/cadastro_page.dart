@@ -142,34 +142,17 @@ class _CadastroPageState extends State<CadastroPage> {
             : null,
       ),
       obscureText: _showPassword == false && obscureField ? true : false,
-
-      /*child: Padding(
-        padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 2.0),
-        child: TextFormField(
-          decoration: InputDecoration(
-            border: InputBorder.none,
-            labelText: s,
-          ),
-          obscureText: obs,
-        ),
-      ),
-      */
     );
   }
 
   Future<void> onPressedBtn() async {
     if (_formkey.currentState!.validate()) {
-      print('CHEGOU AQUI');
       String typedEmail = emailController.text;
-      print('typedEmail: ${typedEmail} ');
       String typedPassword = passwordController.text;
-      print('typedPassword: ${typedPassword} ');
       String typedName = nameController.text;
-      print("typedName: ${typedName} ");
       final typedMatricula = matriculaController.text != ''
           ? int.parse(matriculaController.text)
           : 0;
-      print('typedMatricula: ${typedMatricula}');
       Usuario usuario = Usuario(
           id: typedMatricula.toString(),
           email: typedEmail,
@@ -179,18 +162,8 @@ class _CadastroPageState extends State<CadastroPage> {
           isMonitor: false,
           isAdmin: false);
 
-      /*Usuario usuario = Usuario(
-          id: '1231234567',
-          email: 'iemei',
-          password: '12345678',
-          name: 'lukas',
-          enrolmentCode: 1231234567,
-          isMonitor: false,
-          isAdmin: false);
-        */
       await UsuarioController().criar(usuario: usuario);
       await UsuarioController().pesquisar(id: usuario.id);
-      //if (result) {
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -203,10 +176,5 @@ class _CadastroPageState extends State<CadastroPage> {
       const snack = SnackBar(content: Text('Cadastro incompleto'));
       ScaffoldMessenger.of(context).showSnackBar(snack);
     }
-    //  }
-    /*
-    if(_formkey.currentState!.validate()) {
-
-    }*/
   }
 }
