@@ -21,7 +21,13 @@ class _AppBarWidgetState extends State<AppBarWidget> {
     return AppBar(
       iconTheme: const IconThemeData(color: Colors.black),
       actions: [
-        IconButton(onPressed: () => SharedPrefs().logout(),
+        IconButton(onPressed: ()
+    {
+      SharedPrefs().logout();
+         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+           return const LoginPage();
+         }));
+    } ,
           icon: const Icon(Icons.exit_to_app),),
       ],
 
