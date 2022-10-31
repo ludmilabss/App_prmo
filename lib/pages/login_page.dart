@@ -195,8 +195,15 @@ class _LoginPageState extends State<LoginPage> {
     if (_formKey.currentState!.validate()) {
       String userDigitado = usercontroller.text;
       String pswdDigitado = pswdcontroller.text;
-      bool result = await UsuarioController()
-          .autenticar(email: userDigitado, password: pswdDigitado);
+      bool result = false;
+
+      try {
+        result = await UsuarioController()
+            .autenticar(email: userDigitado, password: pswdDigitado);
+      } catch (e) {
+        var snack = SnackBar(content: Text('Login Incorreto: ${(e)}'));
+        ScaffoldMessenger.of(context).showSnackBar(snack);
+      }
 
       if (result) {
         Navigator.pushReplacement(
