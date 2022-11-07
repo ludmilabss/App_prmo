@@ -2,11 +2,21 @@ import 'package:app_prmo/domain/btn_monitor.dart';
 import 'package:app_prmo/monitor_pages/atendimento_page.dart';
 import 'package:app_prmo/monitor_pages/perfil_m.dart';
 import 'package:app_prmo/pages/calendario_page.dart';
+import 'package:app_prmo/pages/mural_page.dart';
 import 'package:app_prmo/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
 import '../domain/turmas.dart';
+import '../domain/usuario.dart';
 
 class BD {
+  
+  Usuario getUser({required Usuario user}){
+    return user;
+  }
+  
+
+
+
   static List<Turmas> turma = [
     Turmas(nome: "Turma 911", turno: "Matutino", curso: "Informática - "),
     Turmas(nome: "Turma 912", turno: "Matutino", curso: "Informática - "),
@@ -30,26 +40,28 @@ class BD {
         nome: "Turma 424", turno: "Vespertino", curso: "Eletroeletrônica - "),
   ];
 
-  static List<BtnMonitor> btn = [
-    BtnMonitor(
-        text: "Perfil", icone: Icons.person, classe: const PerfilPage()),
-    BtnMonitor(
-        text: "Calendário",
-        icone: Icons.calendar_today_outlined,
-        classe: CalendarioPage()),
-    BtnMonitor(
-        text: "Frequência",
-        icone: Icons.assignment_outlined,
-        classe: const PerfilPage()),
-    BtnMonitor(
-        text: "Atendimento",
-        icone: Icons.group,
-        classe: const PerfilPage()),
-    BtnMonitor(
-        text: "Mural", icone: Icons.chat_outlined, classe: const PerfilPage()),
-  ];
 
-  static Future<List<BtnMonitor>> getBtn() async {
+  static Future<List<BtnMonitor>> getBtn({required Usuario usuario}) async {
+     List<BtnMonitor> btn = [
+      BtnMonitor(
+          text: "Perfil",
+          icone: Icons.person,
+          classe:  PerfilMonitor(lista: usuario,)),
+      BtnMonitor(
+          text: "Calendário",
+          icone: Icons.calendar_today_outlined,
+          classe: CalendarioPage(user: usuario,)),
+      BtnMonitor(
+          text: "Frequência",
+          icone: Icons.assignment_outlined,
+          classe:  PerfilPage(user: usuario,)),
+      BtnMonitor(
+          text: "Atendimento",
+          icone: Icons.group,
+          classe:  AtendimentoPage(monitor: usuario)),
+      BtnMonitor(
+          text: "Mural", icone: Icons.chat_outlined, classe:  MuralPage(user: usuario)),
+    ];
     await Future.delayed(const Duration(seconds: 3));
     return btn;
   }

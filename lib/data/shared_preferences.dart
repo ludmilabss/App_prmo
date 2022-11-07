@@ -20,6 +20,7 @@ class SharedPrefs{
 
   //método que irá ser executado no futuro quando a verificação do estar logado ou não for feita
   Future<bool> getMonitor() async{
+
     SharedPreferences sharedP = await getInstance();
     bool? isLog = sharedP.getBool('MONITOR');
 

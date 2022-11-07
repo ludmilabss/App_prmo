@@ -27,7 +27,7 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
   TextEditingController emailcontroller = TextEditingController();
   TextEditingController matriculacontroller = TextEditingController();
   late String email = widget.lista.email;
-  late int matriculanum = widget.lista.enrolmentCode;
+  late String matriculanum = widget.lista.enrolmentCode;
   late Color color = Colors.black12;
   String btn = "Editar Perfil";
   bool button = true;
@@ -182,7 +182,7 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
         _matricula = !_matricula;
         _emailinput = !_emailinput;
         email = emailcontroller.text;
-        matriculanum = int.parse( matriculacontroller.text);
+        matriculanum = matriculacontroller.text;
         button = !button;
         if (button == false){
           btn = "Salvar";
@@ -193,15 +193,12 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
         }
       });
     } else {
-      var userEncontrado = await UsuarioController().pesquisarPorEmail(email: email);
-      userEncontrado.email = email;
-      userEncontrado.enrolmentCode = matriculanum;
-      await UsuarioController().atualizar(usuario: userEncontrado, id: userEncontrado.id);
+
       setState(() {
         _matricula = !_matricula;
         _emailinput = !_emailinput;
         email = emailcontroller.text;
-        matriculanum = int.parse(matriculacontroller.text) ;
+        matriculanum = matriculacontroller.text;
         button = !button;
         if (button == false){
           btn = "Salvar";
@@ -210,7 +207,12 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
           btn = "Editar Perfil";
           color = Colors.black12;
         }
+
       });
+      var userEncontrado = await UsuarioController().pesquisarPorEmail(email: widget.lista.email);
+      userEncontrado.email = email;
+      userEncontrado.enrolmentCode = matriculanum;
+      await UsuarioController().atualizar(usuario: userEncontrado, id: widget.lista.id);
       var snack = SnackBar(content: const Text('Alteração Concluída!'),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),);
       ScaffoldMessenger.of(context).showSnackBar(snack);

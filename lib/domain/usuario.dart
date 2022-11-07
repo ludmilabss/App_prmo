@@ -6,7 +6,7 @@ class Usuario {
   late String email;
   late String password;
   late String name;
-  late int enrolmentCode;
+  late String enrolmentCode;
   late bool isMonitor;
   late bool isAdmin;
 
@@ -15,7 +15,7 @@ class Usuario {
       required String email,
       required String password,
       required String name,
-      required int enrolmentCode,
+      required String enrolmentCode,
       required bool isMonitor,
       required bool isAdmin}) {
     this.id = enrolmentCode.toString();
@@ -32,7 +32,11 @@ class Usuario {
     email = json['email'];
     password = json['password'];
     name = json['name'];
-    enrolmentCode = int.parse(json['enrolmentCode']);
+    enrolmentCode = json['enrolmentCode'];
+
+    //isMonitor = json['isMonitor'] == 1;
+
+
     if (json['isMonitor'] == 1) {
       isMonitor = true;
     } else {

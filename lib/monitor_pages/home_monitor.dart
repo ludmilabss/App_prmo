@@ -20,7 +20,7 @@ class _HomeMonitorState extends State<HomeMonitor> {
     return  Padding(
       padding: const EdgeInsets.all(0.0),
       child: FutureBuilder<List<BtnMonitor>>(
-        future: BD.getBtn(),
+        future: BD.getBtn(usuario: widget.user),
           builder: (context, snapshot){
           if(snapshot.hasData){
             List<BtnMonitor> lista = snapshot.data ?? [];

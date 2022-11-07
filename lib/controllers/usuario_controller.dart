@@ -14,7 +14,7 @@ class UsuarioController {
   Usuario emptyUsuario = Usuario(
       id: '',
       email: '',
-      enrolmentCode: 0,
+      enrolmentCode: '0',
       isAdmin: false,
       isMonitor: false,
       name: '',
@@ -53,7 +53,7 @@ class UsuarioController {
 
   Future<Usuario> pesquisarPorEmail({ required String email }) async {
     final result = await listar();
-    Usuario resultado = Usuario(id: 'id', email:' email', password:' password', name: 'name', enrolmentCode: 123, isMonitor: false, isAdmin: false);
+    Usuario resultado = Usuario(id: 'id', email:' email', password:' password', name: 'name', enrolmentCode: "123", isMonitor: false, isAdmin: false);
     for(int i = 0; i < result.length; i++){
       if(result[i].email == email) {
         resultado = result[i];

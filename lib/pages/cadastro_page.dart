@@ -167,7 +167,7 @@ class _CadastroPageState extends State<CadastroPage> {
       String typedName = nameController.text;
       print("typedName: ${typedName} ");
       final typedMatricula = matriculaController.text != ''
-          ? int.parse(matriculaController.text)
+          ? matriculaController.text
           : 0;
       print('typedMatricula: ${typedMatricula}');
       Usuario usuario = Usuario(
@@ -175,7 +175,7 @@ class _CadastroPageState extends State<CadastroPage> {
           email: typedEmail,
           password: typedPassword,
           name: typedName,
-          enrolmentCode: typedMatricula,
+          enrolmentCode: matriculaController.text,
           isMonitor: false,
           isAdmin: false);
 
@@ -189,7 +189,6 @@ class _CadastroPageState extends State<CadastroPage> {
           isAdmin: false);
         */
       await UsuarioController().criar(usuario: usuario);
-      await UsuarioController().pesquisar(id: usuario.id);
       //if (result) {
       Navigator.push(
         context,

@@ -221,7 +221,7 @@ class _LoginPageState extends State<LoginPage> {
               },
             ),
           );
-        } else if (!user.isAdmin && !user.isMonitor){
+        } else{
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
