@@ -54,7 +54,7 @@ class BD {
       BtnMonitor(
           text: "Frequência",
           icone: Icons.assignment_outlined,
-          classe:  PerfilPage(user: usuario,)),
+          classe:  PerfilMonitor(lista: usuario,)),
       BtnMonitor(
           text: "Atendimento",
           icone: Icons.group,

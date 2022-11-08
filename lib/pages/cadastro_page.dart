@@ -190,7 +190,7 @@ class _CadastroPageState extends State<CadastroPage> {
         */
       await UsuarioController().criar(usuario: usuario);
       //if (result) {
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) {
