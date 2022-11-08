@@ -6,14 +6,14 @@ import '../interfaces/interface_usuario_repository.dart';
 
 class UsuarioSQLiteRepository implements IUsuarioRepository {
   @override
+
   Future<void> atualizar(
       {required Usuario updatedUsuario, required String id}) async {
     try {
       DBHelper dbHelper = DBHelper();
       Database db = await dbHelper.initDB();
 
-      String sql =
-          'UPDATE usuarios SET name = ?, email = ?, enrolmentCode = ?, password = ? WHERE id = ?;';
+      String sql = 'UPDATE usuarios SET name = ?, email = ?, enrolmentCode = ?, password = ? WHERE id = ?;';
 
       await db.rawUpdate(sql, [
         updatedUsuario.name,

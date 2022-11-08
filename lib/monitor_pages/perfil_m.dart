@@ -37,23 +37,21 @@ class _PerfilMonitorState extends State<PerfilMonitor> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-    drawer:  DrawerWidget1(user: widget.lista),
-    appBar: const AppBarWidget(title: 'PERFIL'),
-
-    body: Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: ListView(
-    children: [
-    const SizedBox(height: 20),
-
-    //COLUMN PRA FAZER A FOTO DE PERFIL E O NOME
-    Column(
+      drawer:  DrawerWidget1(user: widget.lista),
+      appBar: const AppBarWidget(title: 'PERFIL'),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView(
+          children: [
+            const SizedBox(height: 20),
+            //COLUMN PRA FAZER A FOTO DE PERFIL E O NOME
+        Column(
     //mainAxisAlignment:  MainAxisAlignment.center,
-    children: [
-    Stack(
-    children: [
-    Container(
-    decoration: BoxDecoration(
+          children: [
+        Stack(
+          children: [
+            Container(
+          decoration: BoxDecoration(
     color: const Color(0xFFD9D9D9),
     borderRadius: BorderRadius.circular(101)),
     child: const Padding(
