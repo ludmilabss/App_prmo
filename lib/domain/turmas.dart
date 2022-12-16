@@ -10,7 +10,7 @@ class Turmas{
   });
 
   Turmas.fromJson(Map<String, dynamic> json) {
-    nome = json['nome'];
+    nome = json['name'];
     turno = json['turno'];
     curso = json['curso'];
   }
