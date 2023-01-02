@@ -29,19 +29,24 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
   flutter_localizations:
     sdk: flutter
+
   intl: ^0.17.0
   sqflite:
   path:
   shared_preferences:
+  http:
+  google_maps_flutter:
+  geocoding:
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-  table_calendar: ^2.0.1
-  email_validator: ^2.1.17
+  cupertino_icons:
+  table_calendar:
+  email_validator:
 
 dev_dependencies:
   flutter_test:
