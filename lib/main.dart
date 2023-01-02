@@ -10,6 +10,6 @@ import 'pages/login_page.dart';
 void main() {
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: TurmasPage(),
+    home: HomeMonitor(),
   ));
 }

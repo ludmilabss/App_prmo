@@ -4,6 +4,7 @@ import 'package:app_prmo/pages/materias_page.dart';
 import 'package:app_prmo/pages/mural_page.dart';
 import 'package:app_prmo/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 
 class DrawerWidget extends StatefulWidget {
@@ -131,7 +132,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => FindUsPage()));
+                  builder: (BuildContext context) => const FindUsPage(latLng: LatLng(-9.745243, -36.631392)))
+              );
             },
           ),
         ],

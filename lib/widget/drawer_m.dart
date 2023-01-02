@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../monitor_pages/atendimento_page.dart';
 import '../pages/calendario_page.dart';
 import '../pages/findus_page.dart';
-
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class DrawerWidget1 extends StatefulWidget {
   const DrawerWidget1({Key? key}) : super(key: key);
@@ -168,7 +168,8 @@ class _DrawerWidget1State extends State<DrawerWidget1> {
             onTap: () {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) =>  const FindUsPage()));
+                  builder: (BuildContext context) =>   const FindUsPage(latLng: LatLng(-9.745243, -36.631392)))
+              );
             },
           ),
         ],
