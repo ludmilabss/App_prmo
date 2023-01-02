@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:app_prmo/data/sqliteRepository/usuario_express_api.dart';
 import 'package:app_prmo/data/sqliteRepository/usuario_sqlite_repository.dart';
 import 'package:app_prmo/services/usuario_service.dart';
 
@@ -8,7 +9,7 @@ import '../domain/usuario.dart';
 import '../services/usuario_service.dart';
 
 class UsuarioController {
-  UsuarioSQLiteRepository? usuarioRepository;
+  UsuarioExpressAPI? usuarioRepository;
   UsuarioService? usuarioService;
 
   Usuario emptyUsuario = Usuario(
@@ -21,7 +22,7 @@ class UsuarioController {
       password: '');
 
   UsuarioController() {
-    usuarioRepository = UsuarioSQLiteRepository();
+    usuarioRepository = UsuarioExpressAPI();
     usuarioService = UsuarioService(usuarioRepository!);
   }
 
@@ -51,20 +52,14 @@ class UsuarioController {
     usuarioService?.atualizar(id: id, usuario: usuario);
   }
 
-  Future<Usuario> pesquisarPorEmail({ required String email }) async {
-    final result = await listar();
-    Usuario resultado = Usuario(id: 'id', email:' email', password:' password', name: 'name', enrolmentCode: "123", isMonitor: false, isAdmin: false);
-    for(int i = 0; i < result.length; i++){
-      if(result[i].email == email) {
-        resultado = result[i];
-      }
-    }
-    return resultado ;
-  }
 
   Future<Usuario> pesquisar({required String id}) async {
     final result = await usuarioService?.pesquisar(id: id);
+    return result ?? emptyUsuario;
+  }
 
+  Future<Usuario> pesquisarPorEmail({required String email}) async {
+    final result = await usuarioService?.pesquisarPorEmail(email: email);
     return result ?? emptyUsuario;
   }
 }

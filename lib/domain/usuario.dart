@@ -33,10 +33,6 @@ class Usuario {
     password = json['password'];
     name = json['name'];
     enrolmentCode = json['enrolmentCode'];
-
-    //isMonitor = json['isMonitor'] == 1;
-
-
     if (json['isMonitor'] == 1) {
       isMonitor = true;
     } else {
@@ -56,16 +52,9 @@ class Usuario {
     data['password'] = password;
     data['name'] = name;
     data['enrolmentCode'] = enrolmentCode;
-    if (isMonitor) {
-      data['isMonitor'] = '1';
-    } else {
-      data['isMonitor'] = '0';
-    }
-    if (isAdmin) {
-      data['isAdmin'] = '1';
-    } else {
-      data['isAdmin'] = '0';
-    }
+    data['isMonitor'] = isMonitor ? '1' : '0';
+    data['isAdmin'] = isAdmin ? '1' : '0';
+
     return data;
   }
 }

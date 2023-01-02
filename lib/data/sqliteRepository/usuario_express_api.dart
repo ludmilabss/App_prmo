@@ -7,9 +7,9 @@ import 'package:sqflite/sqflite.dart';
 import '../interfaces/interface_usuario_repository.dart';
 import 'package:http/http.dart' as http;
 
-class UsuarioSQLiteRepository implements IUsuarioRepository {
+class UsuarioExpressAPI implements IUsuarioRepository {
 
-  final baseUrl = "10.0.2.2";
+  final baseUrl = "10.0.2.2:8080";
 
   @override
   Future<void> atualizar(
@@ -23,20 +23,24 @@ class UsuarioSQLiteRepository implements IUsuarioRepository {
   }
 
   @override
-  Future<bool> autenticar(
-      {required String email, required String password}) async {
+
+  Future<bool> autenticar({required String email, required String password}) async {
     try {
-      DBHelper dbHelper = DBHelper();
-      Database db = await dbHelper.initDB();
+      final url = Uri.http(baseUrl, "users/auth");
+      var response = await http.post(url, body: {"email": email, "password": password});
 
-      String sql = 'SELECT * FROM usuarios WHERE email = ? AND password = ?;';
-      final result = await db.rawQuery(sql, [email, password]);
+      if(response.body == '{"result":false}'){
+        return true;
+      } else{
+        return false;
+      }
 
-      return result.isNotEmpty;
-    } catch (error) {
-      throw Exception(error);
-    }
+
+        } catch (error) {
+          throw Exception(error);
+        }
   }
+
 
   @override
   Future<void> criar({required Usuario usuario}) async {
@@ -96,5 +100,11 @@ class UsuarioSQLiteRepository implements IUsuarioRepository {
     } catch (error) {
       throw Exception(error);
     }
+  }
+
+  @override
+  Future<Usuario> pesquisarPorEmail({required String email}) {
+    // TODO: implement pesquisarPorEmail
+    throw UnimplementedError();
   }
 }

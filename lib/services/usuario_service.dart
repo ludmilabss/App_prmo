@@ -35,4 +35,9 @@ class UsuarioService {
     final result = await usuarioRepository.pesquisar(id: id);
     return result;
   }
+
+  Future<Usuario> pesquisarPorEmail({required String email}) async {
+    final result = await usuarioRepository.pesquisarPorEmail(email: email);
+    return result;
+  }
 }

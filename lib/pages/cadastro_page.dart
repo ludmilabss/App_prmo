@@ -159,35 +159,21 @@ class _CadastroPageState extends State<CadastroPage> {
 
   Future<void> onPressedBtn() async {
     if (_formkey.currentState!.validate()) {
-      print('CHEGOU AQUI');
       String typedEmail = emailController.text;
-      print('typedEmail: ${typedEmail} ');
       String typedPassword = passwordController.text;
-      print('typedPassword: ${typedPassword} ');
       String typedName = nameController.text;
-      print("typedName: ${typedName} ");
       final typedMatricula = matriculaController.text != ''
           ? matriculaController.text
           : 0;
-      print('typedMatricula: ${typedMatricula}');
       Usuario usuario = Usuario(
           id: typedMatricula.toString(),
           email: typedEmail,
           password: typedPassword,
           name: typedName,
           enrolmentCode: matriculaController.text,
-          isMonitor: false,
-          isAdmin: false);
+          isMonitor: true,
+          isAdmin: true);
 
-      /*Usuario usuario = Usuario(
-          id: '1231234567',
-          email: 'iemei',
-          password: '12345678',
-          name: 'lukas',
-          enrolmentCode: 1231234567,
-          isMonitor: false,
-          isAdmin: false);
-        */
       await UsuarioController().criar(usuario: usuario);
       //if (result) {
       Navigator.pushReplacement(
@@ -202,10 +188,5 @@ class _CadastroPageState extends State<CadastroPage> {
       const snack = SnackBar(content: Text('Cadastro incompleto'));
       ScaffoldMessenger.of(context).showSnackBar(snack);
     }
-    //  }
-    /*
-    if(_formkey.currentState!.validate()) {
-
-    }*/
   }
 }

@@ -200,8 +200,12 @@ class _LoginPageState extends State<LoginPage> {
       String pswdDigitado = pswdcontroller.text;
       bool result = await UsuarioController()
           .autenticar(email: userDigitado, password: pswdDigitado);
+      print(result);
       Usuario user = await UsuarioController().pesquisarPorEmail(email: userDigitado);
-
+      print(user.isMonitor);
+      print(user.isAdmin);
+      print(user.name);
+      print(user.id);
       if (result) {
         if (user.isMonitor) {
           Navigator.pushReplacement(

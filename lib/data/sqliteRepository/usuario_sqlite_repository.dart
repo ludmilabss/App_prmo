@@ -107,4 +107,10 @@ class UsuarioSQLiteRepository implements IUsuarioRepository {
       throw Exception(error);
     }
   }
+
+  @override
+  Future<Usuario> pesquisarPorEmail({required String email}) {
+    // TODO: implement pesquisarPorEmail
+    throw UnimplementedError();
+  }
 }
