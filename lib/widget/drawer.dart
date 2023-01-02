@@ -1,8 +1,10 @@
 import 'package:app_prmo/pages/calendario_page.dart';
+import 'package:app_prmo/pages/findus_page.dart';
 import 'package:app_prmo/pages/materias_page.dart';
 import 'package:app_prmo/pages/mural_page.dart';
 import 'package:app_prmo/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
+
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({Key? key}) : super(key: key);
@@ -112,6 +114,24 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               Navigator.of(context).pop();
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) =>  CalendarioPage()));
+            },
+          ),
+          const Divider(),
+          ListTile(
+            title: const Text(
+              "Encontre-nos",
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: 'Roboto',
+                fontSize: 16,
+                fontWeight: FontWeight.normal,
+              ),
+            ),
+            trailing: const Icon(Icons.location_on),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => FindUsPage()));
             },
           ),
         ],
