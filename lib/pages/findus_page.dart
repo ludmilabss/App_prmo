@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import '../widget/drawer.dart';
 
 class FindUsPage extends StatefulWidget {
-  final LatLng latLng;
-  const FindUsPage({Key? key, required this.latLng}) : super(key: key);
+
+  const FindUsPage({Key? key}) : super(key: key);
 
   @override
   State<FindUsPage> createState() => FindUsPageState();
@@ -16,8 +16,8 @@ class FindUsPageState extends State<FindUsPage> {
   final Completer<GoogleMapController> _controller =
   Completer<GoogleMapController>();
 
-  late final CameraPosition _initialPosition = CameraPosition(
-    target: widget.latLng,
+  late final CameraPosition _initialPosition = const CameraPosition(
+    target: LatLng(-9.745243, -36.631392),
       zoom: 18,
   );
 
