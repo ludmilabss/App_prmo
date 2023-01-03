@@ -1,14 +1,10 @@
 import 'dart:async';
-import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import '../widget/drawer.dart';
 
 class FindUsPage extends StatefulWidget {
   final LatLng latLng;
-
   const FindUsPage({Key? key, required this.latLng}) : super(key: key);
 
   @override
@@ -16,6 +12,7 @@ class FindUsPage extends StatefulWidget {
 }
 
 class FindUsPageState extends State<FindUsPage> {
+  // na linha abaixo estamos inicializando nosso controller para google maps.
   final Completer<GoogleMapController> _controller =
   Completer<GoogleMapController>();
 
@@ -24,12 +21,7 @@ class FindUsPageState extends State<FindUsPage> {
       zoom: 18,
   );
 
-  static const CameraPosition _finalPosition = CameraPosition(
-      bearing: 192.8334901395799,
-      target: LatLng(-9.745243, -36.631392),
-      tilt: 59.440717697143555,
-      zoom: 19.151926040649414);
-
+  // na linha abaixo estamos especificando a posição da nossa câmera
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,6 +37,8 @@ class FindUsPageState extends State<FindUsPage> {
           ),
         ),
       ),
+
+      //A visualização do mapa pode ser controlada com o GoogleMapController que é passado para o GoogleMapretorno de chamada do onMapCreated
       body: GoogleMap(
         mapType: MapType.normal,
         initialCameraPosition: _initialPosition,
@@ -53,10 +47,5 @@ class FindUsPageState extends State<FindUsPage> {
         },
       ),
     );
-  }
-
-  Future<void> _goToTheLake() async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(_finalPosition));
   }
 }
